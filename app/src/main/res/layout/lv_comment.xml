@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5e937a7a"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:text="닉네임"
+                android:textColor="#000000"
+                android:id="@+id/lc_txtId"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/lc_imgIcon"
+                android:layout_marginLeft="5dp" />
+
+            <!--
+            <Button
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/lc_btnModify"
+                android:background="@android:drawable/ic_menu_edit"
+                android:layout_toStartOf="@+id/lc_btnDelete" />
+                -->
+
+            <Button
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/lc_btnDelete"
+                android:background="@android:drawable/ic_menu_delete"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/lc_txtDate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:text="등록시간"
+                android:textColor="#705d5d"
+                android:id="@+id/lc_txtDate"
+                android:layout_alignParentEnd="true" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/lc_imgIcon" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="댓글내용"
+            android:textColor="#000000"
+            android:id="@+id/lc_txtComment"
+            android:layout_marginTop="5dp" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.25"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:src="@drawable/title"/>
+
+    <View
+        android:layout_height="5px"
+        android:background="#393939"
+        android:layout_width="fill_parent"/>
+
+    <View
+        android:layout_height="3px"
+        android:layout_marginTop="3dp"
+        android:background="#393939"
+        android:layout_width="fill_parent"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/fb_imgQnA"
+        android:layout_weight="0.38"
+        android:background="@drawable/sample_qna" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/fb_imgTip"
+        android:layout_weight="0.38"
+        android:background="@drawable/sample_tip" />
+</LinearLayout>

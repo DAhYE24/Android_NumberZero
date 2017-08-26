@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_sample"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffffff"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:padding="5dp">
+
+            <View
+                android:layout_height="5px"
+                android:background="#393939"
+                android:layout_width="fill_parent"/>
+
+            <View
+                android:layout_height="3px"
+                android:layout_marginTop="3dp"
+                android:background="#393939"
+                android:layout_width="fill_parent"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="추천수"
+                    android:id="@+id/apd_txtLike"
+                    android:layout_gravity="right"
+                    android:paddingTop="10dp"
+                    android:paddingRight="20dp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/apd_imgPerf"
+                    android:layout_marginTop="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17dp"
+                    android:text="향수명"
+                    android:textColor="#000000"
+                    android:id="@+id/apd_txtName"
+                    android:layout_marginTop="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="향수 영문명"
+                    android:textColor="#605656"
+                    android:id="@+id/apd_txtEng" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="향수 브랜드"
+                    android:textColor="#000000"
+                    android:id="@+id/apd_txtBrand"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="용량 / 가격"
+                    android:textColor="#000000"
+                    android:id="@+id/apd_txtCnP"
+                    android:layout_marginTop="5dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_height="3px"
+                android:background="#393939"
+                android:layout_width="fill_parent"/>
+
+            <View
+                android:layout_height="5px"
+                android:background="#393939"
+                android:layout_marginTop="3dp"
+                android:layout_width="fill_parent"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:text="가격비교"
+                    android:id="@+id/apd_btnPrice"
+                    android:layout_weight="0.33"
+                    android:background="@drawable/sbtn_sample"
+                    android:layout_margin="5dp" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:text="보관하기"
+                    android:id="@+id/apd_btnBox"
+                    android:layout_weight="0.33"
+                    android:background="@drawable/sbtn_sample"
+                    android:layout_margin="5dp" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:text="추천하기"
+                    android:id="@+id/apd_btnLike"
+                    android:layout_weight="0.33"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/sbtn_sample" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#948c8c8c"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#000000"
+                        android:text="*종류"
+                        android:layout_weight="0.15"
+                        android:layout_marginRight="5dp" />
+
+                    <View
+                        android:layout_height="fill_parent"
+                        android:background="#858484"
+                        android:layout_width="3px"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="향수 종류"
+                        android:textColor="#6a6767"
+                        android:id="@+id/apd_txtType"
+                        android:layout_weight="0.85"
+                        android:paddingLeft="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#000000"
+                        android:text="*국가"
+                        android:layout_weight="0.15"
+                        android:layout_marginRight="5dp" />
+
+                    <View
+                        android:layout_height="fill_parent"
+                        android:background="#858484"
+                        android:layout_width="3px"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="향수 국가"
+                        android:textColor="#6a6767"
+                        android:id="@+id/apd_txtCountry"
+                        android:layout_weight="0.85"
+                        android:paddingLeft="10dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c6c6c6"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="*향료 정보"
+                    android:textColor="#000000" />
+
+                <View
+                    android:layout_height="3px"
+                    android:background="#858484"
+                    android:layout_width="fill_parent"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="향수 향료 정보"
+                    android:id="@+id/apd_txtFla"
+                    android:textColor="#6a6767"
+                    android:layout_marginTop="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c6c6c6"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="*향수 소개"
+                    android:textColor="#000000" />
+
+                <View
+                    android:layout_height="3px"
+                    android:background="#858484"
+                    android:layout_width="fill_parent"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="향수 소개 정보"
+                    android:id="@+id/apd_txtIntro"
+                    android:textColor="#6a6767"
+                    android:layout_marginTop="5dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="270dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_style">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="오류신고 및 문의"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000"
+        android:layout_marginBottom="15dp" />
+
+    <View
+        android:layout_height="5px"
+        android:background="#393939"
+        android:layout_width="fill_parent"/>
+
+    <View
+        android:layout_height="3px"
+        android:layout_marginTop="3dp"
+        android:background="#393939"
+        android:layout_width="fill_parent"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000"
+            android:lineSpacingExtra="5dip"
+            android:text="오류 신고 및 궁금한 부분이 있다면\ndarnas1206@gmail.com으로 메일\n보내주시면 감사하겠습니다.\n더 발전하는 넘버제로가 되겠습니다."
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right"
+        android:layout_marginTop="5dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#ffffff"
+            android:text="확인"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/dc_btnOk"
+            android:background="@drawable/btn_sample"
+            android:layout_margin="5dp" />
+    </RelativeLayout>
+
+</LinearLayout>

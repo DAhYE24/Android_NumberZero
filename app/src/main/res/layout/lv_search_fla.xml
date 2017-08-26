@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <CheckBox
+            android:id="@+id/lsf_chkOne"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textColor="#443636"
+            android:focusable="false"
+            android:buttonTint="#54493f"
+            android:focusableInTouchMode="false"
+            android:layout_weight="1"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp" />
+
+        <View
+            android:layout_width="3px"
+            android:background="#c8bebaba"
+            android:layout_height="match_parent"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp" />
+
+        <CheckBox
+            android:id="@+id/lsf_chkTwo"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#443636"
+            android:focusable="false"
+            android:buttonTint="#54493f"
+            android:focusableInTouchMode="false"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/chBox"
+            android:layout_weight="1"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp" />
+
+        <View
+            android:layout_width="3px"
+            android:background="#c8bebaba"
+            android:layout_height="match_parent"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp" />
+
+        <CheckBox
+            android:id="@+id/lsf_chkThree"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#443636"
+            android:focusable="false"
+            android:buttonTint="#54493f"
+            android:focusableInTouchMode="false"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/chBox"
+            android:layout_weight="1"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp" />
+    </LinearLayout>
+
+</LinearLayout>

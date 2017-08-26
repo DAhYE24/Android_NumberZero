@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_style">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center_horizontal"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="JOIN"
+        android:textColor="#000000"
+        android:id="@+id/dj_txtTitle" />
+
+    <View
+        android:layout_height="5px"
+        android:background="#393939"
+        android:layout_width="fill_parent"/>
+
+    <View
+        android:layout_height="3px"
+        android:layout_marginTop="3dp"
+        android:background="#393939"
+        android:layout_width="fill_parent"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="닉네임"
+                android:textColor="#000000"
+                android:layout_weight="0.25" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="비밀번호"
+                android:textColor="#000000"
+                android:layout_weight="0.25" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="비밀번호 확인"
+                android:textColor="#000000"
+                android:layout_weight="0.25" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="이메일"
+                android:textColor="#000000"
+                android:layout_weight="0.25" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:paddingRight="30dp">
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:inputType="textPersonName"
+                android:maxLength="10"
+                android:backgroundTint="#b37e6969"
+                android:textColor="#b37e6969"
+                android:textSize="13sp"
+                android:textCursorDrawable="@null"
+                android:textColorHint="#b37e6969"
+                android:hint="1~10자"
+                android:id="@+id/dj_editId"
+                android:layout_weight="0.25" />
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:textColor="#b37e6969"
+                android:textSize="13sp"
+                android:textCursorDrawable="@null"
+                android:textColorHint="#b37e6969"
+                android:hint="5~20자"
+                android:id="@+id/dj_editPw"
+                android:layout_weight="0.25" />
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:inputType="textPassword"
+                android:maxLength="40"
+                android:textColor="#b37e6969"
+                android:textSize="13sp"
+                android:textCursorDrawable="@null"
+                android:id="@+id/dj_editPwChk"
+                android:layout_weight="0.25" />
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:inputType="textEmailAddress"
+                android:maxLength="20"
+                android:textColor="#b37e6969"
+                android:textSize="13sp"
+                android:textColorHint="#b37e6969"
+                android:textCursorDrawable="@null"
+                android:id="@+id/dj_editEmail"
+                android:layout_weight="0.25" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffff"
+        android:text="가입하기"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/dj_btnJoin"
+        android:background="@drawable/btn_sample"
+        android:layout_margin="5dp" />
+
+</LinearLayout>

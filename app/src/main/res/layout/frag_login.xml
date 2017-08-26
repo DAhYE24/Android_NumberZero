@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ffffff"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="해당 기능은 넘버제로\n사용자에게만 제공됩니다"
+        android:textColor="#2e1a1a"
+        android:layout_weight="0.25"
+        android:gravity="bottom|center_horizontal" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:src="@drawable/logo_title"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.45"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="닉네임"
+                    android:textColor="#2e1a1a" />
+
+                <EditText
+                    android:id="@+id/fj_editId"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:backgroundTint="#b37e6969"
+                    android:maxLength="10"
+                    android:textSize="13sp"
+                    android:textColor="#b37e6969"
+                    android:textCursorDrawable="@null"
+                    android:inputType="textPersonName"
+                    android:layout_gravity="center_horizontal"/>
+                <!-- textCursorDrawable="@null" 커서 색상, 폰트와 동일-->
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="3px"
+                android:background="#393939"
+                android:layout_width="200dp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="비밀번호"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/fj_editPw"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textCursorDrawable="@null"
+                    android:textSize="13sp"
+                    android:textColor="#b37e6969"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
+                    android:layout_gravity="center_horizontal"
+                     />
+            </LinearLayout>
+
+            <View
+                android:layout_height="3px"
+                android:background="#393939"
+                android:layout_width="200dp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp">
+
+                <Button
+                    android:id="@+id/fj_btnJoin"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="가입하기"
+                    android:background="@drawable/sbtn_samplechecked"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5" />
+
+                <Button
+                    android:id="@+id/fj_btnLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_toEndOf="@+id/fj_btnJoin"
+                    android:text="로그인"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:background="@drawable/sbtn_sample"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

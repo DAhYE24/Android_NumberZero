@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 향수 기초 정보 제공 -->
+    <string-array name="info_main">
+        <item>1. 향수 종류</item>
+        <item>2. 향수 지식</item>
+        <item>3. 노트</item>
+    </string-array>
+
+    <string-array name="info_sub1">
+        <item>◆ 오 드 코롱(Eau de Cologne)</item>
+        <item>◆ 오드 뚜왈렛(Eau de Toilette)</item>
+        <item>◆ 오 드 퍼퓸(Eau de Parfum)</item>
+        <item>◆ 퍼퓸 엑스트레(Parfum Extrait)</item>
+    </string-array>
+
+    <string-array name="info_sub2">
+        <item>◆ 향료의 분류</item>
+        <item>◆ 발향 단계</item>
+        <item>◆ 유통기한</item>
+    </string-array>
+
+    <string-array name="info_sub3">
+        <item>◆ 향조(노트 Note)</item>
+        <item>◆ 시트러스 노트</item>
+        <item>◆ 프루티 노트</item>
+        <item>◆ 그린 노트</item>
+        <item>◆ 플로럴 노트</item>
+        <item>◆ 우디 노트</item>
+        <item>◆ 애니멀 노트</item>
+        <item>◆ 허벌 노트</item>
+        <item>◆ 스파이시 노트</item>
+        <item>◆ 알데하이드 노트</item>
+        <item>◆ 발사믹 노트</item>
+        <item>◆ 스페셜 노트</item>
+        <item>◆ 그 외 노트</item>
+    </string-array>
+
+    <!-- 향수 검색 정보 제공 -->
+    <string-array name="search_menu">
+        <item>향료조합</item>
+        <item>브랜드별</item>
+        <item>가격대별</item>
+    </string-array>
+
+    <string-array name="scent_list">
+        <item>가</item>
+        <item>나</item>
+        <item>다</item>
+        <item>라</item>
+        <item>마</item>
+        <item>바</item>
+        <item>사</item>
+    </string-array>
+
+    <string-array name="flaListOne">
+        <item>베르가못</item>
+        <item>갈랑갈</item>
+        <item>갈바눔</item>
+        <item>감송</item>
+        <item>겨자</item>
+        <item>계피</item>
+        <item>고수풀</item>
+        <item>고추냉이</item>
+        <item>백리향</item>
+        <item>레몬</item>
+    </string-array>
+
+    <string-array name="flaListTwo">
+        <item>나르시스</item>
+        <item>버베나</item>
+        <item>네롤리</item>
+        <item>와일드로즈</item>
+        <item>머스크</item>
+        <item>딜</item>
+        <item>앰버</item>
+        <item>라벤더</item>
+        <item>사과</item>
+        <item>그레이프프루트</item>
+    </string-array>
+
+    <string-array name="flaListThree">
+        <item>아이리스</item>
+        <item>프리지아</item>
+        <item>복숭아</item>
+        <item>유자</item>
+        <item>라일락</item>
+        <item>라임</item>
+        <item>라즈베리</item>
+        <item>백합</item>
+        <item>로즈마리</item>
+        <item>오렌지플라워</item>
+    </string-array>
+
+    <string-array name="brandList">
+        <item>클린 CLEAN</item>
+        <item>안나수이 ANNA SUI</item>
+        <item>샤넬 Chanel</item>
+        <item>엘리자베스아덴 Elizabetharden 엘리자베스아덴 Elizabetharden</item>
+        <item>다비도브 Davidoff</item>
+        <item>몽블랑 Montblanc</item>
+    </string-array>
+
+    <string-array name="priceList">
+        <item>10000원대</item>
+        <item>20000원대</item>
+        <item>30000원대</item>
+        <item>40000원대</item>
+        <item>50000원대</item>
+        <item>60000원대</item>
+        <item>70000원대</item>
+        <item>80000원대</item>
+    </string-array>
+</resources>
