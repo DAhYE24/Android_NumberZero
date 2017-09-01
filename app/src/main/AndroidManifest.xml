@@ -28,7 +28,7 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
 
         <!-- android:theme은 타이틀바 제거 옵션 -->
-        <activity android:name=".ActiBegin">
+        <activity android:name=".Activity.acti_ActiBegin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,18 +36,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActiMain"
+            android:name=".Activity.ActiMain"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-        <activity android:name=".ActiPerfResult" />
+        <activity android:name=".Activity.ActiPerfResult" />
         <activity
-            android:name=".ActiBoard"
+            android:name=".Activity.acti_ActiBoard"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-        <activity android:name=".ActiWrite" />
+        <activity android:name=".Activity.ActiWrite" />
         <activity
-            android:name=".ActiBoardContent"
+            android:name=".Activity.ActiBoardContent"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-        <activity android:name=".ActiPerfDetail" />
-        <activity android:name=".ActiStory"></activity>
+        <activity android:name=".Activity.ActiPerfDetail" />
+        <activity android:name=".Activity.ActiStory"></activity>
     </application>
 
 </manifest>
