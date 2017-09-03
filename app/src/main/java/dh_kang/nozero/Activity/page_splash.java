@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import dh_kang.nozero.IntegratedClass.CheckNetworkState;
 import dh_kang.nozero.R;
 
 public class page_splash extends AppCompatActivity {
@@ -19,16 +20,12 @@ public class page_splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_splash);
 
-        /* 네트워크 변수 */
-        Handler handler = new Handler();
-        ConnectivityManager manager = (ConnectivityManager) getSystemService (Context.CONNECTIVITY_SERVICE);
-        boolean isMobileConnect = manager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnectedOrConnecting();
-        boolean isWifiConnect = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnectedOrConnecting();
-        boolean isMobileAvailable = manager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isAvailable();
-        boolean isWifiAvailable = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isAvailable();
+        /* Check network state */
+        CheckNetworkState chkNetwork = new CheckNetworkState();
+        boolean networkState = chkNetwork.ReturnNetworkState(getApplicationContext());
 
-        /* 네트워크 연결체크 */
-        if(!(isMobileConnect && isMobileAvailable) && !(isWifiConnect && isWifiAvailable)){
+        Handler handler = new Handler();
+        if(!networkState){
             Toast.makeText(this, "네트워크 연결이 필요합니다", Toast.LENGTH_LONG).show();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -38,11 +35,10 @@ public class page_splash extends AppCompatActivity {
             }, 2000);
         }else{
             handler.postDelayed(new Runnable() {
-                public void run() {
-                    /* Go to ActiMain */
-                    Intent i = new Intent(page_splash.this, ActiMain.class);
-                    startActivity(i);
-                    finish(); // 뒤로 가기 버튼을 누른 경우 해당 화면이 나오지 않도록하기 위해서 설정
+                public void run() { /* Go to main page */
+                    Intent intent = new Intent(page_splash.this, ActiMain.class);
+                    startActivity(intent);
+                    finish();   // To block 'back button'
                 }
             }, 2000);}
         }

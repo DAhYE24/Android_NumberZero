@@ -7,7 +7,7 @@
     android:padding="15dp"
     android:weightSum="1"
     tools:context=".Activity.ActiMain"
-    android:background="@drawable/bg_sample">
+    android:background="@drawable/img_splash">
 
     <FrameLayout
         android:layout_width="match_parent"
