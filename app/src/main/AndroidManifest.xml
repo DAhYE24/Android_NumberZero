@@ -26,10 +26,9 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
 
         <!-- android:theme은 타이틀바 제거 옵션 -->
-        <activity android:name=".Activity.acti_ActiBegin">
+        <activity android:name=".Activity.page_splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

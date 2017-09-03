@@ -10,14 +10,14 @@ import android.widget.Toast;
 
 import dh_kang.nozero.R;
 
-public class acti_ActiBegin extends AppCompatActivity {
+public class page_splash extends AppCompatActivity {
     /* 로그 테스트 */
     private static final String TAG = "NOZERO_FINAL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.acti_begin);
+        setContentView(R.layout.page_splash);
 
         /* 네트워크 변수 */
         Handler handler = new Handler();
@@ -40,7 +40,7 @@ public class acti_ActiBegin extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 public void run() {
                     /* Go to ActiMain */
-                    Intent i = new Intent(acti_ActiBegin.this, ActiMain.class);
+                    Intent i = new Intent(page_splash.this, ActiMain.class);
                     startActivity(i);
                     finish(); // 뒤로 가기 버튼을 누른 경우 해당 화면이 나오지 않도록하기 위해서 설정
                 }
