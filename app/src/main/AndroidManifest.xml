@@ -14,8 +14,6 @@
     <!-- DEVICE PHONENUMBER PERMISSION -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!-- 이건 없어도 될거 같으므로 체크하기 -->
-
 
     <!-- 이미지 불러오기 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

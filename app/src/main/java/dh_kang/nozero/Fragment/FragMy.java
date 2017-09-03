@@ -22,7 +22,7 @@ import com.bumptech.glide.Glide;
 import dh_kang.nozero.Dialog.DialBox;
 import dh_kang.nozero.Dialog.DialContact;
 import dh_kang.nozero.Dialog.DialIcon;
-import dh_kang.nozero.Dialog.DialJoin;
+import dh_kang.nozero.Dialog.Dialjoin;
 import dh_kang.nozero.R;
 
 /**
@@ -46,7 +46,7 @@ public class FragMy extends Fragment {
     DialBox boxDialog;
     DialContact contactDialog;
     DialIcon iconDialog;
-    DialJoin infoDialog;
+    Dialjoin infoDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState ) {
@@ -110,7 +110,7 @@ public class FragMy extends Fragment {
                 editor.putBoolean("joinCheck", false);// 수정하는 경우
                 editor.commit();
 
-                infoDialog = new DialJoin(getActivity());
+                infoDialog = new Dialjoin(getActivity());
                 infoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 infoDialog.show();
             }

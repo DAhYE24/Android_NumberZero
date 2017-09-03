@@ -24,7 +24,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 import dh_kang.nozero.Activity.ActiMain;
-import dh_kang.nozero.Dialog.DialJoin;
+import dh_kang.nozero.Dialog.Dialjoin;
 import dh_kang.nozero.R;
 
 /**
@@ -39,7 +39,7 @@ public class FragLogin extends Fragment{
     EditText fj_editId, fj_editPw; // 에디트텍스트 : 아이디, 비밀번호
 
     /* JAVA 선언 */
-    DialJoin joinDialog;
+    Dialjoin joinDialog;
     SharedPreferences userInfo;
 
     /* 네트워크 통신 */
@@ -57,7 +57,7 @@ public class FragLogin extends Fragment{
         fj_editPw = (EditText)v.findViewById(R.id.fj_editPw);
 
         /* 대화상자 초기화 */
-        joinDialog = new DialJoin(getActivity());
+        joinDialog = new Dialjoin(getActivity());
         joinDialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 대화상자의 타이틀바 제거
 
         /* 에디트텍스트 설정 */
