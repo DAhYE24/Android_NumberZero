@@ -204,7 +204,7 @@ public class ActiPerfResult extends AppCompatActivity {
 //    /* 뒤로가기 클릭하는 경우 */
 //    @Override
 //    public void onBackPressed() {
-//        Intent intent = new Intent(ActiPerfResult.this, ActiMain.class);
+//        Intent intent = new Intent(ActiPerfResult.this, MainActivity.class);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //        finish();
 //        startActivity(intent);

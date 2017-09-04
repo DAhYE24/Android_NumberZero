@@ -3,7 +3,6 @@ package dh_kang.nozero.Dialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -22,7 +21,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import dh_kang.nozero.Activity.ActiMain;
 import dh_kang.nozero.R;
 
 /**
@@ -217,16 +215,16 @@ public class Dialjoin extends Dialog {
                 if(tempType == true)    editor.putString("userPicPath", tempImg); // 이미지 주소 저장
                 editor.putBoolean("userCheck", true);// 유저 가입 체크
                 editor.commit();
-
-                if(tempType == false) { // 수정할 때
-                    Toast.makeText(getContext(), "정보가 수정되었습니다", Toast.LENGTH_SHORT).show();
-                    ((ActiMain)ActiMain.mContext).ChangeFragment(((ActiMain)ActiMain.mContext).findViewById(R.id.am_btnMy));
-                }else{ // 가입할 때
-                    Toast.makeText(getContext(), "넘버제로에 가입되었습니다", Toast.LENGTH_LONG).show();
-                    ((ActiMain) ActiMain.mContext).finish();
-                    Intent intent = new Intent(getContext(), ActiMain.class);
-                    ((ActiMain) ActiMain.mContext).startActivity(intent);
-                }
+//
+//                if(tempType == false) { // 수정할 때
+//                    Toast.makeText(getContext(), "정보가 수정되었습니다", Toast.LENGTH_SHORT).show();
+//                    ((MainActivity) MainActivity.mContext).ChangeFragment(((MainActivity) MainActivity.mContext).findViewById(R.id.am_btnMy));
+//                }else{ // 가입할 때
+//                    Toast.makeText(getContext(), "넘버제로에 가입되었습니다", Toast.LENGTH_LONG).show();
+//                    ((MainActivity) MainActivity.mContext).finish();
+//                    Intent intent = new Intent(getContext(), MainActivity.class);
+//                    ((MainActivity) MainActivity.mContext).startActivity(intent);
+//                }
 
                 /* 다이얼로그 dismiss */
                 dismiss();

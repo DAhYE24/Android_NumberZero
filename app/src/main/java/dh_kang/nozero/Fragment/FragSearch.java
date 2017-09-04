@@ -28,7 +28,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import dh_kang.nozero.Activity.ActiMain;
 import dh_kang.nozero.Activity.ActiPerfResult;
 import dh_kang.nozero.DataSet.Lv_BPValues;
 import dh_kang.nozero.DataSet.Lv_FlaValues;
@@ -106,16 +105,16 @@ public class FragSearch extends Fragment {
                     inputFla = new Lv_FlaValues(flaListO[i], false, flaListT[i], false, flaListE[i], false); // 각 세 줄의 리스트에 향료 입력
                     scentList.add(inputFla); // 실제 리스트뷰에 값 추가
                 }
-
-                fid_btnCheck.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        /* 해당 화면 새로고침으로 우선 해두기 */
-                        /* Toast로 띄우는 StringBuffer 때문에 우선은 이렇게 하는게 좋을 거 같음 */
-                        /* 나중에 수정할 때는 해당 StringBuffer의 생성 방식부터 수정을 하는게 좋을 거 같음 */
-                        ((ActiMain)ActiMain.mContext).ChangeFragment(((ActiMain)ActiMain.mContext).findViewById(R.id.am_btnSearch));
-                    }
-                });
+//
+//                fid_btnCheck.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        /* 해당 화면 새로고침으로 우선 해두기 */
+//                        /* Toast로 띄우는 StringBuffer 때문에 우선은 이렇게 하는게 좋을 거 같음 */
+//                        /* 나중에 수정할 때는 해당 StringBuffer의 생성 방식부터 수정을 하는게 좋을 거 같음 */
+//                        ((MainActivity) MainActivity.mContext).ChangeFragment(((MainActivity) MainActivity.mContext).findViewById(R.id.am_btnSearch));
+//                    }
+//                });
 
                 /* 실제 리스트뷰에 값 적용 */
                 flaAdapter = new Lv_MyFlaAdapter(getContext(), R.layout.lv_search_fla, scentList);

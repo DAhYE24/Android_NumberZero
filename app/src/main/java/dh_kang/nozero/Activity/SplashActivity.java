@@ -1,8 +1,6 @@
 package dh_kang.nozero.Activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +9,8 @@ import android.widget.Toast;
 import dh_kang.nozero.IntegratedClass.CheckNetworkState;
 import dh_kang.nozero.R;
 
-public class page_splash extends AppCompatActivity {
-    /* 로그 테스트 */
-    private static final String TAG = "NOZERO_FINAL";
+public class SplashActivity extends AppCompatActivity {
+    private static final String TAG = "NOZERO_FINAL";   /* LOG TEST */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +31,10 @@ public class page_splash extends AppCompatActivity {
                 }
             }, 2000);
         }else{
+            /* Go to main page */
             handler.postDelayed(new Runnable() {
-                public void run() { /* Go to main page */
-                    Intent intent = new Intent(page_splash.this, ActiMain.class);
+                public void run() {
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();   // To block 'back button'
                 }

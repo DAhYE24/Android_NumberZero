@@ -19,7 +19,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import dh_kang.nozero.Activity.ActiMain;
 import dh_kang.nozero.R;
 
 /**
@@ -173,7 +172,7 @@ public class DialIcon extends Dialog {
                 editor.putString("userPicPath", tempImg); // 이미지 저장
                 editor.commit();
 
-                ((ActiMain)ActiMain.mContext).ChangeFragment(((ActiMain)ActiMain.mContext).findViewById(R.id.am_btnMy));
+//                ((MainActivity) MainActivity.mContext).ChangeFragment(((MainActivity) MainActivity.mContext).findViewById(R.id.am_btnMy));
 
                 asyncDialog.dismiss();
                 dismiss();

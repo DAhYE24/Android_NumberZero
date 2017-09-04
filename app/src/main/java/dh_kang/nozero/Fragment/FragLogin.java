@@ -23,7 +23,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import dh_kang.nozero.Activity.ActiMain;
+import dh_kang.nozero.Activity.MainActivity;
 import dh_kang.nozero.Dialog.Dialjoin;
 import dh_kang.nozero.R;
 
@@ -168,9 +168,9 @@ public class FragLogin extends Fragment{
                 editor.commit();
 
                 /* 화면 재시작 */
-                ((ActiMain) ActiMain.mContext).finish();
-                Intent intent = new Intent(getContext(), ActiMain.class);
-                ((ActiMain) ActiMain.mContext).startActivity(intent);
+                ((MainActivity) MainActivity.mContext).finish();
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                ((MainActivity) MainActivity.mContext).startActivity(intent);
             }
         }
     }

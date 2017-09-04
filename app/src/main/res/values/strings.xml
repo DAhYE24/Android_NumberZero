@@ -15,4 +15,10 @@
         completions."
     </string>
     <string name="title_activity_activity_board">ActivityBoard</string>
+
+    <string name="bottom_btn1">"향수정보"</string>
+    <string name="bottom_btn2">"향수검색"</string>
+    <string name="bottom_btn3">"넘버제로"</string>
+    <string name="bottom_btn4">"향수토크"</string>
+    <string name="bottom_btn5">"MY향수"</string>
 </resources>

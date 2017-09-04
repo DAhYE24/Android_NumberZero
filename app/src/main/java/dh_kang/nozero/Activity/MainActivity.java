@@ -1,5 +1,6 @@
 package dh_kang.nozero.Activity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -8,10 +9,14 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -24,15 +29,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import dh_kang.nozero.Fragment.FragBoard;
-import dh_kang.nozero.Fragment.FragInfo;
 import dh_kang.nozero.Fragment.FragLogin;
 import dh_kang.nozero.Fragment.FragMain;
-import dh_kang.nozero.Fragment.FragMy;
-import dh_kang.nozero.Fragment.FragSearch;
 import dh_kang.nozero.R;
 
-public class ActiMain extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     /* 로그 테스트 */
     private static final String TAG = "NOZERO_FINAL";
 
@@ -53,18 +54,41 @@ public class ActiMain extends AppCompatActivity {
     ProgressDialog dialog = null;
     String upLoadServerUri = null;
 
+    private BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.acti_main);
+        setContentView(R.layout.page_main);
 
         /* 초기화 */
-        am_btnInfo = (Button)findViewById(R.id.am_btnInfo);
-        am_btnSearch = (Button)findViewById(R.id.am_btnSearch);
-        am_btnMain = (Button)findViewById(R.id.am_btnMain);
-        am_btnBoard = (Button)findViewById(R.id.am_btnBoard);
-        am_btnMy = (Button)findViewById(R.id.am_btnMy);
+//        am_btnInfo = (Button)findViewById(R.id.am_btnInfo);
+//        am_btnSearch = (Button)findViewById(R.id.am_btnSearch);
+//        am_btnMain = (Button)findViewById(R.id.am_btnMain);
+//        am_btnBoard = (Button)findViewById(R.id.am_btnBoard);
+//        am_btnMy = (Button)findViewById(R.id.am_btnMy);
+
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
+//        bottomNavigationView.inflateMenu(R.menu.ly_bottom_menu);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_one:
+                        return true;
+                    case R.id.action_two:
+                        return true;
+                    case R.id.action_three:
+                        return true;
+                    case R.id.action_four:
+                        return true;
+                    case R.id.action_5:
+                        return true;
+                }
+                return false;
+            }
+        });
 
         /* Context 저장 */
         mContext = this;
@@ -94,66 +118,66 @@ public class ActiMain extends AppCompatActivity {
     }
 
     public void ChangeFragment(View v) {
-        Fragment fg = null;
-        switch (v.getId()) { //버튼 별 프레그먼트 전환
-            case R.id.am_btnInfo: // 향수정보 버튼
-                /* 버튼 클릭 시 변화 */
-                am_btnInfo.setBackgroundResource(R.drawable.btn_clicked);
-                am_btnSearch.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnMain.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnBoard.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnMy.setBackgroundResource(R.drawable.btn_white_border);
-
-                fg = new FragInfo();
-                break;
-            case R.id.am_btnSearch: // 향수검색 버튼
-                /* 버튼 클릭 시 변화 */
-                am_btnInfo.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnSearch.setBackgroundResource(R.drawable.btn_clicked);
-                am_btnMain.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnBoard.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnMy.setBackgroundResource(R.drawable.btn_white_border);
-
-                fg = new FragSearch();
-                break;
-            case R.id.am_btnMain: // 메인화면 버튼
-                /* 버튼 클릭 시 변화 */
-                am_btnInfo.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnSearch.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnMain.setBackgroundResource(R.drawable.btn_clicked);
-                am_btnBoard.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnMy.setBackgroundResource(R.drawable.btn_white_border);
-
-                if(userCheck == true) fg = new FragMain();
-                else fg = new FragLogin();
-                break;
-            case R.id.am_btnBoard: // 향수토크 버튼
-                /* 버튼 클릭 시 변화 */
-                am_btnInfo.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnSearch.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnMain.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnBoard.setBackgroundResource(R.drawable.btn_clicked);
-                am_btnMy.setBackgroundResource(R.drawable.btn_white_border);
-
-                if(userCheck == true)   fg = new FragBoard();
-                else    fg = new FragLogin();
-                break;
-            case R.id.am_btnMy: // MY향수 버튼
-                /* 버튼 클릭 시 변화 */
-                am_btnInfo.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnSearch.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnMain.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnBoard.setBackgroundResource(R.drawable.btn_white_border);
-                am_btnMy.setBackgroundResource(R.drawable.btn_clicked);
-
-                if(userCheck == true) fg = new FragMy();
-                else fg = new FragLogin();
-                break;
-        }
-
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction(); //전환
-        transaction.replace(R.id.am_lyFrag, fg);
-        transaction.commit();
+//        Fragment fg = null;
+//        switch (v.getId()) { //버튼 별 프레그먼트 전환
+//            case R.id.am_btnInfo: // 향수정보 버튼
+//                /* 버튼 클릭 시 변화 */
+//                am_btnInfo.setBackgroundResource(R.drawable.btn_clicked);
+//                am_btnSearch.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnMain.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnBoard.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnMy.setBackgroundResource(R.drawable.btn_white_border);
+//
+//                fg = new FragInfo();
+//                break;
+//            case R.id.am_btnSearch: // 향수검색 버튼
+//                /* 버튼 클릭 시 변화 */
+//                am_btnInfo.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnSearch.setBackgroundResource(R.drawable.btn_clicked);
+//                am_btnMain.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnBoard.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnMy.setBackgroundResource(R.drawable.btn_white_border);
+//
+//                fg = new FragSearch();
+//                break;
+//            case R.id.am_btnMain: // 메인화면 버튼
+//                /* 버튼 클릭 시 변화 */
+//                am_btnInfo.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnSearch.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnMain.setBackgroundResource(R.drawable.btn_clicked);
+//                am_btnBoard.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnMy.setBackgroundResource(R.drawable.btn_white_border);
+//
+//                if(userCheck == true) fg = new FragMain();
+//                else fg = new FragLogin();
+//                break;
+//            case R.id.am_btnBoard: // 향수토크 버튼
+//                /* 버튼 클릭 시 변화 */
+//                am_btnInfo.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnSearch.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnMain.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnBoard.setBackgroundResource(R.drawable.btn_clicked);
+//                am_btnMy.setBackgroundResource(R.drawable.btn_white_border);
+//
+//                if(userCheck == true)   fg = new FragBoard();
+//                else    fg = new FragLogin();
+//                break;
+//            case R.id.am_btnMy: // MY향수 버튼
+//                /* 버튼 클릭 시 변화 */
+//                am_btnInfo.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnSearch.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnMain.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnBoard.setBackgroundResource(R.drawable.btn_white_border);
+//                am_btnMy.setBackgroundResource(R.drawable.btn_clicked);
+//
+//                if(userCheck == true) fg = new FragMy();
+//                else fg = new FragLogin();
+//                break;
+//        }
+//
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction(); //전환
+//        transaction.replace(R.id.am_lyFrag, fg);
+//        transaction.commit();
     }
 
     /* FragMy에서 사지의 값 받아오는 부분 */
@@ -175,7 +199,7 @@ public class ActiMain extends AppCompatActivity {
 
             upLoadServerUri = "http://pridena1030.cafe24.com/NoZ_upload.php";
 
-            dialog = ProgressDialog.show(ActiMain.this, "", "Uploading file...", true);
+            dialog = ProgressDialog.show(MainActivity.this, "", "Uploading file...", true);
             new Thread(new Runnable() {
                 public void run() {
                     uploadFile(picturePath);
@@ -255,7 +279,7 @@ public class ActiMain extends AppCompatActivity {
                 if(serverResponseCode == 200){
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            Toast.makeText(ActiMain.this, "File Upload Complete.",
+                            Toast.makeText(MainActivity.this, "File Upload Complete.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     });

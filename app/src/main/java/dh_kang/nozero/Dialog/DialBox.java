@@ -26,7 +26,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import dh_kang.nozero.Activity.ActiMain;
+import dh_kang.nozero.Activity.MainActivity;
 import dh_kang.nozero.Activity.ActiPerfDetail;
 import dh_kang.nozero.Adapter.Lv_BoxAdapter;
 import dh_kang.nozero.R;
@@ -170,7 +170,7 @@ public class DialBox extends Dialog {
 
                 /* 결과창으로 이동 */
                 Intent i = new Intent(getContext(), ActiPerfDetail.class);
-                ((ActiMain)ActiMain.mContext).startActivity(i);
+                ((MainActivity) MainActivity.mContext).startActivity(i);
             }
         }
     }

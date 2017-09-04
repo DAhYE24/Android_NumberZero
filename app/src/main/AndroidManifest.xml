@@ -26,7 +26,7 @@
         android:theme="@style/Theme.Design.NoActionBar">
 
         <!-- android:theme은 타이틀바 제거 옵션 -->
-        <activity android:name=".Activity.page_splash">
+        <activity android:name=".Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.ActiMain"
+            android:name=".Activity.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity android:name=".Activity.ActiPerfResult" />
         <activity
