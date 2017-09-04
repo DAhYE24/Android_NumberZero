@@ -41,12 +41,9 @@ import dh_kang.nozero.R;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "NOZERO_FINAL";   /* LOG TEST */
     private BottomNavigationView bottomNavigationView; /* Declare xml components */
-    Fragment fragment = null;
+    private Fragment fragment = null;   /* Declare java components */
     private FragmentManager fragmentManager;
-//    FragmentTransaction transaction = null;
 
-
-    /* JAVA 선언 */
     Boolean userCheck = false; // 유저 체크, false일 때는 로그인 화면
     SharedPreferences userInfo;
     public static Context mContext;
@@ -59,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
     int serverResponseCode = 0;
     ProgressDialog dialog = null;
     String upLoadServerUri = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         /* Fragment Setting */
         fragmentManager = getSupportFragmentManager();
         fragment = new FragMain();
-        final FragmentTransaction transaction = fragmentManager.beginTransaction();
+        final FragmentTransaction transaction = fragmentManager.beginTransaction(); // TODO : final 역할 재확인
         transaction.add(R.id.am_lyFrag, fragment).commit();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -104,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 final FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setCustomAnimations(R.anim.anim_slide_in, R.anim.anim_slide_out);   // Animation
                 transaction.replace(R.id.am_lyFrag, fragment).commit();
                 return true;
             }
@@ -113,87 +110,11 @@ public class MainActivity extends AppCompatActivity {
         mContext = this;
 
         /* userInfo 불러오기 */
-        userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-        userCheck = userInfo.getBoolean("userCheck", false);
-
-//        /* 프레그먼트 등록 */
-//        firstPageFragment();
-    }
-//
-//    private void firstPageFragment() {
-//        Fragment fragment = new FragMain();
-//
-//        /* 첫 번째 프레그먼트 보여주기 */
-//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction(); //전환
-//        transaction.add(R.id.am_lyFrag, fragment);
-//        transaction.commit();
-//    }
-
-
-    public void ChangeFragment(View v) {
-//        Fragment fg = null;
-//        switch (v.getId()) { //버튼 별 프레그먼트 전환
-//            case R.id.am_btnInfo: // 향수정보 버튼
-//                /* 버튼 클릭 시 변화 */
-//                am_btnInfo.setBackgroundResource(R.drawable.btn_clicked);
-//                am_btnSearch.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnMain.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnBoard.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnMy.setBackgroundResource(R.drawable.btn_white_border);
-//
-//                fg = new FragInfo();
-//                break;
-//            case R.id.am_btnSearch: // 향수검색 버튼
-//                /* 버튼 클릭 시 변화 */
-//                am_btnInfo.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnSearch.setBackgroundResource(R.drawable.btn_clicked);
-//                am_btnMain.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnBoard.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnMy.setBackgroundResource(R.drawable.btn_white_border);
-//
-//                fg = new FragSearch();
-//                break;
-//            case R.id.am_btnMain: // 메인화면 버튼
-//                /* 버튼 클릭 시 변화 */
-//                am_btnInfo.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnSearch.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnMain.setBackgroundResource(R.drawable.btn_clicked);
-//                am_btnBoard.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnMy.setBackgroundResource(R.drawable.btn_white_border);
-//
-//                if(userCheck == true) fg = new FragMain();
-//                else fg = new FragLogin();
-//                break;
-//            case R.id.am_btnBoard: // 향수토크 버튼
-//                /* 버튼 클릭 시 변화 */
-//                am_btnInfo.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnSearch.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnMain.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnBoard.setBackgroundResource(R.drawable.btn_clicked);
-//                am_btnMy.setBackgroundResource(R.drawable.btn_white_border);
-//
-//                if(userCheck == true)   fg = new FragBoard();
-//                else    fg = new FragLogin();
-//                break;
-//            case R.id.am_btnMy: // MY향수 버튼
-//                /* 버튼 클릭 시 변화 */
-//                am_btnInfo.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnSearch.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnMain.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnBoard.setBackgroundResource(R.drawable.btn_white_border);
-//                am_btnMy.setBackgroundResource(R.drawable.btn_clicked);
-//
-//                if(userCheck == true) fg = new FragMy();
-//                else fg = new FragLogin();
-//                break;
-//        }
-//
-//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction(); //전환
-//        transaction.replace(R.id.am_lyFrag, fg);
-//        transaction.commit();
+//        userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+//        userCheck = userInfo.getBoolean("userCheck", false);
     }
 
-    /* FragMy에서 사지의 값 받아오는 부분 */
+    /* FragMy에서 사진의 값 받아오는 부분 */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
