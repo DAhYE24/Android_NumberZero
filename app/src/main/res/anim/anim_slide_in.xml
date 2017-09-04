@@ -4,4 +4,5 @@
         android:duration="300"
         android:fromYDelta="0%"
         android:toYDelta="-100%"/>
+    <!-- TODO : android:fillAfter의 역할 -->
 </set>
