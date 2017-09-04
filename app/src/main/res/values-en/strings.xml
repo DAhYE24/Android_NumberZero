@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NumberZero</string>
+
+    <string name="bottom_btn1">"INFO"</string>
+    <string name="bottom_btn2">"FIND"</string>
+    <string name="bottom_btn3">"HOME"</string>
+    <string name="bottom_btn4">"TALK"</string>
+    <string name="bottom_btn5">"USER"</string>
+</resources>
