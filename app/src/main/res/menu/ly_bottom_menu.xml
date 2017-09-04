@@ -2,33 +2,33 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_one"
+        android:id="@+id/btn_action_info"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@drawable/btn_main_info"
         android:title="@string/bottom_btn_info" />
     <item
-        android:id="@+id/action_two"
+        android:id="@+id/btn_action_search"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@drawable/btn_main_search"
         android:title="@string/bottom_btn_search" />
     <item
-        android:id="@+id/action_three"
+        android:id="@+id/btn_action_home"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@drawable/btn_main_home"
         android:title="@string/bottom_btn_home" />
     <item
-        android:id="@+id/action_four"
+        android:id="@+id/btn_action_talk"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@drawable/btn_main_talk"
         android:title="@string/bottom_btn_board" />
     <item
-        android:id="@+id/action_5"
+        android:id="@+id/btn_action_user"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@drawable/btn_main_user"
         android:title="@string/bottom_btn_user" />
 </menu>

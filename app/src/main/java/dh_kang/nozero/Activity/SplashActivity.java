@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
 
         Handler handler = new Handler();
         if(!networkState){
-            Toast.makeText(this, "네트워크 연결이 필요합니다", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "네트워크 연결을 확인해주세요", Toast.LENGTH_LONG).show();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {

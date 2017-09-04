@@ -10,9 +10,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -29,16 +29,22 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import dh_kang.nozero.Fragment.FragBoard;
+import dh_kang.nozero.Fragment.FragInfo;
 import dh_kang.nozero.Fragment.FragLogin;
 import dh_kang.nozero.Fragment.FragMain;
+import dh_kang.nozero.Fragment.FragMy;
+import dh_kang.nozero.Fragment.FragSearch;
+import dh_kang.nozero.IntegratedClass.DisableButtonShift;
 import dh_kang.nozero.R;
 
 public class MainActivity extends AppCompatActivity {
-    /* 로그 테스트 */
-    private static final String TAG = "NOZERO_FINAL";
+    private static final String TAG = "NOZERO_FINAL";   /* LOG TEST */
+    private BottomNavigationView bottomNavigationView; /* Declare xml components */
+    Fragment fragment = null;
+    private FragmentManager fragmentManager;
+//    FragmentTransaction transaction = null;
 
-    /* XML 선언 */
-    Button am_btnInfo, am_btnSearch, am_btnMain, am_btnBoard, am_btnMy;
 
     /* JAVA 선언 */
     Boolean userCheck = false; // 유저 체크, false일 때는 로그인 화면
@@ -54,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog dialog = null;
     String upLoadServerUri = null;
 
-    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,31 +67,45 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.page_main);
 
-        /* 초기화 */
-//        am_btnInfo = (Button)findViewById(R.id.am_btnInfo);
-//        am_btnSearch = (Button)findViewById(R.id.am_btnSearch);
-//        am_btnMain = (Button)findViewById(R.id.am_btnMain);
-//        am_btnBoard = (Button)findViewById(R.id.am_btnBoard);
-//        am_btnMy = (Button)findViewById(R.id.am_btnMy);
+        /* Init BottomNavigationView */
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNavigationView.getMenu().findItem(R.id.btn_action_home).setChecked(true);
+        bottomNavigationView.getMenu().findItem(R.id.btn_action_info).setCheckable(false); // TODO : 체크해보기 https://stackoverflow.com/questions/44498537/set-no-item-pre-selected-in-bottom-navigation-view
+        DisableButtonShift disableButtonShift = new DisableButtonShift();
+        disableButtonShift.disableShiftMode(bottomNavigationView);  // Fix bottom buttons
 
-        bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
-//        bottomNavigationView.inflateMenu(R.menu.ly_bottom_menu);
+        /* Fragment Setting */
+        fragmentManager = getSupportFragmentManager();
+        fragment = new FragMain();
+        final FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(R.id.am_lyFrag, fragment).commit();
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                bottomNavigationView.getMenu().findItem(R.id.btn_action_info).setCheckable(true);
+                bottomNavigationView.getMenu().findItem(R.id.btn_action_home).setChecked(false);
                 switch (item.getItemId()) {
-                    case R.id.action_one:
-                        return true;
-                    case R.id.action_two:
-                        return true;
-                    case R.id.action_three:
-                        return true;
-                    case R.id.action_four:
-                        return true;
-                    case R.id.action_5:
-                        return true;
+                    case R.id.btn_action_info:
+                        fragment = new FragInfo();
+                        break;
+                    case R.id.btn_action_search:
+                        fragment = new FragSearch();
+                        break;
+                    case R.id.btn_action_home:
+                        bottomNavigationView.getMenu().findItem(R.id.btn_action_home).setChecked(true);
+                        fragment = new FragMain();
+                        break;
+                    case R.id.btn_action_talk:
+                        fragment = new FragBoard();
+                        break;
+                    case R.id.btn_action_user:
+                        fragment = new FragMy();
+                        break;
                 }
-                return false;
+                final FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.am_lyFrag, fragment).commit();
+                return true;
             }
         });
 
@@ -97,25 +116,19 @@ public class MainActivity extends AppCompatActivity {
         userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         userCheck = userInfo.getBoolean("userCheck", false);
 
-        /* 프레그먼트 등록 */
-        firstPageFragment();
+//        /* 프레그먼트 등록 */
+//        firstPageFragment();
     }
+//
+//    private void firstPageFragment() {
+//        Fragment fragment = new FragMain();
+//
+//        /* 첫 번째 프레그먼트 보여주기 */
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction(); //전환
+//        transaction.add(R.id.am_lyFrag, fragment);
+//        transaction.commit();
+//    }
 
-    private void firstPageFragment() {
-        /* 유저 접속 상태 체크 */
-        userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-        userCheck = userInfo.getBoolean("userCheck", false);
-
-        /* 가입 또는 메인 화면 선택 */
-        Fragment fg = null;
-        if(userCheck == true) fg = new FragMain();
-        else fg = new FragLogin();
-
-        /* 첫 번째 프레그먼트 보여주기 */
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction(); //전환
-        transaction.add(R.id.am_lyFrag, fg);
-        transaction.commit();
-    }
 
     public void ChangeFragment(View v) {
 //        Fragment fg = null;
@@ -184,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data){
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
             Uri imageUri = data.getData();
             String[] filePathColumn = {MediaStore.Images.Media.DATA};
             Cursor cursor = getContentResolver().query(imageUri,
@@ -227,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
                     + picturePath);
 
             return 0;
-        }else{
+        } else {
             try {
                 // open a URL connection to the Servlet
                 FileInputStream fileInputStream = new FileInputStream(sourceFile);
@@ -276,7 +289,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("uploadFile", "HTTP Response is : "
                         + serverResponseMessage + ": " + serverResponseCode);
 
-                if(serverResponseCode == 200){
+                if (serverResponseCode == 200) {
                     runOnUiThread(new Runnable() {
                         public void run() {
                             Toast.makeText(MainActivity.this, "File Upload Complete.",
