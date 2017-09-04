@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">넘버제로</string>
+    <string name="app_name">"넘버제로"</string>
 
-    <string name="bottom_btn1">"향수정보"</string>
-    <string name="bottom_btn2">"향수검색"</string>
-    <string name="bottom_btn3">"넘버제로"</string>
-    <string name="bottom_btn4">"향수토크"</string>
-    <string name="bottom_btn5">"MY향수"</string>
+    <string name="bottom_btn_info">"향수정보"</string>
+    <string name="bottom_btn_search">"향수검색"</string>
+    <string name="bottom_btn_home">"넘버제로"</string>
+    <string name="bottom_btn_board">"향수토크"</string>
+    <string name="bottom_btn_user">"MY향수"</string>
 </resources>

@@ -6,28 +6,29 @@
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@android:drawable/ic_dialog_info"
-        android:title="@string/bottom_btn1" />
+        android:title="@string/bottom_btn_info" />
     <item
         android:id="@+id/action_two"
         app:showAsAction="ifRoom"
+        android:enabled="true"
         android:icon="@android:drawable/ic_dialog_info"
-        android:title="@string/bottom_btn2" />
+        android:title="@string/bottom_btn_search" />
     <item
         android:id="@+id/action_three"
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@android:drawable/ic_dialog_info"
-        android:title="@string/bottom_btn3" />
+        android:title="@string/bottom_btn_home" />
     <item
         android:id="@+id/action_four"
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@android:drawable/ic_dialog_info"
-        android:title="@string/bottom_btn4" />
+        android:title="@string/bottom_btn_board" />
     <item
         android:id="@+id/action_5"
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@android:drawable/ic_dialog_info"
-        android:title="@string/bottom_btn5" />
+        android:title="@string/bottom_btn_user" />
 </menu>
