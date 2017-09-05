@@ -52,7 +52,7 @@
         <item>사</item>
     </string-array>
 
-    <string-array name="flaListOne">
+    <string-array name="flavorFirstLine">
         <item>베르가못</item>
         <item>갈랑갈</item>
         <item>갈바눔</item>
@@ -63,9 +63,12 @@
         <item>고추냉이</item>
         <item>백리향</item>
         <item>레몬</item>
+        <item>고추냉이</item>
+        <item>백리향</item>
+        <item>레몬</item>
     </string-array>
 
-    <string-array name="flaListTwo">
+    <string-array name="flavorSecondLine">
         <item>나르시스</item>
         <item>버베나</item>
         <item>네롤리</item>
@@ -76,9 +79,12 @@
         <item>라벤더</item>
         <item>사과</item>
         <item>그레이프프루트</item>
+        <item>라벤더</item>
+        <item>사과</item>
+        <item>그레이프프루트</item>
     </string-array>
 
-    <string-array name="flaListThree">
+    <string-array name="flavorThirdLine">
         <item>아이리스</item>
         <item>프리지아</item>
         <item>복숭아</item>
@@ -89,6 +95,9 @@
         <item>백합</item>
         <item>로즈마리</item>
         <item>오렌지플라워</item>
+        <item>로즈마리</item>
+        <item>오렌지플라워</item>
+        <item>백합</item>
     </string-array>
 
     <string-array name="brandList">

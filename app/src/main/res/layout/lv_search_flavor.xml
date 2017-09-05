@@ -11,7 +11,7 @@
         android:orientation="horizontal">
 
         <CheckBox
-            android:id="@+id/list_chkOne"
+            android:id="@+id/chk_flavor1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -27,12 +27,12 @@
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="#c8bebaba"
+            android:background="@color/turbidPurple"
             android:paddingBottom="13dp"
             android:paddingTop="13dp" />
 
         <CheckBox
-            android:id="@+id/list_chkTwo"
+            android:id="@+id/chk_flavor2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -48,12 +48,12 @@
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="#c8bebaba"
+            android:background="@color/turbidPurple"
             android:paddingBottom="13dp"
             android:paddingTop="13dp" />
 
         <CheckBox
-            android:id="@+id/list_chk"
+            android:id="@+id/chk_flavor3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

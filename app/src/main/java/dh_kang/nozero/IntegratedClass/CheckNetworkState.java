@@ -9,7 +9,7 @@ import android.net.ConnectivityManager;
  */
 
 public class CheckNetworkState extends Activity {
-    public boolean ReturnNetworkState(Context context){
+    public boolean returnNetworkState(Context context){
         ConnectivityManager connectManager = (ConnectivityManager) context.getSystemService (Context.CONNECTIVITY_SERVICE);
         return connectManager.getActiveNetworkInfo() != null;
     }

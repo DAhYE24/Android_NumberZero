@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
 
         /* Check network state */
         CheckNetworkState chkNetwork = new CheckNetworkState();
-        boolean networkState = chkNetwork.ReturnNetworkState(getApplicationContext());
+        boolean networkState = chkNetwork.returnNetworkState(getApplicationContext());
 
         Handler handler = new Handler();
         if(!networkState){

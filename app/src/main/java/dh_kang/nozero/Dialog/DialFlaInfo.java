@@ -22,7 +22,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import dh_kang.nozero.Adapter.Lv_MyFlaAdapter;
+import dh_kang.nozero.Adapter.FlavorListAdapter;
 import dh_kang.nozero.R;
 import dh_kang.nozero.IntegratedClass.TextViewHelper;
 
@@ -62,8 +62,8 @@ public class DialFlaInfo extends Dialog {
         dfi_btnOk = (Button)findViewById(R.id.dfi_btnOk);
 
         /* 해당 향료명 받아오기*/
-        Lv_MyFlaAdapter lvFla = null;
-        flaFindName = lvFla.getFlaName();
+        FlavorListAdapter lvFla = null;
+        flaFindName = lvFla.getFlavorName();
 
         Log.i(TAG, flaFindName);
 
