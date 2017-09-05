@@ -56,10 +56,10 @@ public class DialFlaInfo extends Dialog {
         setContentView(R.layout.dial_flainfo);
 
         /* 초기화 */
-        dfi_txtDetail = (TextView)findViewById(R.id.dfi_txtDetail);
-        dfi_txtTitle = (TextView)findViewById(R.id.dfi_txtTitle);
-        dfi_txtType = (TextView)findViewById(R.id.dfi_txtType);
-        dfi_btnOk = (Button)findViewById(R.id.dfi_btnOk);
+        dfi_txtDetail = (TextView)findViewById(R.id.txt_flavorContent);
+        dfi_txtTitle = (TextView)findViewById(R.id.txt_flavorName);
+        dfi_txtType = (TextView)findViewById(R.id.txt_flavorType);
+        dfi_btnOk = (Button)findViewById(R.id.btn_exitFlavorInfo);
 
         /* 해당 향료명 받아오기*/
         FlavorListAdapter lvFla = null;

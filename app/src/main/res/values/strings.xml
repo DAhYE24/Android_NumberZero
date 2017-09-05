@@ -11,4 +11,10 @@
     <string name="chk_box_test1">"Flavor1</string>
     <string name="chk_box_test2">"Flavor2</string>
     <string name="chk_box_test3">"Flavor3</string>
+
+    <string name="flavor_info_title">향료 정보</string>
+    <string name="flavor_info_type">향료 종류</string>
+    <string name="flavor_info_name">향료명</string>
+    <string name="flavor_info_content">향료에 설명이 들어갑니다</string>
+    <string name="flavor_info_btn">확인</string>
 </resources>
