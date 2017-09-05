@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 final FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.setCustomAnimations(R.anim.anim_slide_in, R.anim.anim_slide_out);   // Animation
+//                transaction.setCustomAnimations(R.anim.anim_slide_in, R.anim.anim_slide_out);   // Animation
                 transaction.replace(R.id.am_lyFrag, fragment).commit();
                 return true;
             }
