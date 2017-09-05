@@ -7,4 +7,8 @@
     <string name="bottom_btn_home">"넘버제로"</string>
     <string name="bottom_btn_board">"향수토크"</string>
     <string name="bottom_btn_user">"MY향수"</string>
+
+    <string name="chk_box_test1">"Flavor1</string>
+    <string name="chk_box_test2">"Flavor2</string>
+    <string name="chk_box_test3">"Flavor3</string>
 </resources>

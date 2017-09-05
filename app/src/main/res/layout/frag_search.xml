@@ -26,8 +26,8 @@
 
         <Button
             android:id="@+id/btn_searchByList"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
@@ -40,13 +40,13 @@
     <View
         android:layout_marginTop="3dp"
         android:layout_width="fill_parent"
-        android:layout_height="3px"
+        android:layout_height="3dp"
         android:background="@color/darkPurple" />
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="5px"
-        android:layout_marginTop="3dp"
+        android:layout_height="1.5dp"
+        android:layout_marginTop="1.5dp"
         android:background="@color/darkPurple" />
 
     <ListView

@@ -71,7 +71,7 @@ public class Lv_MyFlaAdapter extends ArrayAdapter<Lv_FlaValues> {
             convertView = vi.inflate(R.layout.lv_search_fla, null); // 리스트뷰 칸 xml과 연결
 
             holder = new ViewHolder();
-            holder.chBoxOne = (CheckBox) convertView.findViewById(R.id.lsf_chkOne); // 리스트뷰의 체크박스 연결
+            holder.chBoxOne = (CheckBox) convertView.findViewById(R.id.list_chkOne); // 리스트뷰의 체크박스 연결
             convertView.setTag(holder); // 칸 클릭시 뭐 나올지 인듯
 
             holder.chBoxOne.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +90,7 @@ public class Lv_MyFlaAdapter extends ArrayAdapter<Lv_FlaValues> {
             // chkbox.isChecked() => 선택되면 true, 아니면 false
             // chkbox.getText() -> 말그대로 선택된거 text가 뜨는
 
-            holder.chBoxTwo = (CheckBox) convertView.findViewById(R.id.lsf_chkTwo); // 리스트뷰의 체크박스 연결
+            holder.chBoxTwo = (CheckBox) convertView.findViewById(R.id.list_chkTwo); // 리스트뷰의 체크박스 연결
             convertView.setTag(holder); // 칸 클릭시 뭐 나올지 인듯
 
             holder.chBoxTwo.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +107,7 @@ public class Lv_MyFlaAdapter extends ArrayAdapter<Lv_FlaValues> {
                 }
             });
 
-            holder.chBoxThree = (CheckBox) convertView.findViewById(R.id.lsf_chkThree); // 리스트뷰의 체크박스 연결
+            holder.chBoxThree = (CheckBox) convertView.findViewById(R.id.list_chk); // 리스트뷰의 체크박스 연결
             convertView.setTag(holder); // 칸 클릭시 뭐 나올지 인듯
 
             holder.chBoxThree.setOnClickListener(new View.OnClickListener() {

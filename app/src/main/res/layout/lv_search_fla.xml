@@ -1,71 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="#ffffff"
     android:orientation="horizontal">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
         <CheckBox
-            android:id="@+id/lsf_chkOne"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/list_chkOne"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:textColor="#443636"
-            android:focusable="false"
-            android:buttonTint="#54493f"
-            android:focusableInTouchMode="false"
             android:layout_weight="1"
+            android:buttonTint="@color/purple"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:paddingBottom="13dp"
             android:paddingTop="13dp"
-            android:paddingBottom="13dp" />
+            android:text="@string/chk_box_test1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
 
         <View
-            android:layout_width="3px"
-            android:background="#c8bebaba"
+            android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:paddingTop="13dp"
-            android:paddingBottom="13dp" />
+            android:background="#c8bebaba"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp" />
 
         <CheckBox
-            android:id="@+id/lsf_chkTwo"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/list_chkTwo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#443636"
-            android:focusable="false"
-            android:buttonTint="#54493f"
-            android:focusableInTouchMode="false"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/chBox"
             android:layout_weight="1"
+            android:buttonTint="@color/purple"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:paddingBottom="13dp"
             android:paddingTop="13dp"
-            android:paddingBottom="13dp" />
+            android:text="@string/chk_box_test2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
 
         <View
-            android:layout_width="3px"
-            android:background="#c8bebaba"
+            android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:paddingTop="13dp"
-            android:paddingBottom="13dp" />
+            android:background="#c8bebaba"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp" />
 
         <CheckBox
-            android:id="@+id/lsf_chkThree"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/list_chk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#443636"
-            android:focusable="false"
-            android:buttonTint="#54493f"
-            android:focusableInTouchMode="false"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/chBox"
             android:layout_weight="1"
+            android:buttonTint="@color/purple"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:paddingBottom="13dp"
             android:paddingTop="13dp"
-            android:paddingBottom="13dp" />
+            android:text="@string/chk_box_test3"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
     </LinearLayout>
 
 </LinearLayout>

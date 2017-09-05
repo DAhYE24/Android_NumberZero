@@ -5,6 +5,7 @@
     <color name="hotPink">#FF4081</color>
     <color name="brightHotPink">#e30761</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
     <color name="opaqueBlack">#d5000000</color>
     <color name="purple">#663e70</color>
     <color name="turbidPurple">#6d5c6f</color>
