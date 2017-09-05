@@ -45,13 +45,12 @@ public class SearchFragment extends Fragment {
     /* Declare java parameters */
     FlavorListAdapter flavorAdapter = null;    // CustomListView components
     FlavorValues flavorValues;
-    ArrayList<FlavorValues> flavorList = new ArrayList<FlavorValues>();;
+    ArrayList<FlavorValues> flavorList = new ArrayList<FlavorValues>();
+    String[] selectedFlavorArray;   // Selected Flavor List Array
+
     Lv_MyBPAdapter bpAdapter = null;
-
-
     /* JAVA 선언 */
     SharedPreferences userInfo;
-    String[] selectedFlaArr;
     String selectedArr;
 
     /* 네트워크 통신 */
@@ -83,7 +82,7 @@ public class SearchFragment extends Fragment {
 
             /* Load flavors list */
             private void loadFlavorList() {
-//                btn_searchByList.setVisibility(View.VISIBLE); // 검색버튼 활성화
+                btn_searchByList.setVisibility(View.VISIBLE);
 //                fid_btnCheck.setVisibility(View.VISIBLE);
                 // TODO : 어댑터 flavorAdapter / 값 flavorValues / 어레이리스트 flavorList
                 /* Connect checkbox list to StringArray */
@@ -107,34 +106,30 @@ public class SearchFragment extends Fragment {
 //                    }
 //                });
 
+                /* Click search button */
+                btn_searchByList.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        StringBuilder selectedFlavors = flavorAdapter.getSelectedFlavors();
+                        long count = flavorAdapter.getSelectedCount();
 
-//                btn_searchByList.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        /* 리스트어댑터에서 선택된 값들이 저장된 버퍼스트링 값과 선택 수 받아오기 */
-//                        StringBuffer selectedFlas = new StringBuffer();
-//                        selectedFlas = flavorAdapter.getSelectedFlavors();
-//                        long selectCnt = flavorAdapter.getSelectedCount();
-//
-//                        /* 향료 선택에 따른 출력창 */
-//                        if (selectCnt > 5)
-//                            Toast.makeText(getContext(), "향료는 최대 5개까지 선택할 수 있습니다", Toast.LENGTH_LONG).show();
-//                        else if (selectCnt == 0)
-//                            Toast.makeText(getContext(), "향료를 선택하세요", Toast.LENGTH_LONG).show();
-//                        else {
-//                            /* 선택한 향료 배열 String에 넣어두기 */
-//                            selectedFlaArr = String.valueOf(selectedFlas).split(" ");
+                        if (count > 5)
+                            Toast.makeText(getContext(), "향료는 최대 5개까지 선택할 수 있습니다", Toast.LENGTH_LONG).show();
+                        else if (count == 0)
+                            Toast.makeText(getContext(), "향료를 선택하세요", Toast.LENGTH_LONG).show();
+                        else {
+                            selectedFlavorArray = String.valueOf(selectedFlavors).split("\\s");
 //                            type = 1; // 향료 선택
 //                            taskFla = new sendSelected();
 //                            taskFla.execute("http://pridena1030.cafe24.com/NumberZero/NoZ_Fs_FlaSearch.php");
-//                        }
-//                    }
-//                });
+                        }
+                    }
+                });
             }
 
             /* 스피너 : 브랜드별 선택 */
             private void searchByBrand() {
-//                btn_searchByList.setVisibility(View.GONE); // 검색버튼 비활성화
+                btn_searchByList.setVisibility(View.GONE); // 검색버튼 비활성화
 //                fid_btnCheck.setVisibility(View.GONE);
 //
 //                /* 리스트뷰 요소 선언 및 초기화 */
@@ -208,14 +203,14 @@ public class SearchFragment extends Fragment {
                     /* 선택한 타입에 맞춰서 데이터 전송하기 */
                     if (type == 1) { // 향료조합
                         /* 배열에 저장된 값 가져오기 */
-                        for (int i = 0; i < selectedFlaArr.length; i++)
-                            selectedFlaArr[i] = URLEncoder.encode("fla" + i, "UTF-8") + "=" + URLEncoder.encode(selectedFlaArr[i], "UTF-8");
-                        for (int j = 0; j < selectedFlaArr.length; j++) {
+                        for (int i = 0; i < selectedFlavorArray.length; i++)
+                            selectedFlavorArray[i] = URLEncoder.encode("fla" + i, "UTF-8") + "=" + URLEncoder.encode(selectedFlavorArray[i], "UTF-8");
+                        for (int j = 0; j < selectedFlavorArray.length; j++) {
                             if (j != 0) {
                                 dataStr.append("&");
-                                dataStr.append(selectedFlaArr[j]);
+                                dataStr.append(selectedFlavorArray[j]);
                             } else {
-                                dataStr.append(selectedFlaArr[j]);
+                                dataStr.append(selectedFlavorArray[j]);
                             }
                         }
                         Log.i(TAG, String.valueOf(dataStr));
