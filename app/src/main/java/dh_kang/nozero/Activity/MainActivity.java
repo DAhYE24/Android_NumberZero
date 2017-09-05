@@ -1,6 +1,5 @@
 package dh_kang.nozero.Activity;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -17,9 +16,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.DataOutputStream;
@@ -31,10 +28,9 @@ import java.net.URL;
 
 import dh_kang.nozero.Fragment.FragBoard;
 import dh_kang.nozero.Fragment.FragInfo;
-import dh_kang.nozero.Fragment.FragLogin;
 import dh_kang.nozero.Fragment.FragMain;
 import dh_kang.nozero.Fragment.FragMy;
-import dh_kang.nozero.Fragment.FragSearch;
+import dh_kang.nozero.Fragment.SearchFragment;
 import dh_kang.nozero.IntegratedClass.DisableButtonShift;
 import dh_kang.nozero.R;
 
@@ -86,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new FragInfo();
                         break;
                     case R.id.btn_action_search:
-                        fragment = new FragSearch();
+                        fragment = new SearchFragment();
                         break;
                     case R.id.btn_action_home:
                         bottomNavigationView.getMenu().findItem(R.id.btn_action_home).setChecked(true);

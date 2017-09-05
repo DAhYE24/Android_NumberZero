@@ -29,6 +29,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import dh_kang.nozero.Activity.ActiPerfResult;
+import dh_kang.nozero.Activity.MainActivity;
 import dh_kang.nozero.DataSet.Lv_BPValues;
 import dh_kang.nozero.DataSet.Lv_FlaValues;
 import dh_kang.nozero.Adapter.Lv_MyBPAdapter;
@@ -38,7 +39,7 @@ import dh_kang.nozero.R;
 /**
  * Created by dh93 on 2016-10-14.
  */
-public class FragSearch extends Fragment {
+public class SearchFragment extends Fragment {
     /* 로그 테스트 */
     private static final String TAG = "NOZERO_FINAL";
 
@@ -73,10 +74,10 @@ public class FragSearch extends Fragment {
         final View v = inflater.inflate(R.layout.frag_search, container, false);
 
         /* XML 초기화 */
-        fs_lvSearch = (ListView)v.findViewById(R.id.fs_lvSearch);
-        fs_spinType = (Spinner)v.findViewById(R.id.fs_spinType);
-        fs_btnSearch = (ImageButton)v.findViewById(R.id.fs_btnSearch);
-        fid_btnCheck = (Button)v.findViewById(R.id.fid_btnCheck);
+        fs_lvSearch = (ListView)v.findViewById(R.id.list_searchView);
+        fs_spinType = (Spinner)v.findViewById(R.id.spin_searchType);
+//        fs_btnSearch = (ImageButton)v.findViewById(R.id.fs_btnSearch);
+        fid_btnCheck = (Button)v.findViewById(R.id.btn_searchByList);
 
         /* 스피너 선택시 값에 맞춰서 리스트뷰 불러오기 */
         fs_spinType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -91,7 +92,7 @@ public class FragSearch extends Fragment {
 
             /* 스피너 : 향료조합 선택 */
             private void searchByScent() {
-                fs_btnSearch.setVisibility(View.VISIBLE); // 검색버튼 활성화
+//                fs_btnSearch.setVisibility(View.VISIBLE); // 검색버튼 활성화
                 fid_btnCheck.setVisibility(View.VISIBLE);
 
                 /* 리스트뷰 요소 선언 및 초기화 */
@@ -105,7 +106,7 @@ public class FragSearch extends Fragment {
                     inputFla = new Lv_FlaValues(flaListO[i], false, flaListT[i], false, flaListE[i], false); // 각 세 줄의 리스트에 향료 입력
                     scentList.add(inputFla); // 실제 리스트뷰에 값 추가
                 }
-//
+
 //                fid_btnCheck.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View v) {

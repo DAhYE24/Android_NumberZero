@@ -25,7 +25,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import dh_kang.nozero.Fragment.FragMain;
-import dh_kang.nozero.Fragment.FragSearch;
+import dh_kang.nozero.Fragment.SearchFragment;
 import dh_kang.nozero.Adapter.Lv_MyPerfumeAdapter;
 import dh_kang.nozero.DataSet.Lv_PerfumeValues;
 import dh_kang.nozero.R;
@@ -51,7 +51,7 @@ public class ActiPerfResult extends AppCompatActivity {
 
     /* 네트워크 통신 */
     getPerfData task;
-    FragSearch fs = null;
+    SearchFragment fs = null;
     FragMain fm = null;
     public static String perfumeJSON;
 

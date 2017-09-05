@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Perfume search function entries -->
+    <string-array name="spinner_menu">
+        <item>향료조합</item>
+        <item>브랜드별</item>
+    </string-array>
+
     <!-- 향수 기초 정보 제공 -->
     <string-array name="info_main">
         <item>1. 향수 종류</item>
@@ -34,13 +40,6 @@
         <item>◆ 발사믹 노트</item>
         <item>◆ 스페셜 노트</item>
         <item>◆ 그 외 노트</item>
-    </string-array>
-
-    <!-- 향수 검색 정보 제공 -->
-    <string-array name="search_menu">
-        <item>향료조합</item>
-        <item>브랜드별</item>
-        <item>가격대별</item>
     </string-array>
 
     <string-array name="scent_list">

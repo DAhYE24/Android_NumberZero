@@ -188,7 +188,7 @@
                         android:id="@+id/fm_btnSearchByName"
                         android:layout_weight="0.14"
                         android:layout_gravity="center"
-                        android:background="@drawable/btn_search"
+                        android:background="@drawable/btn_main_search"
                         android:layout_marginRight="10dp"
                         android:layout_marginLeft="10dp" />
 
