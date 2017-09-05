@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import dh_kang.nozero.Dialog.DialFlaInfo;
+import dh_kang.nozero.Dialog.FlavorInfoDialog;
 import dh_kang.nozero.DataSet.FlavorValues;
 import dh_kang.nozero.R;
 
@@ -125,10 +125,10 @@ public class FlavorListAdapter extends ArrayAdapter<FlavorValues> {
     /* Show flavor's information using dialog */
     private void showFlavorInfoByDialog(View view) {
         CheckBox checkbox = (CheckBox) view;
-        DialFlaInfo flaDialog = new DialFlaInfo(getContext());
-        flavorName = String.valueOf(checkbox.getText());    // Get this flavor's name
-        flaDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        flaDialog.show();
+        FlavorInfoDialog flavorInfoDialog = new FlavorInfoDialog(getContext());
+        flavorName = String.valueOf(checkbox.getText());    // TODO : fragment에서 dailog로 데이터 전달하는 다른 방법이 있는지
+        flavorInfoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        flavorInfoDialog.show();
     }
 
     /* Show selected flavors list */

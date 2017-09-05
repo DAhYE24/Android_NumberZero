@@ -6,7 +6,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,21 +28,17 @@ import dh_kang.nozero.IntegratedClass.TextViewHelper;
 /**
  * Created by dh93 on 2016-11-21.
  */
-public class DialFlaInfo extends Dialog {
-    /* 로그 테스트 */
-    private static final String TAG = "NOZERO_FINAL";
+public class FlavorInfoDialog extends Dialog {
+    private static final String TAG = "NOZERO_FINAL";         /* LOG TEST */
+    private TextView txt_flavorName, txt_flavorContent, txt_flavorType;       /* Declare xml components */
+    private FlavorListAdapter flavorListAdapter = null;
+    private String findFlavorName;
 
-    /* XML 선언 */
-    TextView dfi_txtTitle, dfi_txtDetail, dfi_txtType;
-    Button dfi_btnOk;
-
-    /* 필수 선언 */
-    public DialFlaInfo(Context context) {
+    public FlavorInfoDialog(Context context) {
         super(context);
     }
 
-    /* JAVA */
-    String flaFindName, myJSON;
+    String myJSON;      /* Declare java parameters */
     String flaName, flaType, flaDetail; //받아오는값
     JSONArray vc = null;
 
@@ -53,31 +48,26 @@ public class DialFlaInfo extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dial_flainfo);
+        setContentView(R.layout.dial_flavor_info);
 
-        /* 초기화 */
-        dfi_txtDetail = (TextView)findViewById(R.id.txt_flavorContent);
-        dfi_txtTitle = (TextView)findViewById(R.id.txt_flavorName);
-        dfi_txtType = (TextView)findViewById(R.id.txt_flavorType);
-        dfi_btnOk = (Button)findViewById(R.id.btn_exitFlavorInfo);
-
-        /* 해당 향료명 받아오기*/
-        FlavorListAdapter lvFla = null;
-        flaFindName = lvFla.getFlavorName();
-
-        Log.i(TAG, flaFindName);
-
-        /* 향료 정보 받아오기 */
-        task = new receiveFlaInfo();
-        task.execute("http://pridena1030.cafe24.com/NumberZero/NoZ_Dfi_FlaInfo.php");
-
-        /* OK 버튼 */
-        dfi_btnOk.setOnClickListener(new View.OnClickListener() {
+        /* Init xml widgets */
+        txt_flavorContent = (TextView) findViewById(R.id.txt_flavorContent);
+        txt_flavorName = (TextView) findViewById(R.id.txt_flavorName);
+        txt_flavorType = (TextView) findViewById(R.id.txt_flavorType);
+        Button btn_exitFlavorInfo = (Button) findViewById(R.id.btn_exitFlavorInfo);
+        btn_exitFlavorInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
             }
-        });
+        }); // Dialog close button
+
+        /* Get flavor's name from FlavorListAdapter.java */
+        findFlavorName = flavorListAdapter.getFlavorName(); // TODO : public과 public static의 차이
+        txt_flavorName.setText(findFlavorName);
+
+        task = new receiveFlaInfo();    /* 네트워크 */
+        task.execute("http://pridena1030.cafe24.com/NumberZero/NoZ_Dfi_FlaInfo.php");
     }
 
     /* 서버에서 향료 정보 받아오기 */
@@ -104,7 +94,7 @@ public class DialFlaInfo extends Dialog {
                     conn.setUseCaches(false);
                     conn.setDoOutput(true);
 
-                    String data  = URLEncoder.encode("flaFindName", "UTF-8") + "=" + URLEncoder.encode(flaFindName, "UTF-8");
+                    String data = URLEncoder.encode("findFlavorName", "UTF-8") + "=" + URLEncoder.encode(findFlavorName, "UTF-8");
 
                     OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
                     wr.write(data);// onPreExecute 메소드의 data 변수의 파라미터 내용을 POST 전송명령
@@ -112,7 +102,7 @@ public class DialFlaInfo extends Dialog {
 
                     if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) { // 연결 후 코드가 리턴
                         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-                        for (;;) {  // 웹상에 보여지는 텍스트를 라인단위로 읽어 저장.
+                        for (; ; ) {  // 웹상에 보여지는 텍스트를 라인단위로 읽어 저장.
                             String line = br.readLine();
                             if (line == null) break;
                             jsonHtml.append(line + "\n"); // 저장된 텍스트 라인을 jsonHtml에 붙여넣음
@@ -127,19 +117,19 @@ public class DialFlaInfo extends Dialog {
             return jsonHtml.toString();
         }
 
-        protected void onPostExecute(String str){
+        protected void onPostExecute(String str) {
             myJSON = str;
             showList();
             asyncDialog.dismiss();
         }
     }
 
-    protected void showList(){
-        try{
+    protected void showList() {
+        try {
             JSONObject jsonObj = new JSONObject(myJSON);
             vc = jsonObj.getJSONArray("results");
 
-            for(int i=0;i<vc.length();i++) {
+            for (int i = 0; i < vc.length(); i++) {
                 JSONObject jo = vc.getJSONObject(i);
                 flaName = jo.getString("flaName");
                 flaType = jo.getString("flaType");
@@ -147,15 +137,15 @@ public class DialFlaInfo extends Dialog {
             }
 
             /* 향료 정보 보여주기 */
-            dfi_txtTitle.setText("[ " + flaName + " ]");
-            dfi_txtType.setText(flaType);
+//            txt_flavorName.setText("[ " + flaName + " ]");
+            txt_flavorType.setText(flaType);
 
             /* 디바이스의 가로 크기 불러오기 */
             DisplayMetrics dm = getContext().getResources().getDisplayMetrics();
             int width = dm.widthPixels;
 
-            dfi_txtDetail.setText(TextViewHelper.shrinkWithWordUnit(dfi_txtDetail, flaDetail, width / 2));
-            //dfi_txtDetail.setText(flaDetail);
+            txt_flavorContent.setText(TextViewHelper.shrinkWithWordUnit(txt_flavorContent, flaDetail, width / 2));
+            //txt_flavorContent.setText(flaDetail);
         } catch (JSONException e) {
             e.printStackTrace();
         }
