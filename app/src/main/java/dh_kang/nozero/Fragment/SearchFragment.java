@@ -28,8 +28,8 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import dh_kang.nozero.Activity.ActiPerfResult;
+import dh_kang.nozero.Adapter.BrandListAdapter;
 import dh_kang.nozero.DataSet.FlavorValues;
-import dh_kang.nozero.Adapter.Lv_MyBPAdapter;
 import dh_kang.nozero.Adapter.FlavorListAdapter;
 import dh_kang.nozero.R;
 
@@ -48,7 +48,7 @@ public class SearchFragment extends Fragment {
     ArrayList<FlavorValues> flavorList = new ArrayList<FlavorValues>();
     String[] selectedFlavorArray;   // Selected Flavor List Array
 
-    Lv_MyBPAdapter bpAdapter = null;
+    BrandListAdapter bpAdapter = null;
     /* JAVA 선언 */
     SharedPreferences userInfo;
     String selectedArr;
@@ -133,26 +133,26 @@ public class SearchFragment extends Fragment {
 //                fid_btnCheck.setVisibility(View.GONE);
 //
 //                /* 리스트뷰 요소 선언 및 초기화 */
-//                ArrayList<Lv_BPValues> brandList = new ArrayList<Lv_BPValues>();
+//                ArrayList<BrandValues> brandList = new ArrayList<BrandValues>();
 //                String[] brand = getResources().getStringArray(R.array.brandList);
-//                Lv_BPValues inputBrand;
+//                BrandValues inputBrand;
 //
 //                /* 리스트뷰에 목록 적용 */
 //                for (int i = 0; i < brand.length; i++) {
-//                    inputBrand = new Lv_BPValues(brand[i]);
+//                    inputBrand = new BrandValues(brand[i]);
 //                    brandList.add(inputBrand);
 //                }
 //
 //                /* 실제 리스트뷰에 값 적용 */
-//                bpAdapter = new Lv_MyBPAdapter(getContext(), R.layout.lv_search_brand, brandList);
+//                bpAdapter = new BrandListAdapter(getContext(), R.layout.lv_search_brand, brandList);
 //                list_searchView.setAdapter(bpAdapter);
 //
 //                /* 브랜드 선택에 따른 출력창 */
 //                list_searchView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //                    public void onItemClick(AdapterView<?> parent, View view,
 //                                            int position, long id) {
-//                        Lv_BPValues lvBrand = (Lv_BPValues) parent.getItemAtPosition(position);
-//                        selectedArr = lvBrand.getBpTitle();
+//                        BrandValues lvBrand = (BrandValues) parent.getItemAtPosition(position);
+//                        selectedArr = lvBrand.getBrandTitle();
 //                        type = 2; // 브랜드 선택
 //                        taskFla = new sendSelected();
 //                        taskFla.execute("http://pridena1030.cafe24.com/NumberZero/NoZ_Fs_BrandSearch.php");
