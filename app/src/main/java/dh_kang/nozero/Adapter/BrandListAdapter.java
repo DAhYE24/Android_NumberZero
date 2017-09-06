@@ -35,22 +35,22 @@ public class BrandListAdapter extends ArrayAdapter<BrandValues> {
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        ViewHolder viewholder = new ViewHolder();
+        ViewHolder viewholder;
 
         if (convertView == null) {
             /* Connect xml with fragment layout */
             LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.lv_search_brand, null);
+            viewholder = new ViewHolder();
             viewholder.txt_brandName = (TextView) convertView.findViewById(R.id.txt_brandName);
 
-            BrandValues brandData = brandList.get(position);
-            viewholder.txt_brandName.setText(brandData.getBrandTitle());
-            viewholder.txt_brandName.setTag(brandData);
+            convertView.setTag(viewholder);
         } else {
             viewholder = (ViewHolder) convertView.getTag();
         }
-
-        convertView.setTag(viewholder);
+        BrandValues brandData = brandList.get(position);
+        viewholder.txt_brandName.setText(brandData.getBrandTitle());
+        viewholder.txt_brandName.setTag(brandData); // TODO : setTag()의 필요성??
         return convertView;
     }
 }

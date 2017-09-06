@@ -63,9 +63,6 @@
         <item>고추냉이</item>
         <item>백리향</item>
         <item>레몬</item>
-        <item>고추냉이</item>
-        <item>백리향</item>
-        <item>레몬</item>
     </string-array>
 
     <string-array name="flavorSecondLine">
@@ -76,9 +73,6 @@
         <item>머스크</item>
         <item>딜</item>
         <item>앰버</item>
-        <item>라벤더</item>
-        <item>사과</item>
-        <item>그레이프프루트</item>
         <item>라벤더</item>
         <item>사과</item>
         <item>그레이프프루트</item>
@@ -95,9 +89,6 @@
         <item>백합</item>
         <item>로즈마리</item>
         <item>오렌지플라워</item>
-        <item>로즈마리</item>
-        <item>오렌지플라워</item>
-        <item>백합</item>
     </string-array>
 
     <string-array name="brandList">

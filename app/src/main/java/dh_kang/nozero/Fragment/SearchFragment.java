@@ -42,8 +42,8 @@ public class SearchFragment extends Fragment {
     private ListView list_searchView;   /* Declare xml components */
     private Button btn_searchByList;
 
-    private ArrayList<FlavorValues> flavorList = new ArrayList<FlavorValues>(); /* Declare java parameters */
-    private ArrayList<BrandValues> brandList = new ArrayList<BrandValues>();
+    private ArrayList<FlavorValues> flavorList; /* Declare java parameters */
+    private ArrayList<BrandValues> brandList;
     private FlavorListAdapter flavorAdapter = null;    // CustomListView components
     private BrandListAdapter brandAdapter = null;
     private FlavorValues flavorValues;
@@ -69,7 +69,7 @@ public class SearchFragment extends Fragment {
 
         /* Init xml widgets */
         list_searchView = (ListView) view.findViewById(R.id.list_searchView);
-        Spinner spin_searchType = (Spinner) view.findViewById(R.id.spin_searchType);
+        Spinner spin_searchType = (Spinner) view.findViewById(R.id.spin_searchType);    // TODO : spinner 커스텀
         btn_searchByList = (Button) view.findViewById(R.id.btn_searchByList);
 
         /* Set spinner to load each lists */
@@ -90,6 +90,7 @@ public class SearchFragment extends Fragment {
             /* Load flavors list */
             private void loadFlavorList() {
                 btn_searchByList.setVisibility(View.VISIBLE);   // Show search button
+                flavorList = new ArrayList<FlavorValues>();
 
                 /* Connect checkbox list to StringArray */
                 String[] flavorFirstLine = getResources().getStringArray(R.array.flavorFirstLine);
@@ -136,6 +137,7 @@ public class SearchFragment extends Fragment {
             /* 스피너 : 브랜드별 선택 */
             private void searchByBrand() {  // Ignore search button
                 btn_searchByList.setVisibility(View.GONE);
+                brandList = new ArrayList<BrandValues>();
                 // TODO : 어댑터 brandAdapter / 값 brandValues / 어레이리스트 brandList
                 String[] brand = getResources().getStringArray(R.array.brandList);
                 for (int i = 0; i < brand.length; i++) {
