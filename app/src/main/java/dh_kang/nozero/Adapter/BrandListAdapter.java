@@ -2,6 +2,7 @@ package dh_kang.nozero.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,9 +36,11 @@ public class BrandListAdapter extends ArrayAdapter<BrandValues> {
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         ViewHolder viewholder = new ViewHolder();
-        BrandValues brandList = this.brandList.get(position);
-        viewholder.txt_brandName.setText(brandList.getBrandTitle());
-        viewholder.txt_brandName.setTag(brandList);
+        BrandValues brandData = brandList.get(position);
+        Log.i(TAG, brandData.toString());
+        Log.i(TAG, brandData.getBrandTitle());
+        viewholder.txt_brandName.setText(brandData.getBrandTitle());
+        viewholder.txt_brandName.setTag(brandData);
 
         if (convertView == null) {
             /* Connect xml with fragment layout */

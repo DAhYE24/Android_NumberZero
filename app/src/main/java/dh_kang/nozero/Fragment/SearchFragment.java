@@ -29,6 +29,7 @@ import java.util.ArrayList;
 
 import dh_kang.nozero.Activity.ActiPerfResult;
 import dh_kang.nozero.Adapter.BrandListAdapter;
+import dh_kang.nozero.DataSet.BrandValues;
 import dh_kang.nozero.DataSet.FlavorValues;
 import dh_kang.nozero.Adapter.FlavorListAdapter;
 import dh_kang.nozero.R;
@@ -38,29 +39,29 @@ import dh_kang.nozero.R;
  */
 public class SearchFragment extends Fragment {
     private static final String TAG = "NOZERO_FINAL";      /* LOG TEST */
-    private Spinner spin_searchType;     /* Declare xml components */
-    private ListView list_searchView;
+    private ListView list_searchView;   /* Declare xml components */
     private Button btn_searchByList;
 
-    /* Declare java parameters */
-    FlavorListAdapter flavorAdapter = null;    // CustomListView components
-    FlavorValues flavorValues;
-    ArrayList<FlavorValues> flavorList = new ArrayList<FlavorValues>();
-    String[] selectedFlavorArray;   // Selected Flavor List Array
+    private ArrayList<FlavorValues> flavorList = new ArrayList<FlavorValues>(); /* Declare java parameters */
+    private ArrayList<BrandValues> brandList = new ArrayList<BrandValues>();
+    private FlavorListAdapter flavorAdapter = null;    // CustomListView components
+    private BrandListAdapter brandAdapter = null;
+    private FlavorValues flavorValues;
+    private BrandValues brandValues;
+    private String[] selectedFlavorArray;   // Selected Flavor List Array
+    private static String resultList;
 
-    BrandListAdapter bpAdapter = null;
+    public static String getResultList() {
+        return resultList;
+    }
+
     /* JAVA 선언 */
     SharedPreferences userInfo;
     String selectedArr;
 
     /* 네트워크 통신 */
-    sendSelected taskFla; //향료 찾는
-    long type; // 1: 향료 2: 브랜드 및 가격
-    public static String resultList; // 나온 결과 다음 액티비티에 보내주기
-
-    public static String getResultList() {
-        return resultList;
-    }
+//    sendSelected taskFla; //향료 찾는
+//    long type; // 1: 향료 2: 브랜드 및 가격
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -68,7 +69,7 @@ public class SearchFragment extends Fragment {
 
         /* Init xml widgets */
         list_searchView = (ListView) view.findViewById(R.id.list_searchView);
-        spin_searchType = (Spinner) view.findViewById(R.id.spin_searchType);
+        Spinner spin_searchType = (Spinner) view.findViewById(R.id.spin_searchType);
         btn_searchByList = (Button) view.findViewById(R.id.btn_searchByList);
 
         /* Set spinner to load each lists */
@@ -80,11 +81,15 @@ public class SearchFragment extends Fragment {
                 else if (position == 1) searchByBrand();
             }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Nothing happens
+            }
+
             /* Load flavors list */
             private void loadFlavorList() {
-                btn_searchByList.setVisibility(View.VISIBLE);
-//                fid_btnCheck.setVisibility(View.VISIBLE);
-                // TODO : 어댑터 flavorAdapter / 값 flavorValues / 어레이리스트 flavorList
+                btn_searchByList.setVisibility(View.VISIBLE);   // Show search button
+
                 /* Connect checkbox list to StringArray */
                 String[] flavorFirstLine = getResources().getStringArray(R.array.flavorFirstLine);
                 String[] flavorSecondLine = getResources().getStringArray(R.array.flavorSecondLine);
@@ -128,140 +133,126 @@ public class SearchFragment extends Fragment {
             }
 
             /* 스피너 : 브랜드별 선택 */
-            private void searchByBrand() {
-                btn_searchByList.setVisibility(View.GONE); // 검색버튼 비활성화
-//                fid_btnCheck.setVisibility(View.GONE);
-//
-//                /* 리스트뷰 요소 선언 및 초기화 */
-//                ArrayList<BrandValues> brandList = new ArrayList<BrandValues>();
-//                String[] brand = getResources().getStringArray(R.array.brandList);
-//                BrandValues inputBrand;
-//
-//                /* 리스트뷰에 목록 적용 */
-//                for (int i = 0; i < brand.length; i++) {
-//                    inputBrand = new BrandValues(brand[i]);
-//                    brandList.add(inputBrand);
-//                }
-//
-//                /* 실제 리스트뷰에 값 적용 */
-//                bpAdapter = new BrandListAdapter(getContext(), R.layout.lv_search_brand, brandList);
-//                list_searchView.setAdapter(bpAdapter);
-//
-//                /* 브랜드 선택에 따른 출력창 */
-//                list_searchView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                    public void onItemClick(AdapterView<?> parent, View view,
-//                                            int position, long id) {
+            private void searchByBrand() {  // Ignore search button
+                btn_searchByList.setVisibility(View.GONE);
+                // TODO : 어댑터 brandAdapter / 값 brandValues / 어레이리스트 brandList
+                String[] brand = getResources().getStringArray(R.array.brandList);
+                for (int i = 0; i < brand.length; i++) {
+                    brandValues = new BrandValues(brand[i]);
+                    brandList.add(brandValues);
+                }
+                brandAdapter = new BrandListAdapter(getContext(), R.layout.lv_search_brand, brandList);
+                list_searchView.setAdapter(brandAdapter);
+
+                list_searchView.setOnItemClickListener(new AdapterView.OnItemClickListener() {  // Event when user click brand list
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                        BrandValues lvBrand = (BrandValues) parent.getItemAtPosition(position);
-//                        selectedArr = lvBrand.getBrandTitle();
+                        brandValues = (BrandValues) parent.getItemAtPosition(position);
+                        selectedArr = brandValues.getBrandTitle();
 //                        type = 2; // 브랜드 선택
 //                        taskFla = new sendSelected();
 //                        taskFla.execute("http://pridena1030.cafe24.com/NumberZero/NoZ_Fs_BrandSearch.php");
-//                    }
-//                });
-            }
-
-            /* 필수선언 : 아무 선택을 하지 않았을 때 */
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+                    }
+                });
             }
         });
         return view;
     }
 
-    @Override
-    public void onPause() {
-        flavorAdapter.setSelectedCount(0); // 검색 기능 벗어나면 어댑터에서 향료 선택한 갯수 초기화
-        super.onPause();
-    }
+//    @Override
+//    public void onPause() {
+//        flavorAdapter.setSelectedCount(0); // 검색 기능 벗어나면 어댑터에서 향료 선택한 갯수 초기화
+//        super.onPause();
+//    }
 
-    public class sendSelected extends AsyncTask<String, Integer, String> {
-        ProgressDialog asyncDialog = new ProgressDialog(getContext());
-
-        @Override
-        protected void onPreExecute() {
-            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            asyncDialog.setMessage("..로딩중..");
-            asyncDialog.show();
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(String... urls) {
-            StringBuilder jsonHtml = new StringBuilder();
-            try {
-                URL url = new URL(urls[0]); // 연결 url 설정
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // 커넥션 객체 생성
-                if (conn != null) { // 연결된 경우
-                    conn.setConnectTimeout(3000);
-                    conn.setUseCaches(false);
-                    conn.setDoOutput(true);
-
-                    StringBuffer dataStr = new StringBuffer();
-                    String data;
-                    OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-
-                    /* 선택한 타입에 맞춰서 데이터 전송하기 */
-                    if (type == 1) { // 향료조합
-                        /* 배열에 저장된 값 가져오기 */
-                        for (int i = 0; i < selectedFlavorArray.length; i++)
-                            selectedFlavorArray[i] = URLEncoder.encode("fla" + i, "UTF-8") + "=" + URLEncoder.encode(selectedFlavorArray[i], "UTF-8");
-                        for (int j = 0; j < selectedFlavorArray.length; j++) {
-                            if (j != 0) {
-                                dataStr.append("&");
-                                dataStr.append(selectedFlavorArray[j]);
-                            } else {
-                                dataStr.append(selectedFlavorArray[j]);
-                            }
-                        }
-                        Log.i(TAG, String.valueOf(dataStr));
-                        wr.write(String.valueOf(dataStr));//onPreExecute 메소드의 data 변수의 파라미터 내용을 POST 전송명령
-                    } else if (type == 2) { // 브랜드별, 가격대별
-                        data = URLEncoder.encode("selectedArr", "UTF-8") + "=" + URLEncoder.encode(selectedArr, "UTF-8");
-                        wr.write(data);//onPreExecute 메소드의 data 변수의 파라미터 내용을 POST 전송명령
-                    }
-
-                    wr.flush(); //OutputStreamWriter 버퍼 메모리 비우기
-
-                    if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) { // 연결 후 코드가 리턴
-                        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-                        for (; ; ) {  // 웹상에 보여지는 텍스트를 라인단위로 읽어 저장.
-                            String line = br.readLine();
-                            if (line == null) break;
-                            jsonHtml.append(line + "\n"); // 저장된 텍스트 라인을 jsonHtml에 붙여넣음
-                        }
-                        br.close();
-                    }
-                    conn.disconnect();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-            return jsonHtml.toString();
-        }
-
-        @Override
-        protected void onPostExecute(String str) {
-            asyncDialog.dismiss();
-            userInfo = getContext().getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = userInfo.edit();
-            editor.putString("searchPerf", "search"); // 닉네임 저장
-            editor.commit();
-
-            /* 조합별 저장하는 값 */
-            if (type == 1) { // 향료조합
-                if (str.trim().equals("200")) {
-                    Toast.makeText(getContext(), "해당하는 향수가 없습니다", Toast.LENGTH_SHORT).show();
-                } else {
-                    resultList = str;
-                    Intent i = new Intent(getContext(), ActiPerfResult.class);
-                    startActivity(i);
-                }
-            } else if (type == 2) { //브랜드별, 가격대별
-                resultList = str;
-                Intent i = new Intent(getContext(), ActiPerfResult.class);
-                startActivity(i);
-            }
-            super.onPostExecute(str);
-        }
-    }
+//    private class sendSelected extends AsyncTask<String, Integer, String> {
+//        ProgressDialog asyncDialog = new ProgressDialog(getContext());
+//
+//        @Override
+//        protected void onPreExecute() {
+//            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//            asyncDialog.setMessage("..로딩중..");
+//            asyncDialog.show();
+//            super.onPreExecute();
+//        }
+//
+//        @Override
+//        protected String doInBackground(String... urls) {
+//            StringBuilder jsonHtml = new StringBuilder();
+//            try {
+//                URL url = new URL(urls[0]); // 연결 url 설정
+//                HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // 커넥션 객체 생성
+//                if (conn != null) { // 연결된 경우
+//                    conn.setConnectTimeout(3000);
+//                    conn.setUseCaches(false);
+//                    conn.setDoOutput(true);
+//
+//                    StringBuffer dataStr = new StringBuffer();
+//                    String data;
+//                    OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+//
+//                    /* 선택한 타입에 맞춰서 데이터 전송하기 */
+//                    if (type == 1) { // 향료조합
+//                        /* 배열에 저장된 값 가져오기 */
+//                        for (int i = 0; i < selectedFlavorArray.length; i++)
+//                            selectedFlavorArray[i] = URLEncoder.encode("fla" + i, "UTF-8") + "=" + URLEncoder.encode(selectedFlavorArray[i], "UTF-8");
+//                        for (int j = 0; j < selectedFlavorArray.length; j++) {
+//                            if (j != 0) {
+//                                dataStr.append("&");
+//                                dataStr.append(selectedFlavorArray[j]);
+//                            } else {
+//                                dataStr.append(selectedFlavorArray[j]);
+//                            }
+//                        }
+//                        Log.i(TAG, String.valueOf(dataStr));
+//                        wr.write(String.valueOf(dataStr));//onPreExecute 메소드의 data 변수의 파라미터 내용을 POST 전송명령
+//                    } else if (type == 2) { // 브랜드별, 가격대별
+//                        data = URLEncoder.encode("selectedArr", "UTF-8") + "=" + URLEncoder.encode(selectedArr, "UTF-8");
+//                        wr.write(data);//onPreExecute 메소드의 data 변수의 파라미터 내용을 POST 전송명령
+//                    }
+//
+//                    wr.flush(); //OutputStreamWriter 버퍼 메모리 비우기
+//
+//                    if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) { // 연결 후 코드가 리턴
+//                        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+//                        for (; ; ) {  // 웹상에 보여지는 텍스트를 라인단위로 읽어 저장.
+//                            String line = br.readLine();
+//                            if (line == null) break;
+//                            jsonHtml.append(line + "\n"); // 저장된 텍스트 라인을 jsonHtml에 붙여넣음
+//                        }
+//                        br.close();
+//                    }
+//                    conn.disconnect();
+//                }
+//            } catch (Exception ex) {
+//                ex.printStackTrace();
+//            }
+//            return jsonHtml.toString();
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String str) {
+//            asyncDialog.dismiss();
+//            userInfo = getContext().getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+//            SharedPreferences.Editor editor = userInfo.edit();
+//            editor.putString("searchPerf", "search"); // 닉네임 저장
+//            editor.commit();
+//
+//            /* 조합별 저장하는 값 */
+//            if (type == 1) { // 향료조합
+//                if (str.trim().equals("200")) {
+//                    Toast.makeText(getContext(), "해당하는 향수가 없습니다", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    resultList = str;
+//                    Intent i = new Intent(getContext(), ActiPerfResult.class);
+//                    startActivity(i);
+//                }
+//            } else if (type == 2) { //브랜드별, 가격대별
+//                resultList = str;
+//                Intent i = new Intent(getContext(), ActiPerfResult.class);
+//                startActivity(i);
+//            }
+//            super.onPostExecute(str);
+//        }
+//    }
 }
