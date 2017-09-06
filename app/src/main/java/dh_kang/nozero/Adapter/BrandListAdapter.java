@@ -34,23 +34,21 @@ public class BrandListAdapter extends ArrayAdapter<BrandValues> {
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        ViewHolder viewholder = null;
+        ViewHolder viewholder = new ViewHolder();
+        BrandValues brandList = this.brandList.get(position);
+        viewholder.txt_brandName.setText(brandList.getBrandTitle());
+        viewholder.txt_brandName.setTag(brandList);
+
         if (convertView == null) {
             /* Connect xml with fragment layout */
-            LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = vi.inflate(R.layout.lv_search_brand, null);
-            viewholder = new ViewHolder();
+            LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = layoutInflater.inflate(R.layout.lv_search_brand, null);
             viewholder.txt_brandName = (TextView) convertView.findViewById(R.id.txt_brandName);
-            convertView.setTag(viewholder);
         } else {
             viewholder = (ViewHolder) convertView.getTag();
         }
 
-        BrandValues sfSetPart = brandList.get(position);
-        //텍스트
-        viewholder.txt_brandName.setText(sfSetPart.getBrandTitle());
-        viewholder.txt_brandName.setTag(sfSetPart);
-
+        convertView.setTag(viewholder);
         return convertView;
     }
 }

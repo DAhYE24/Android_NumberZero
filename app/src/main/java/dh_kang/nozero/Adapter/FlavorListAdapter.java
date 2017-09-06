@@ -35,15 +35,19 @@ public class FlavorListAdapter extends ArrayAdapter<FlavorValues> {
     private class ViewHolder {  // ViewHolder's components
         CheckBox chk_flavor1, chk_flavor2, chk_flavor3;
     }
+
     public static StringBuilder getSelectedFlavors() {
         return selectedFlavors;
     }   // Return selected list in SearchFragment
+
     public static long getSelectedCount() {
         return selectedCount;
     }   // Return selected count in SearchFragment
+
     public static String getFlavorName() {
         return flavorName;
     }
+
     public static void setSelectedCount(long selectedCount) {
         FlavorListAdapter.selectedCount = selectedCount;
     }
@@ -51,17 +55,28 @@ public class FlavorListAdapter extends ArrayAdapter<FlavorValues> {
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        ViewHolder viewholder = null;
+        ViewHolder viewholder = new ViewHolder();
         selectedFlavors = new StringBuilder();  // Init StringBuilder
 
         if (convertView == null) {
             /* Connect xml with fragment layout */
-            LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = vi.inflate(R.layout.lv_search_flavor, null);
-            viewholder = new ViewHolder();
+            LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = layoutInflater.inflate(R.layout.lv_search_flavor, null);
             viewholder.chk_flavor1 = (CheckBox) convertView.findViewById(R.id.chk_flavor1);
             viewholder.chk_flavor2 = (CheckBox) convertView.findViewById(R.id.chk_flavor2);
             viewholder.chk_flavor3 = (CheckBox) convertView.findViewById(R.id.chk_flavor3);
+
+            /* Connect xml to data-set */
+            FlavorValues flavorData = flavorList.get(position);
+            viewholder.chk_flavor1.setText(flavorData.getFlavor1());
+            viewholder.chk_flavor1.setChecked(flavorData.isSelected1());
+            viewholder.chk_flavor1.setTag(flavorData);
+            viewholder.chk_flavor2.setText(flavorData.getFlavor2());
+            viewholder.chk_flavor2.setChecked(flavorData.isSelected2());
+            viewholder.chk_flavor2.setTag(flavorData);
+            viewholder.chk_flavor3.setText(flavorData.getFlavor3());
+            viewholder.chk_flavor3.setChecked(flavorData.isSelected3());
+            viewholder.chk_flavor3.setTag(flavorData);
 
             /* Checkbox functions1 : select this flavor */
             viewholder.chk_flavor1.setOnClickListener(new View.OnClickListener() {
@@ -102,26 +117,13 @@ public class FlavorListAdapter extends ArrayAdapter<FlavorValues> {
                     return false;
                 }
             });
-
-            convertView.setTag(viewholder);
         } else {
             // TODO : convertView가 null이 아닌경우에는 기존의 View를 재활용 하기때문에 새롭게 View를 inflate할 필요 없이 데이터만 바꾸는 작업을 하면 된다
             // TODO : 지우게 되면 오류가 생김
             viewholder = (ViewHolder) convertView.getTag();
         }
 
-        /* Connect xml to data-set */
-        FlavorValues flavorData = flavorList.get(position);
-        viewholder.chk_flavor1.setText(flavorData.getFlavor1());
-        viewholder.chk_flavor1.setChecked(flavorData.isSelected1());
-        viewholder.chk_flavor1.setTag(flavorData);
-        viewholder.chk_flavor2.setText(flavorData.getFlavor2());
-        viewholder.chk_flavor2.setChecked(flavorData.isSelected2());
-        viewholder.chk_flavor2.setTag(flavorData);
-        viewholder.chk_flavor3.setText(flavorData.getFlavor3());
-        viewholder.chk_flavor3.setChecked(flavorData.isSelected3());
-        viewholder.chk_flavor3.setTag(flavorData);
-
+        convertView.setTag(viewholder);
         return convertView;
     }
 
