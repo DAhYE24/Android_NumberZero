@@ -33,10 +33,10 @@ public class Lv_MyBPAdapter extends ArrayAdapter<Lv_BPValues> {
         ViewHolder holder = null;
         if (convertView == null) {
             LayoutInflater vi = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = vi.inflate(R.layout.lv_search_value, null); // 리스트뷰 칸 xml과 연결
+            convertView = vi.inflate(R.layout.lv_search_brand, null); // 리스트뷰 칸 xml과 연결
 
             holder = new ViewHolder();
-            holder.txtBP = (TextView)convertView.findViewById(R.id.lsv_txtValue);
+            holder.txtBP = (TextView)convertView.findViewById(R.id.txt_brandName);
             convertView.setTag(holder); // 칸 클릭시 뭐 나올지 인듯
 
 //            holder.txtBP.setOnClickListener(new View.OnClickListener() {

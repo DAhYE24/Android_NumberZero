@@ -144,7 +144,7 @@ public class SearchFragment extends Fragment {
 //                }
 //
 //                /* 실제 리스트뷰에 값 적용 */
-//                bpAdapter = new Lv_MyBPAdapter(getContext(), R.layout.lv_search_value, brandList);
+//                bpAdapter = new Lv_MyBPAdapter(getContext(), R.layout.lv_search_brand, brandList);
 //                list_searchView.setAdapter(bpAdapter);
 //
 //                /* 브랜드 선택에 따른 출력창 */
