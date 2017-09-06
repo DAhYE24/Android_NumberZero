@@ -86,6 +86,7 @@ public class SearchFragment extends Fragment {
                 // Nothing happens
             }
 
+            // TODO : 리스트뷰의 내용의 중복 그리고 getView가 너무 많이 실행됨ㅠㅠ
             /* Load flavors list */
             private void loadFlavorList() {
                 btn_searchByList.setVisibility(View.VISIBLE);   // Show search button

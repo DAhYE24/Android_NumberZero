@@ -20,6 +20,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:spinnerMode="dropdown"
             android:background="@drawable/img_spin_box"
             android:entries="@array/spinner_menu"
             android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -54,5 +56,5 @@
         android:layout_weight="0.9"
         android:choiceMode="multipleChoice"
         android:divider="@color/turbidPurple"
-        android:dividerHeight="2dp" />
+        android:dividerHeight="1dp" />
 </LinearLayout>
