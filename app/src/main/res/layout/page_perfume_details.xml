@@ -133,6 +133,7 @@
                 android:orientation="horizontal">
 
                 <RelativeLayout
+                    android:id="@+id/btn_priceCompare"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -166,6 +167,7 @@
                     android:background="@color/white" />
 
                 <RelativeLayout
+                    android:id="@+id/btn_likeThis"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -199,6 +201,7 @@
                     android:background="@color/white" />
 
                 <RelativeLayout
+                    android:id="@+id/btn_storeThis"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -232,6 +235,7 @@
                     android:background="@color/white" />
 
                 <RelativeLayout
+                    android:id="@+id/btn_askRevision"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

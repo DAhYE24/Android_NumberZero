@@ -35,7 +35,7 @@ public class ActiPerfResult extends AppCompatActivity {
     private static final String TAG = "NOZERO_FINAL";
 
     /* XML 선언 */
-    ListView ap_lvResult; //리스트뷰
+    ListView list_resultBox; //리스트뷰
     String rJson;
 
     /* JAVA 선언*/
@@ -62,7 +62,7 @@ public class ActiPerfResult extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.acti_perfresult);
+        setContentView(R.layout.page_perfume_result);
 
         /* 일반검색인지 메인검색인지 구별 */
         userInfo = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
@@ -76,7 +76,7 @@ public class ActiPerfResult extends AppCompatActivity {
         }
 
         /* 초기화 */
-        ap_lvResult = (ListView)findViewById(R.id.apr_lvResult);
+        list_resultBox = (ListView)findViewById(R.id.list_resultBox);
 
         /* 검색결과 향수 보여주기 */
         showPerfumeInfo();
@@ -87,7 +87,7 @@ public class ActiPerfResult extends AppCompatActivity {
         Log.i(TAG, tempId);
 
         /* 클릭하는 경우 */
-        ap_lvResult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        list_resultBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Lv_PerfumeValues lvPerf = (Lv_PerfumeValues) parent.getItemAtPosition(position);
@@ -134,8 +134,8 @@ public class ActiPerfResult extends AppCompatActivity {
                 perfList.add(inputPerf);
             }
 
-            perfAdapter = new Lv_MyPerfumeAdapter(this, R.layout.lv_perf_result, perfList); // 리스트 형태 연결
-            ap_lvResult.setAdapter(perfAdapter);
+            perfAdapter = new Lv_MyPerfumeAdapter(this, R.layout.lv_perfume_result, perfList); // 리스트 형태 연결
+            list_resultBox.setAdapter(perfAdapter);
         } catch (JSONException e) {
             e.printStackTrace();
         }
