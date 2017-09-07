@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_background"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_result"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0.9"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/darkPurple" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.5dp"
+            android:layout_marginTop="1.5dp"
+            android:background="@color/darkPurple" />
+
+        <ListView
+            android:id="@+id/list_resultBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/turbidPurple"
+            android:dividerHeight="1dp" />
+    </LinearLayout>
+</LinearLayout>

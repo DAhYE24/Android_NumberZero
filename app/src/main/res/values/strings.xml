@@ -23,4 +23,6 @@
     <string name="result_name">향수명</string>
     <string name="result_eng_name">향수 영문명</string>
     <string name="result_addition">용량 / 가격</string>
+
+    <string name="activity_result">향수 검색 결과과</string>
 </resources>
