@@ -29,4 +29,13 @@
     <string name="activity_details">향수 상세 정보</string>
 
     <string name="details_like_count">추천 0</string>
+    <string name="details_btn_price">가격비교</string>
+    <string name="details_btn_like">추천하기</string>
+    <string name="details_btn_store">보관하기</string>
+    <string name="details_btn_revise">수정요청</string>
+    <string name="details_perfume_type">종류</string>
+    <string name="details_perfume_country">국가</string>
+    <string name="details_perfume_intro">소개</string>
+    <string name="details_flavor_info">향료 정보</string>
+    <string name="details_perfume_component">성분</string>
 </resources>
