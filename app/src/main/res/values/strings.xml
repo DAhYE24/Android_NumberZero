@@ -19,10 +19,14 @@
     <string name="flavor_info_content">향료에 설명이 들어갑니다</string>
     <string name="flavor_info_btn">확인</string>
 
-    <string name="result_brand">향수 브랜드</string>
-    <string name="result_name">향수명</string>
-    <string name="result_eng_name">향수 영문명</string>
-    <string name="result_addition">용량 / 가격</string>
+    <string name="perfume_image">향수 이미지</string>
+    <string name="perfume_brand">향수 브랜드</string>
+    <string name="perfume_name">향수명</string>
+    <string name="perfume_eng_name">향수 영문명</string>
+    <string name="perfume_addition">용량 / 가격</string>
 
-    <string name="activity_result">향수 검색 결과과</string>
+    <string name="activity_result">향수 검색 결과</string>
+    <string name="activity_details">향수 상세 정보</string>
+
+    <string name="details_like_count">추천 0</string>
 </resources>

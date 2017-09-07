@@ -14,10 +14,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:text="@string/activity_result"
             android:textAppearance="?android:textAppearanceLarge"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <LinearLayout

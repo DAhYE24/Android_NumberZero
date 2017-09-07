@@ -11,7 +11,8 @@
         android:id="@+id/img_resultPerfImg"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:layout_weight="0.2" />
+        android:layout_weight="0.2"
+        android:contentDescription="@string/perfume_image" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -27,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:text="@string/result_brand"
+            android:text="@string/perfume_brand"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/turbidPurple" />
 
@@ -37,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:maxLines="1"
-            android:text="@string/result_name"
+            android:text="@string/perfume_name"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/black"
             android:textStyle="bold" />
@@ -48,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:maxLines="1"
-            android:text="@string/result_eng_name"
+            android:text="@string/perfume_eng_name"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/black" />
 
@@ -57,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:text="@string/result_addition"
+            android:text="@string/perfume_addition"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/black" />
     </LinearLayout>

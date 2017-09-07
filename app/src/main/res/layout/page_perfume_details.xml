@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_background"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/activity_result"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0.9">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/darkPurple" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="1.5dp"
+                android:background="@color/darkPurple" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_likeCount"
+                    android:layout_width="70dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/img_like_count"
+                    android:gravity="bottom|center_horizontal"
+                    android:text="@string/details_like_count"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/hotPink" />
+
+                <ImageView
+                    android:id="@+id/img_detailPerfImg"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:contentDescription="@string/perfume_image" />
+
+                <TextView
+                    android:id="@+id/txt_detailPerfBrand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/perfume_brand"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/turbidPurple" />
+
+                <TextView
+                    android:id="@+id/txt_detailPerfName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/perfume_name"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_detailPerfEngName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:text="@string/perfume_eng_name"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/txt_detailPerfAddition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/perfume_addition"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/darkPurple" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="1.5dp"
+                android:background="@color/darkPurple" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <Button
+                    android:id="@+id/apd_btnPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:text="가격비교" />
+
+                <Button
+                    android:id="@+id/apd_btnBox"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:text="보관하기" />
+
+                <Button
+                    android:id="@+id/apd_btnLike"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:text="추천하기" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#948c8c8c"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.15"
+                        android:text="*종류"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#000000" />
+
+                    <View
+                        android:layout_width="3px"
+                        android:layout_height="fill_parent"
+                        android:background="#858484" />
+
+                    <TextView
+                        android:id="@+id/apd_txtType"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.85"
+                        android:paddingLeft="10dp"
+                        android:text="향수 종류"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#6a6767" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.15"
+                        android:text="*국가"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#000000" />
+
+                    <View
+                        android:layout_width="3px"
+                        android:layout_height="fill_parent"
+                        android:background="#858484" />
+
+                    <TextView
+                        android:id="@+id/apd_txtCountry"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.85"
+                        android:paddingLeft="10dp"
+                        android:text="향수 국가"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#6a6767" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#c6c6c6"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*향료 정보"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#000000" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="3px"
+                    android:layout_marginTop="5dp"
+                    android:background="#858484" />
+
+                <TextView
+                    android:id="@+id/apd_txtFla"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:text="향수 향료 정보"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#6a6767" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#c6c6c6"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*향수 소개"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#000000" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="3px"
+                    android:layout_marginTop="5dp"
+                    android:background="#858484" />
+
+                <TextView
+                    android:id="@+id/apd_txtIntro"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:text="향수 소개 정보"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#6a6767" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
