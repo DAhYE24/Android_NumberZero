@@ -13,10 +13,14 @@
     <string name="chk_box_test3">"향료3</string>
     <string name="brand_test">브랜드명</string>
 
-
     <string name="flavor_info_title">향료 정보</string>
     <string name="flavor_info_type">향료 종류</string>
     <string name="flavor_info_name">향료명</string>
     <string name="flavor_info_content">향료에 설명이 들어갑니다</string>
     <string name="flavor_info_btn">확인</string>
+
+    <string name="result_brand">향수 브랜드</string>
+    <string name="result_name">향수명</string>
+    <string name="result_eng_name">향수 영문명</string>
+    <string name="result_addition">용량 / 가격</string>
 </resources>
