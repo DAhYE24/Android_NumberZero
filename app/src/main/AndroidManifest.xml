@@ -23,9 +23,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Design.NoActionBar">
+        android:theme="@style/NumberZeroAppTheme">
+        <!--android:theme="@style/Theme.Design.NoActionBar">-->
 
-        <!-- android:theme은 타이틀바 제거 옵션 -->
         <activity android:name=".Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

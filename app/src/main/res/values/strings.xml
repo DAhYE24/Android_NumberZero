@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">"넘버제로"</string>
+    <string name="app_name">"No.ZeRO"</string>
 
     <string name="bottom_btn_info">"향수정보"</string>
     <string name="bottom_btn_search">"향수검색"</string>

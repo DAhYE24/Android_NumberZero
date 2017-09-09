@@ -1,18 +1,11 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="NumberZeroAppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/exPrimary</item>
-        <item name="colorPrimaryDark">@color/exPrimaryDark</item>
+        <item name="colorPrimary">@color/appColorPurple</item>
+        <item name="colorPrimaryDark">@color/appColorDarkNavy</item>
         <item name="colorAccent">@color/hotPink</item>
     </style>
 
-    <style name="myDialog" parent="Theme.AppCompat.Dialog">
-        <item name="android:windowNoTitle">true</item>
-    </style>
-
-    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
