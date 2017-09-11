@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="NumberZeroAppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+    <style name="NumberZeroAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/appColorPurple</item>
         <item name="colorPrimaryDark">@color/appColorDarkNavy</item>
@@ -9,8 +9,11 @@
         <item name="actionBarStyle">@style/RemoveShadow</item>
     </style>
 
-    <style name="RemoveShadow" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+    <style name="RemoveShadow" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
         <item name="elevation">0dp</item>
+        <item name="logo">@mipmap/ic_launcher</item>
+        <item name="title">@string/app_name</item>
+        <item name="displayOptions">useLogo|showHome|showTitle</item>
     </style>
 
 </resources>

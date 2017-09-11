@@ -17,6 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_splash);
 
+
         /* Check network state */
         CheckNetworkState chkNetwork = new CheckNetworkState();
         boolean networkState = chkNetwork.returnNetworkState(getApplicationContext());
