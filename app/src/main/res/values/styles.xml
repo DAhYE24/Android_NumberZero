@@ -6,6 +6,11 @@
         <item name="colorPrimary">@color/appColorPurple</item>
         <item name="colorPrimaryDark">@color/appColorDarkNavy</item>
         <item name="colorAccent">@color/hotPink</item>
+        <item name="actionBarStyle">@style/RemoveShadow</item>
+    </style>
+
+    <style name="RemoveShadow" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="elevation">0dp</item>
     </style>
 
 </resources>
