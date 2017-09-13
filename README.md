@@ -1,6 +1,8 @@
 [Android App] NumberZero
 ========================
 NumberZero is a cosmetic application specializes in perfumes. It has perfume suggestion content using various scent matching options.
+## Image
+![NumberZero](https://i.imgur.com/fJQuTu6.jpg)
 <br></br>
 ## Project Info
 #### 수행기관
