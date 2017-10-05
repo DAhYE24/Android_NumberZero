@@ -1,16 +1,15 @@
 package dh_kang.nozero.Activity;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,24 +29,18 @@ import dh_kang.nozero.Fragment.SearchFragment;
 import dh_kang.nozero.Adapter.PerfumeResultAdapter;
 import dh_kang.nozero.R;
 
-public class ActiPerfResult extends AppCompatActivity {
-    /* 로그 테스트 */
-    private static final String TAG = "NOZERO_FINAL";
-
-    /* XML 선언 */
-    ListView list_resultBox; //리스트뷰
+public class PerfumeResultActivity extends AppCompatActivity {
+    private static final String TAG = "NOZERO_FINAL";   /* LOG TEST */
+    private RecyclerView list_resultBox;     /* Declare xml components */
+    /* Declare java components */
+    
+    private String perfName, perfPrice, perfBrand, perfCapacity, perfEngName, perfImage;
     String rJson;
-
-    /* JAVA 선언*/
     SharedPreferences userInfo;
     JSONArray vc = null;
-    String perfName, perfPrice, perfBrand, perfCapacity, perfEngName, perfImage;
     String tempName, tempEngName;
     String sendName, sendCapacity;
     String tempId;
-
-    /* 리스트뷰 */
-    PerfumeResultAdapter perfAdapter = null;
 
     /* 네트워크 통신 */
     getPerfData task;
@@ -64,51 +57,62 @@ public class ActiPerfResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_perfume_result);
 
-        /* 일반검색인지 메인검색인지 구별 */
-        userInfo = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-        String tempType = userInfo.getString("searchPerf", "");
+//        /* 일반검색인지 메인검색인지 구별 */
+//        userInfo = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+//        String tempType = userInfo.getString("searchPerf", "");
+//
+//        /* 값 받아오기 */
+//        if (tempType.equals("main")) {
+//            rJson = fm.getSpecificJSON();
+//        } else if (tempType.equals("search")) {
+//            rJson = fs.getResultList();
+//        }
 
-        /* 값 받아오기 */
-        if(tempType.equals("main")){
-            rJson = fm.getSpecificJSON();
-        }else if(tempType.equals("search")){
-            rJson = fs.getResultList();
-        }
+        /* Init RecyclerView */
+        list_resultBox = (RecyclerView) findViewById(R.id.list_resultBox);
+        PerfumeValues perfumeValues = null;// TODO : 데이터 연결시키기
+//        ItemData itemsData[] = { new ItemData("Help",R.drawable.help),
+//                new ItemData("Delete",R.drawable.content_discard),
+//                new ItemData("Cloud",R.drawable.collections_cloud),
+//                new ItemData("Favorite",R.drawable.rating_favorite),
+//                new ItemData("Like",R.drawable.rating_good),
+//                new ItemData("Rating",R.drawable.rating_important)};
+        list_resultBox.setLayoutManager(new LinearLayoutManager(this));
+        PerfumeResultAdapter perfumeResultAdapter = new PerfumeResultAdapter(perfumeValues);
+        list_resultBox.setAdapter(perfumeResultAdapter);
+        list_resultBox.setItemAnimator(new DefaultItemAnimator());
 
-        /* 초기화 */
-        list_resultBox = (ListView)findViewById(R.id.list_resultBox);
-
-        /* 검색결과 향수 보여주기 */
-        showPerfumeInfo();
-
-        /* 사용자의 조합ID 받아오기 */
-        userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-        tempId = userInfo.getString("userId", "");
-        Log.i(TAG, tempId);
-
-        /* 클릭하는 경우 */
-        list_resultBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PerfumeValues lvPerf = (PerfumeValues) parent.getItemAtPosition(position);
-                sendName = lvPerf.getSearchName();
-                sendCapacity = lvPerf.getSearchCapacity();
-                task = new getPerfData();
-                task.execute("http://pridena1030.cafe24.com/NumberZero/NoZ_Apr_PerfDetail.php");
-            }
-        });
+//        /* 검색결과 향수 보여주기 */
+//        showPerfumeInfo();
+//
+//        /* 사용자의 조합ID 받아오기 */
+//        userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+//        tempId = userInfo.getString("userId", "");
+//        Log.i(TAG, tempId);
+//
+//        /* 클릭하는 경우 */
+//        list_resultBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                PerfumeValues lvPerf = (PerfumeValues) parent.getItemAtPosition(position);
+//                sendName = lvPerf.getSearchName();
+//                sendCapacity = lvPerf.getSearchCapacity();
+//                task = new getPerfData();
+//                task.execute("http://pridena1030.cafe24.com/NumberZero/NoZ_Apr_PerfDetail.php");
+//            }
+//        });
     }
 
     /* 검색결과 향수 보여주기 */
     private void showPerfumeInfo() {
-        try{
+        try {
             JSONObject jsonObj = new JSONObject(rJson);
             vc = jsonObj.getJSONArray("results");
 
             ArrayList<PerfumeValues> perfList = new ArrayList<PerfumeValues>();
             PerfumeValues inputPerf;
 
-            for(int i=0;i<vc.length();i++) {
+            for (int i = 0; i < vc.length(); i++) {
                 JSONObject jo = vc.getJSONObject(i);
                 perfName = jo.getString("perfName");
                 perfPrice = jo.getString("perfPrice");
@@ -129,13 +133,13 @@ public class ActiPerfResult extends AppCompatActivity {
 //                    tempEngName = perfEngName.substring(0, 23) + "..";
 //                    inputPerf = new PerfumeValues(perfName, perfCapacity, perfImage, tempName, tempEngName, perfBrand, perfCapacity + " / " + perfPrice + "원");
 //                }else{
-                    inputPerf = new PerfumeValues(perfName, perfCapacity, perfImage, perfName, perfEngName, perfBrand, perfCapacity + " / " + perfPrice + "원");
+//                    inputPerf = new PerfumeValues(perfName, perfCapacity, perfImage, perfName, perfEngName, perfBrand, perfCapacity + " / " + perfPrice + "원");
 //                }
-                perfList.add(inputPerf);
+//                perfList.add(inputPerf);
             }
 
-            perfAdapter = new PerfumeResultAdapter(this, R.layout.lv_perfume_result, perfList); // 리스트 형태 연결
-            list_resultBox.setAdapter(perfAdapter);
+//            perfumeResultAdapter = new PerfumeResultAdapter(this, R.layout.lv_perfume_result, perfList); // 리스트 형태 연결
+//            list_resultBox.setAdapter(perfumeResultAdapter);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -143,7 +147,8 @@ public class ActiPerfResult extends AppCompatActivity {
 
     /* 향수명과 용량을 통해 값 불러오기 */
     public class getPerfData extends AsyncTask<String, Integer, String> {
-        ProgressDialog asyncDialog = new ProgressDialog(ActiPerfResult.this);
+        ProgressDialog asyncDialog = new ProgressDialog(PerfumeResultActivity.this);
+
         @Override
         protected void onPreExecute() {
             asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -173,7 +178,7 @@ public class ActiPerfResult extends AppCompatActivity {
 
                     if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) { // 연결 후 코드가 리턴
                         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-                        for (;;) {  // 웹상에 보여지는 텍스트를 라인단위로 읽어 저장.
+                        for (; ; ) {  // 웹상에 보여지는 텍스트를 라인단위로 읽어 저장.
                             String line = br.readLine();
                             if (line == null) break;
                             jsonHtml.append(line + "\n"); // 저장된 텍스트 라인을 jsonHtml에 붙여넣음
@@ -188,14 +193,14 @@ public class ActiPerfResult extends AppCompatActivity {
             return jsonHtml.toString();
         }
 
-        protected void onPostExecute(String str){
+        protected void onPostExecute(String str) {
             SharedPreferences.Editor editor = userInfo.edit();
             editor.putString("searchBox", "search");
             editor.commit();
 
             Log.i(TAG, str);
             perfumeJSON = str;
-            Intent i = new Intent(ActiPerfResult.this, ActiPerfDetail.class);
+            Intent i = new Intent(PerfumeResultActivity.this, ActiPerfDetail.class);
             startActivity(i);
             asyncDialog.dismiss();
         }
@@ -204,7 +209,7 @@ public class ActiPerfResult extends AppCompatActivity {
 //    /* 뒤로가기 클릭하는 경우 */
 //    @Override
 //    public void onBackPressed() {
-//        Intent intent = new Intent(ActiPerfResult.this, MainActivity.class);
+//        Intent intent = new Intent(PerfumeResultActivity.this, MainActivity.class);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //        finish();
 //        startActivity(intent);

@@ -24,7 +24,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import dh_kang.nozero.Activity.ActiPerfResult;
+import dh_kang.nozero.Activity.PerfumeResultActivity;
 import dh_kang.nozero.Activity.ActiStory;
 import dh_kang.nozero.Activity.acti_ActiBoard;
 import dh_kang.nozero.R;
@@ -186,7 +186,7 @@ public class FragMain extends Fragment {
         protected void onPostExecute(String str){
             Log.i(TAG, str);
             specificJSON = str;
-            Intent i = new Intent(getContext(), ActiPerfResult.class);
+            Intent i = new Intent(getContext(), PerfumeResultActivity.class);
             startActivity(i);
             asyncDialog.dismiss();
         }

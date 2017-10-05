@@ -96,7 +96,7 @@ public class ActiPerfDetail extends AppCompatActivity {
         userCheck = userInfo.getBoolean("userCheck", false);
 
         if (tempType.equals("search")) {
-            ActiPerfResult asr = new ActiPerfResult();
+            PerfumeResultActivity asr = new PerfumeResultActivity();
             rJson = asr.getPerfumeJSON();
         } else {
             DialBox db = null;

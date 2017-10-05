@@ -1,14 +1,10 @@
 package dh_kang.nozero.Fragment;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,15 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import dh_kang.nozero.Activity.ActiPerfResult;
+import dh_kang.nozero.Activity.PerfumeResultActivity;
 import dh_kang.nozero.Adapter.BrandListAdapter;
 import dh_kang.nozero.DataSet.BrandValues;
 import dh_kang.nozero.DataSet.FlavorValues;
@@ -126,6 +116,8 @@ public class SearchFragment extends Fragment {
                             Toast.makeText(getContext(), "향료를 선택하세요", Toast.LENGTH_LONG).show();
                         else {
                             selectedFlavorArray = String.valueOf(selectedFlavors).split("\\s");
+                            Intent intent = new Intent(getContext(), PerfumeResultActivity.class); // 테스트용
+                            startActivity(intent);
 //                            type = 1; // 향료 선택
 //                            taskFla = new sendSelected();
 //                            taskFla.execute("http://pridena1030.cafe24.com/NumberZero/NoZ_Fs_FlaSearch.php");
@@ -247,12 +239,12 @@ public class SearchFragment extends Fragment {
 //                    Toast.makeText(getContext(), "해당하는 향수가 없습니다", Toast.LENGTH_SHORT).show();
 //                } else {
 //                    resultList = str;
-//                    Intent i = new Intent(getContext(), ActiPerfResult.class);
+//                    Intent i = new Intent(getContext(), PerfumeResultActivity.class);
 //                    startActivity(i);
 //                }
 //            } else if (type == 2) { //브랜드별, 가격대별
 //                resultList = str;
-//                Intent i = new Intent(getContext(), ActiPerfResult.class);
+//                Intent i = new Intent(getContext(), PerfumeResultActivity.class);
 //                startActivity(i);
 //            }
 //            super.onPostExecute(str);
