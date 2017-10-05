@@ -11,7 +11,7 @@
 
     <style name="RemoveShadow" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
         <item name="elevation">0dp</item>
-        <item name="logo">@mipmap/ic_launcher</item>
+        <item name="logo">@android:drawable/ic_menu_edit</item>
         <item name="title">@string/app_name</item>
         <item name="displayOptions">useLogo|showHome|showTitle</item>
     </style>

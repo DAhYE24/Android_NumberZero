@@ -47,10 +47,10 @@
                 android:src="@android:drawable/ic_menu_search" />
 
             <ImageButton
+                android:id="@+id/ab_btnWrite"
+                style="?android:attr/buttonStyleSmall"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="?android:attr/buttonStyleSmall"
-                android:id="@+id/ab_btnWrite"
                 android:layout_weight="0.15"
                 android:src="@android:drawable/ic_menu_edit" />
         </LinearLayout>

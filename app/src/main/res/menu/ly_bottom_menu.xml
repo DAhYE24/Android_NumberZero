@@ -7,7 +7,7 @@
         android:enabled="true"
         android:icon="@drawable/btn_main_info"
         android:title="@string/bottom_btn_info" />
-    <!-- TODO : app:showAsAction의 역할? -->
+
     <item
         android:id="@+id/btn_action_search"
         app:showAsAction="ifRoom"
