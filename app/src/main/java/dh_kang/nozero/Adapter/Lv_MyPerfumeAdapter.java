@@ -13,18 +13,18 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-import dh_kang.nozero.DataSet.Lv_PerfumeValues;
+import dh_kang.nozero.DataSet.PerfumeValues;
 import dh_kang.nozero.R;
 
 /**
  * Created by dh93 on 2016-11-17.
  */
-public class Lv_MyPerfumeAdapter extends ArrayAdapter<Lv_PerfumeValues> {
-    public ArrayList<Lv_PerfumeValues> perfumeList;
+public class Lv_MyPerfumeAdapter extends ArrayAdapter<PerfumeValues> {
+    public ArrayList<PerfumeValues> perfumeList;
 
-    public Lv_MyPerfumeAdapter(Context context, int textViewResourceId, List<Lv_PerfumeValues> perfumeList) {
+    public Lv_MyPerfumeAdapter(Context context, int textViewResourceId, List<PerfumeValues> perfumeList) {
         super(context, textViewResourceId, perfumeList);
-        this.perfumeList = new ArrayList<Lv_PerfumeValues>();
+        this.perfumeList = new ArrayList<PerfumeValues>();
         this.perfumeList.addAll(perfumeList);
     }
 
@@ -51,7 +51,7 @@ public class Lv_MyPerfumeAdapter extends ArrayAdapter<Lv_PerfumeValues> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Lv_PerfumeValues pfSet = perfumeList.get(position);
+        PerfumeValues pfSet = perfumeList.get(position);
         //텍스트 적용
         holder.txt_resultPerfName.setText(pfSet.getPerfName());
         holder.txt_resultPerfName.setTag(pfSet);

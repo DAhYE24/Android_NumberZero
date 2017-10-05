@@ -24,10 +24,10 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
+import dh_kang.nozero.DataSet.PerfumeValues;
 import dh_kang.nozero.Fragment.FragMain;
 import dh_kang.nozero.Fragment.SearchFragment;
 import dh_kang.nozero.Adapter.Lv_MyPerfumeAdapter;
-import dh_kang.nozero.DataSet.Lv_PerfumeValues;
 import dh_kang.nozero.R;
 
 public class ActiPerfResult extends AppCompatActivity {
@@ -90,7 +90,7 @@ public class ActiPerfResult extends AppCompatActivity {
         list_resultBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Lv_PerfumeValues lvPerf = (Lv_PerfumeValues) parent.getItemAtPosition(position);
+                PerfumeValues lvPerf = (PerfumeValues) parent.getItemAtPosition(position);
                 sendName = lvPerf.getSearchName();
                 sendCapacity = lvPerf.getSearchCapacity();
                 task = new getPerfData();
@@ -105,8 +105,8 @@ public class ActiPerfResult extends AppCompatActivity {
             JSONObject jsonObj = new JSONObject(rJson);
             vc = jsonObj.getJSONArray("results");
 
-            ArrayList<Lv_PerfumeValues> perfList = new ArrayList<Lv_PerfumeValues>();
-            Lv_PerfumeValues inputPerf;
+            ArrayList<PerfumeValues> perfList = new ArrayList<PerfumeValues>();
+            PerfumeValues inputPerf;
 
             for(int i=0;i<vc.length();i++) {
                 JSONObject jo = vc.getJSONObject(i);
@@ -120,16 +120,16 @@ public class ActiPerfResult extends AppCompatActivity {
 //                /* 해당 길이에 따른 출력 변화*/
 //                if(perfName.length() > 15){
 //                    tempName =  perfName.substring(0, 13) + "..";
-//                    inputPerf = new Lv_PerfumeValues(perfName, perfCapacity, perfImage, tempName, perfEngName, perfBrand, perfCapacity + " / " + perfPrice + "원");
+//                    inputPerf = new PerfumeValues(perfName, perfCapacity, perfImage, tempName, perfEngName, perfBrand, perfCapacity + " / " + perfPrice + "원");
 //                }else if(perfEngName.length() > 25){
 //                    tempEngName = perfEngName.substring(0, 23) + "..";
-//                    inputPerf = new Lv_PerfumeValues(perfName, perfCapacity, perfImage, perfName, tempEngName, perfBrand, perfCapacity + " / " + perfPrice + "원");
+//                    inputPerf = new PerfumeValues(perfName, perfCapacity, perfImage, perfName, tempEngName, perfBrand, perfCapacity + " / " + perfPrice + "원");
 //                }else if(perfName.length() > 15 && perfEngName.length() > 25){
 //                    tempName =  perfName.substring(0, 13) + "..";
 //                    tempEngName = perfEngName.substring(0, 23) + "..";
-//                    inputPerf = new Lv_PerfumeValues(perfName, perfCapacity, perfImage, tempName, tempEngName, perfBrand, perfCapacity + " / " + perfPrice + "원");
+//                    inputPerf = new PerfumeValues(perfName, perfCapacity, perfImage, tempName, tempEngName, perfBrand, perfCapacity + " / " + perfPrice + "원");
 //                }else{
-                    inputPerf = new Lv_PerfumeValues(perfName, perfCapacity, perfImage, perfName, perfEngName, perfBrand, perfCapacity + " / " + perfPrice + "원");
+                    inputPerf = new PerfumeValues(perfName, perfCapacity, perfImage, perfName, perfEngName, perfBrand, perfCapacity + " / " + perfPrice + "원");
 //                }
                 perfList.add(inputPerf);
             }

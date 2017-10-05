@@ -43,11 +43,20 @@
             android:layout_marginTop="1.5dp"
             android:background="@color/darkPurple" />
 
-        <ListView
+        <!--<ListView-->
+            <!--android:id="@+id/list_resultBox"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:divider="@color/turbidPurple"-->
+            <!--android:dividerHeight="1dp" />-->
+
+        <android.support.v7.widget.RecyclerView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/list_resultBox"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@color/turbidPurple"
-            android:dividerHeight="1dp" />
+            tools:context=".Activity.ActiPerfResult"
+            />
     </LinearLayout>
 </LinearLayout>
