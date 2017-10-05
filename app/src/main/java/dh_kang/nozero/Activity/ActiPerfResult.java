@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import dh_kang.nozero.DataSet.PerfumeValues;
 import dh_kang.nozero.Fragment.FragMain;
 import dh_kang.nozero.Fragment.SearchFragment;
-import dh_kang.nozero.Adapter.Lv_MyPerfumeAdapter;
+import dh_kang.nozero.Adapter.PerfumeResultAdapter;
 import dh_kang.nozero.R;
 
 public class ActiPerfResult extends AppCompatActivity {
@@ -47,7 +47,7 @@ public class ActiPerfResult extends AppCompatActivity {
     String tempId;
 
     /* 리스트뷰 */
-    Lv_MyPerfumeAdapter perfAdapter = null;
+    PerfumeResultAdapter perfAdapter = null;
 
     /* 네트워크 통신 */
     getPerfData task;
@@ -134,7 +134,7 @@ public class ActiPerfResult extends AppCompatActivity {
                 perfList.add(inputPerf);
             }
 
-            perfAdapter = new Lv_MyPerfumeAdapter(this, R.layout.lv_perfume_result, perfList); // 리스트 형태 연결
+            perfAdapter = new PerfumeResultAdapter(this, R.layout.lv_perfume_result, perfList); // 리스트 형태 연결
             list_resultBox.setAdapter(perfAdapter);
         } catch (JSONException e) {
             e.printStackTrace();
