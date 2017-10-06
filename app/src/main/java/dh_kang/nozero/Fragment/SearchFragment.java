@@ -116,7 +116,9 @@ public class SearchFragment extends Fragment {
                             Toast.makeText(getContext(), "향료를 선택하세요", Toast.LENGTH_LONG).show();
                         else {
                             selectedFlavorArray = String.valueOf(selectedFlavors).split("\\s");
-                            Intent intent = new Intent(getContext(), PerfumeResultActivity.class); // 테스트용
+
+                            // 찾기 누르면 다음 화면으로 이동 시키기(서버 연결없이 테스트용)
+                            Intent intent = new Intent(getContext(), PerfumeResultActivity.class);
                             startActivity(intent);
 //                            type = 1; // 향료 선택
 //                            taskFla = new sendSelected();
