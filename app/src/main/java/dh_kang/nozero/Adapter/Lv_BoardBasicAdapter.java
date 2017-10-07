@@ -52,15 +52,15 @@ public class Lv_BoardBasicAdapter extends ArrayAdapter<BoardValues> {
 
         BoardValues basicSet = basicList.get(position);
         //텍스트 적용
-        holder.lb_txtId.setText(basicSet.getBasicId());
+        holder.lb_txtId.setText(basicSet.getBoardIdx());
         holder.lb_txtId.setTag(basicSet);
-        holder.lb_txtTitle.setText(basicSet.getBasicTitle());
+        holder.lb_txtTitle.setText(basicSet.getUserNickname());
         holder.lb_txtTitle.setTag(basicSet);
-        holder.lb_txtDate.setText(basicSet.getBasicDate());
+        holder.lb_txtDate.setText(basicSet.getUpdateAt());
         holder.lb_txtDate.setTag(basicSet);
 
         // Glide로 이미지 경로 & url 연결
-        Glide.with(getContext()).load(basicSet.getWriterIcon()).override(40, 40).into(holder.lb_imgIcon);
+        Glide.with(getContext()).load(basicSet.getProfileThumbnailUrl()).override(40, 40).into(holder.lb_imgIcon);
 
         return  convertView;
     }

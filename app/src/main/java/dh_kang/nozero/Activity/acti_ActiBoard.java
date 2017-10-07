@@ -78,9 +78,9 @@ public class acti_ActiBoard extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 BoardValues lvBba = (BoardValues)parent.getItemAtPosition(position);
                 /* 게시글의 정보 저장하기 */
-                sendSelectedInfo = lvBba.getWriterIcon() + ",SP," + lvBba.getBasicId() + ",SP,"
-                        + lvBba.getBasicTitle() + ",SP," + lvBba.getBasicContent() + ",SP,"
-                        + lvBba.getBasicDate() + ",SP," + lvBba.getBasicNumber();
+                sendSelectedInfo = lvBba.getProfileThumbnailUrl() + ",SP," + lvBba.getBoardIdx() + ",SP,"
+                        + lvBba.getUserNickname() + ",SP," + lvBba.getBasicContent() + ",SP,"
+                        + lvBba.getUpdateAt() + ",SP," + lvBba.getBasicNumber();
 
                 /* 게시글 보기로 이동*/
                 Intent i = new Intent(acti_ActiBoard.this, ActiBoardContent.class);

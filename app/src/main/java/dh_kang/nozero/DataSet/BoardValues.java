@@ -4,43 +4,37 @@ package dh_kang.nozero.DataSet;
  * Created by dh93 on 2016-11-21.
  */
 public class BoardValues {
-    private String writerIcon = null;
-    private String basicId = null;
-    private String basicTitle = null;
-    private String basicDate = null;
-    private String basicNumber =null;
-    private String basicContent = null;
+    private int boardIdx = 0;
+    private String boardTitle = null;
+    private String userNickname = null;
+    private String profileThumbnailUrl = null;
+    private String updateAt = null;
 
-    public BoardValues(String writerIcon, String basicId, String basicTitle, String basicDate, String basicNumber, String basicContent) {
-        this.writerIcon = writerIcon;
-        this.basicId = basicId;
-        this.basicTitle = basicTitle;
-        this.basicDate = basicDate;
-        this.basicNumber = basicNumber;
-        this.basicContent = basicContent;
+    public BoardValues(int boardIdx, String boardTitle, String userNickname, String profileThumbnailUrl, String updateAt) {
+        this.boardIdx = boardIdx;
+        this.boardTitle = boardTitle;
+        this.userNickname = userNickname;
+        this.profileThumbnailUrl = profileThumbnailUrl;
+        this.updateAt = updateAt;
     }
 
-    public String getWriterIcon() {
-        return writerIcon;
+    public int getBoardIdx() {
+        return boardIdx;
     }
 
-    public String getBasicId() {
-        return basicId;
+    public String getBoardTitle() {
+        return boardTitle;
     }
 
-    public String getBasicTitle() {
-        return basicTitle;
+    public String getUserNickname() {
+        return userNickname;
     }
 
-    public String getBasicDate() {
-        return basicDate;
+    public String getProfileThumbnailUrl() {
+        return profileThumbnailUrl;
     }
 
-    public String getBasicNumber() {
-        return basicNumber;
-    }
-
-    public String getBasicContent() {
-        return basicContent;
+    public String getUpdateAt() {
+        return updateAt;
     }
 }
