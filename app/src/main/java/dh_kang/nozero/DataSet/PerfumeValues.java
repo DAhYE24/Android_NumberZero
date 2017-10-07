@@ -4,36 +4,38 @@ package dh_kang.nozero.DataSet;
  * Created by dh93 on 2016-11-17.
  */
 public class PerfumeValues {
+    private int perfumeIdx = 0;
     private String perfumeName = null;
-    private String perfumeCapacity = null;
-    private String perfumeImage = null;
-    private String perfumeEngName = null;
+    private String perfumeEnglishName = null;
+    private String perfumeImageUrl = null;
     private String perfumeBrand = null;
     private String perfumePrice = null;
+    private String perfumeCapacity = null;
 
-    public PerfumeValues(String perfumeName, String perfumeCapacity, String perfumeImage, String perfumeEngName, String perfumeBrand, String perfumePrice) {
+    public PerfumeValues(int perfumeIdx, String perfumeName, String perfumeEnglishName, String perfumeImageUrl, String perfumeBrand, String perfumePrice, String perfumeCapacity) {
+        this.perfumeIdx = perfumeIdx;
         this.perfumeName = perfumeName;
-        this.perfumeCapacity = perfumeCapacity;
-        this.perfumeImage = perfumeImage;
-        this.perfumeEngName = perfumeEngName;
+        this.perfumeEnglishName = perfumeEnglishName;
+        this.perfumeImageUrl = perfumeImageUrl;
         this.perfumeBrand = perfumeBrand;
         this.perfumePrice = perfumePrice;
+        this.perfumeCapacity = perfumeCapacity;
+    }
+
+    public int getPerfumeIdx() {
+        return perfumeIdx;
     }
 
     public String getPerfumeName() {
         return perfumeName;
     }
 
-    public String getPerfumeCapacity() {
-        return perfumeCapacity;
+    public String getPerfumeEnglishName() {
+        return perfumeEnglishName;
     }
 
-    public String getPerfumeImage() {
-        return perfumeImage;
-    }
-
-    public String getPerfumeEngName() {
-        return perfumeEngName;
+    public String getPerfumeImageUrl() {
+        return perfumeImageUrl;
     }
 
     public String getPerfumeBrand() {
@@ -42,5 +44,9 @@ public class PerfumeValues {
 
     public String getPerfumePrice() {
         return perfumePrice;
+    }
+
+    public String getPerfumeCapacity() {
+        return perfumeCapacity;
     }
 }

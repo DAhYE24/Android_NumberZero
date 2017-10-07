@@ -45,29 +45,12 @@ public class PerfumeResultAdapter extends RecyclerView.Adapter<PerfumeResultAdap
     /* Get Data from dataset and replace it*/
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-//        holder.img_resultPerfImg.setImageResource(perfumeValues[position].getImageUrl());
-        Glide.with(context).load(perfumeValues[position].getPerfumeImage()).override(200, 200).into(holder.img_resultPerfImg);
+        Glide.with(context).load(perfumeValues[position].getPerfumeImageUrl()).override(200, 200).into(holder.img_resultPerfImg);
         holder.txt_resultPerfBrand.setText(perfumeValues[position].getPerfumeBrand());
         holder.txt_resultPerfName.setText(perfumeValues[position].getPerfumeName());
-        holder.txt_resultPerfEngName.setText(perfumeValues[position].getPerfumeEngName());
-        holder.txt_resultPerfAddition.setText(perfumeValues[position].getPerfumeCapacity() + " / " + perfumeValues[position].getPerfumePrice());
+        holder.txt_resultPerfEngName.setText(perfumeValues[position].getPerfumeEnglishName());
+        holder.txt_resultPerfAddition.setText(perfumeValues[position].getPerfumeCapacity() + "ml / " + perfumeValues[position].getPerfumePrice() + "원");
     }
-
-//        PerfumeValues pfSet = perfumeList.get(position);
-//        //텍스트 적용
-//        holder.txt_resultPerfName.setText(pfSet.getPerfName());
-//        holder.txt_resultPerfName.setTag(pfSet);
-//        holder.txt_resultPerfEngName.setText(pfSet.getPerfNameEng());
-//        holder.txt_resultPerfEngName.setTag(pfSet);
-//        holder.txt_resultPerfBrand.setText(pfSet.getPerfBrand());
-//        holder.txt_resultPerfBrand.setTag(pfSet);
-//        holder.txt_resultPerfAddition.setText(pfSet.getPerfCnP());
-//        holder.txt_resultPerfAddition.setTag(pfSet);
-//
-//        // Glide로 이미지 경로 & url 연결
-//        Glide.with(getContext()).load(pfSet.getPerfImg()).override(200, 200).into(holder.img_resultPerfImg);
-//        return convertView;
-//    }
 
     /* Return the size of item data*/
     @Override

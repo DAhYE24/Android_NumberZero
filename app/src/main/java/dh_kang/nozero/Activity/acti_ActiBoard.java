@@ -78,7 +78,7 @@ public class acti_ActiBoard extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 BoardValues lvBba = (BoardValues)parent.getItemAtPosition(position);
                 /* 게시글의 정보 저장하기 */
-                sendSelectedInfo = lvBba.getBasicIcon() + ",SP," + lvBba.getBasicId() + ",SP,"
+                sendSelectedInfo = lvBba.getWriterIcon() + ",SP," + lvBba.getBasicId() + ",SP,"
                         + lvBba.getBasicTitle() + ",SP," + lvBba.getBasicContent() + ",SP,"
                         + lvBba.getBasicDate() + ",SP," + lvBba.getBasicNumber();
 

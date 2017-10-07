@@ -1,27 +1,14 @@
 package dh_kang.nozero.Activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.ArrayList;
 
 import dh_kang.nozero.DataSet.PerfumeValues;
 import dh_kang.nozero.Fragment.FragMain;
@@ -33,7 +20,8 @@ public class PerfumeResultActivity extends AppCompatActivity {
     private static final String TAG = "NOZERO_FINAL";   /* LOG TEST */
     private RecyclerView list_resultBox;     /* Declare xml components */
     /* Declare java components */
-    private String txt_resultPerfName, perfPrice, txt_resultPerfBrand, perfCapacity, txt_resultPerfEngName, img_resultPerfImg;
+    private int perfumeIdx;
+    private String perfumeName, perfumeEnglishName, perfumeImageUrl, perfumeBrand, perfumePrice, perfumeCapacity;
 
     String rJson;
     SharedPreferences userInfo;
@@ -111,28 +99,29 @@ public class PerfumeResultActivity extends AppCompatActivity {
 
 //            for (int i = 0; i < vc.length(); i++) {
 //                JSONObject jo = vc.getJSONObject(i);
-//                txt_resultPerfName = jo.getString("txt_resultPerfName");
-//                perfPrice = jo.getString("perfPrice");
-//                img_resultPerfImg = jo.getString("img_resultPerfImg");
-//                txt_resultPerfEngName = jo.getString("txt_resultPerfEngName");
-//                txt_resultPerfBrand = jo.getString("txt_resultPerfBrand");
-//                perfCapacity = jo.getString("perfCapacity");
+//                perfumeName = jo.getString("perfumeName");
+//                perfumePrice = jo.getString("perfumePrice");
+//                perfumeImageUrl = jo.getString("perfumeImageUrl");
+//                perfumeEnglishName = jo.getString("perfumeEnglishName");
+//                perfumeBrand = jo.getString("perfumeBrand");
+//                perfumeCapacity = jo.getString("perfumeCapacity");
 
         /* 테스트용 => 나중에 지우기 */
-        txt_resultPerfName = "향수명";
-        perfPrice = "36000";
-        txt_resultPerfBrand = "브랜드";
-        perfCapacity = "30ml";
-        txt_resultPerfEngName = "Perfume name";
-        img_resultPerfImg = "http://mblogthumb1.phinf.naver.net/MjAxNzAzMDFfMjkx/MDAxNDg4Mzc2NTAyNjYw.Fp9maEC8x6AiOPRtYsZRJhTZPZyq0aAarlK_Y1j927Ig.WIDo6AODa_rXmpbcnX1OJPnBJhqxhpiFOQW4120Y51Qg.PNG.hydroin303/%ED%94%BC%EC%B9%B4%EC%B8%84.png?type=w800";
+        perfumeIdx = 1;
+        perfumeName = "향수명";
+        perfumePrice = "36000";
+        perfumeBrand = "브랜드";
+        perfumeCapacity = "30";
+        perfumeEnglishName = "Perfume name";
+        perfumeImageUrl = "http://mblogthumb1.phinf.naver.net/MjAxNzAzMDFfMjkx/MDAxNDg4Mzc2NTAyNjYw.Fp9maEC8x6AiOPRtYsZRJhTZPZyq0aAarlK_Y1j927Ig.WIDo6AODa_rXmpbcnX1OJPnBJhqxhpiFOQW4120Y51Qg.PNG.hydroin303/%ED%94%BC%EC%B9%B4%EC%B8%84.png?type=w800";
 
         /* 출력하기 + 길이에 따라 다르게 표현하기*/
-        String tempPerfName = (txt_resultPerfName.length() > 15)? txt_resultPerfName.substring(0, 13) + "..." : txt_resultPerfName;
-        String tempPerfEngName = (txt_resultPerfEngName.length() > 25)? txt_resultPerfEngName.substring(0, 23) + "..." : txt_resultPerfEngName;
+        String tempPerfumeName = (perfumeName.length() > 15)? perfumeName.substring(0, 13) + "..." : perfumeName;
+        String tempPerfumeEngName = (perfumeEnglishName.length() > 25)? perfumeEnglishName.substring(0, 23) + "..." : perfumeEnglishName;
 
         /* 받아온 데이터 적용하기 */
         /* TODO : 실제 데이터 적용할 때는 for문으로 돌려서 배열에 데이터 적용하기*/
-        PerfumeValues[] perfumeValues = {new PerfumeValues(tempPerfName, perfCapacity, img_resultPerfImg, tempPerfEngName, txt_resultPerfBrand, perfPrice)};
+        PerfumeValues[] perfumeValues = {new PerfumeValues(perfumeIdx, tempPerfumeName, tempPerfumeEngName, perfumeImageUrl, perfumeBrand, perfumePrice, perfumeCapacity)};
         list_resultBox.setLayoutManager(new LinearLayoutManager(this));
         PerfumeResultAdapter perfumeResultAdapter = new PerfumeResultAdapter(this, perfumeValues);
         list_resultBox.setAdapter(perfumeResultAdapter);
@@ -165,9 +154,9 @@ public class PerfumeResultActivity extends AppCompatActivity {
 //                    conn.setUseCaches(false);
 //                    conn.setDoOutput(true);
 //
-//                    String data = URLEncoder.encode("txt_resultPerfName", "UTF-8") + "=" + URLEncoder.encode(sendName, "UTF-8")
+//                    String data = URLEncoder.encode("perfumeName", "UTF-8") + "=" + URLEncoder.encode(sendName, "UTF-8")
 //                            + "&" + URLEncoder.encode("tempId", "UTF-8") + "=" + URLEncoder.encode(tempId, "UTF-8")
-//                            + "&" + URLEncoder.encode("perfCapacity", "UTF-8") + "=" + URLEncoder.encode(sendCapacity, "UTF-8");
+//                            + "&" + URLEncoder.encode("perfumeCapacity", "UTF-8") + "=" + URLEncoder.encode(sendCapacity, "UTF-8");
 //
 //                    OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 //                    wr.write(data);
