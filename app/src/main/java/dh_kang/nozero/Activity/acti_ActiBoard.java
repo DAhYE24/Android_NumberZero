@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import dh_kang.nozero.Adapter.Lv_BoardBasicAdapter;
-import dh_kang.nozero.DataSet.Lv_BoardBasicValues;
+import dh_kang.nozero.DataSet.BoardValues;
 import dh_kang.nozero.R;
 
 public class acti_ActiBoard extends AppCompatActivity {
@@ -76,7 +76,7 @@ public class acti_ActiBoard extends AppCompatActivity {
         ab_lvBoard.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Lv_BoardBasicValues lvBba = (Lv_BoardBasicValues)parent.getItemAtPosition(position);
+                BoardValues lvBba = (BoardValues)parent.getItemAtPosition(position);
                 /* 게시글의 정보 저장하기 */
                 sendSelectedInfo = lvBba.getBasicIcon() + ",SP," + lvBba.getBasicId() + ",SP,"
                         + lvBba.getBasicTitle() + ",SP," + lvBba.getBasicContent() + ",SP,"
@@ -170,8 +170,8 @@ public class acti_ActiBoard extends AppCompatActivity {
             JSONObject jsonObj = new JSONObject(myJSON);
             vc = jsonObj.getJSONArray("results");
 
-            ArrayList<Lv_BoardBasicValues> basicList = new ArrayList<Lv_BoardBasicValues>();
-            Lv_BoardBasicValues inputBasic;
+            ArrayList<BoardValues> basicList = new ArrayList<BoardValues>();
+            BoardValues inputBasic;
 
             for(int i=0;i<vc.length();i++) {
                 JSONObject jo = vc.getJSONObject(i);
@@ -182,7 +182,7 @@ public class acti_ActiBoard extends AppCompatActivity {
                 tempContent = jo.getString("boardContent");
                 tempDate = jo.getString("boardTime");
 
-                inputBasic = new Lv_BoardBasicValues(tempIcon, tempId, tempTitle, tempDate, tempNum, tempContent);
+                inputBasic = new BoardValues(tempIcon, tempId, tempTitle, tempDate, tempNum, tempContent);
                 basicList.add(inputBasic);
             }
 

@@ -25,6 +25,10 @@
     <string name="perfume_eng_name">향수 영문명</string>
     <string name="perfume_addition">용량 / 가격</string>
 
+    <string name="writing_writer_name">작성자 닉네임</string>
+    <string name="writing_title">게시글 제목</string>
+    <string name="writing_time">작성 시간</string>
+
     <string name="activity_result">향수 검색 결과</string>
     <string name="activity_details">향수 상세 정보</string>
 

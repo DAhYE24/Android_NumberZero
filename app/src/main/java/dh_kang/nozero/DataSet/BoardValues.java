@@ -3,15 +3,15 @@ package dh_kang.nozero.DataSet;
 /**
  * Created by dh93 on 2016-11-21.
  */
-public class Lv_BoardBasicValues {
-    String basicIcon = null;
-    String basicId = null;
-    String basicTitle = null;
-    String basicDate = null;
-    String basicNumber =null;
-    String basicContent = null;
+public class BoardValues {
+    private String basicIcon = null;
+    private String basicId = null;
+    private String basicTitle = null;
+    private String basicDate = null;
+    private String basicNumber =null;
+    private String basicContent = null;
 
-    public Lv_BoardBasicValues(String basicIcon, String basicId, String basicTitle, String basicDate, String basicNumber, String basicContent) {
+    public BoardValues(String basicIcon, String basicId, String basicTitle, String basicDate, String basicNumber, String basicContent) {
         this.basicIcon = basicIcon;
         this.basicId = basicId;
         this.basicTitle = basicTitle;
