@@ -72,21 +72,21 @@ public class acti_ActiBoard extends AppCompatActivity {
         /* 게시판 읽어오기 */
         loadBoardList();
 
-        /* 게시글 선택하는 경우 */
-        ab_lvBoard.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                BoardValues lvBba = (BoardValues)parent.getItemAtPosition(position);
-                /* 게시글의 정보 저장하기 */
-                sendSelectedInfo = lvBba.getProfileThumbnailUrl() + ",SP," + lvBba.getBoardIdx() + ",SP,"
-                        + lvBba.getUserNickname() + ",SP," + lvBba.getBasicContent() + ",SP,"
-                        + lvBba.getUpdateAt() + ",SP," + lvBba.getBasicNumber();
-
-                /* 게시글 보기로 이동*/
-                Intent i = new Intent(acti_ActiBoard.this, ActiBoardContent.class);
-                startActivity(i);
-            }
-        });
+//        /* 게시글 선택하는 경우 */
+//        ab_lvBoard.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                BoardValues lvBba = (BoardValues)parent.getItemAtPosition(position);
+//                /* 게시글의 정보 저장하기 */
+//                sendSelectedInfo = lvBba.getProfileThumbnailUrl() + ",SP," + lvBba.getBoardIdx() + ",SP,"
+//                        + lvBba.getUserNickname() + ",SP," + lvBba.getBasicContent() + ",SP,"
+//                        + lvBba.getUpdateAt() + ",SP," + lvBba.getBasicNumber();
+//
+//                /* 게시글 보기로 이동*/
+//                Intent i = new Intent(acti_ActiBoard.this, ActiBoardContent.class);
+//                startActivity(i);
+//            }
+//        });
 
         /* 글쓰기 버튼 */
         ab_btnWrite.setOnClickListener(new View.OnClickListener() {

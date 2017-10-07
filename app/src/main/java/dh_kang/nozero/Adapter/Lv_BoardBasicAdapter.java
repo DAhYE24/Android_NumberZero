@@ -60,7 +60,7 @@ public class Lv_BoardBasicAdapter extends ArrayAdapter<BoardValues> {
         holder.lb_txtDate.setTag(basicSet);
 
         // Glide로 이미지 경로 & url 연결
-        Glide.with(getContext()).load(basicSet.getProfileThumbnailUrl()).override(40, 40).into(holder.lb_imgIcon);
+        Glide.with(getContext()).load(basicSet.getProfileThumbnailUrl()).override(50, 50).into(holder.lb_imgIcon);
 
         return  convertView;
     }
