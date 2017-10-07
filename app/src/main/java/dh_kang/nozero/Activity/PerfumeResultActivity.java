@@ -67,7 +67,7 @@ public class PerfumeResultActivity extends AppCompatActivity {
         /* Init RecyclerView */
         list_resultBox = (RecyclerView) findViewById(R.id.list_resultBox);
 
-        /* 검색결과 받아와서 적용하기 */
+        /* Get data from server and put into recyclerview */
         getPerfumesInfoAndShow();
 
 //        PerfumeValues perfumeValues = null;// TODO : 데이터 연결시키기
@@ -101,7 +101,7 @@ public class PerfumeResultActivity extends AppCompatActivity {
 //        });
     }
 
-    /* 검색결과 향수 보여주기 */
+    /* Get data from server and put into recyclerview */
     private void getPerfumesInfoAndShow() {
 //        try {
 //            JSONObject jsonObj = new JSONObject(rJson);
@@ -137,25 +137,6 @@ public class PerfumeResultActivity extends AppCompatActivity {
         PerfumeResultAdapter perfumeResultAdapter = new PerfumeResultAdapter(this, perfumeValues);
         list_resultBox.setAdapter(perfumeResultAdapter);
         list_resultBox.setItemAnimator(new DefaultItemAnimator());
-
-//        perfumeResultAdapter = new PerfumeResultAdapter(this, R.layout.lv_perfume_result, perfList); // 리스트 형태 연결
-//        list_resultBox.setAdapter(perfumeResultAdapter);
-
-//        if (txt_resultPerfName.length() > 15) {
-//            tempPerfName = txt_resultPerfName.substring(0, 13) + "...";
-//            perfumeValues = new PerfumeValues(tempPerfName, perfCapacity, img_resultPerfImg, txt_resultPerfEngName, txt_resultPerfBrand, perfPrice);
-//        } else if (txt_resultPerfEngName.length() > 25) {
-//            tempPerfEngName = txt_resultPerfEngName.substring(0, 23) + "...";
-//            perfumeValues = new PerfumeValues(txt_resultPerfName, perfCapacity, img_resultPerfImg, txt_resultPerfName, tempPerfEngName, txt_resultPerfBrand, perfCapacity + " / " + perfPrice + "원");
-//        } else if (txt_resultPerfName.length() > 15 && txt_resultPerfEngName.length() > 25) {
-//            tempPerfName = txt_resultPerfName.substring(0, 13) + "..";
-//            tempPerfEngName = txt_resultPerfEngName.substring(0, 23) + "...";
-//            perfumeValues = new PerfumeValues(txt_resultPerfName, perfCapacity, img_resultPerfImg, tempPerfName, tempPerfEngName, txt_resultPerfBrand, perfCapacity + " / " + perfPrice + "원");
-//        } else {
-//            perfumeValues = new PerfumeValues(txt_resultPerfName, perfCapacity, img_resultPerfImg, txt_resultPerfName, txt_resultPerfEngName, txt_resultPerfBrand, perfCapacity + " / " + perfPrice + "원");
-//        }
-//                perfList.add(perfumeValues);
-//}
 //        } catch (JSONException e) {
 //            e.printStackTrace();
 //        }
