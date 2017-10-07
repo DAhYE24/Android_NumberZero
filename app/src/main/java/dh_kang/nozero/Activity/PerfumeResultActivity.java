@@ -127,15 +127,6 @@ public class PerfumeResultActivity extends AppCompatActivity {
         img_resultPerfImg = "http://mblogthumb1.phinf.naver.net/MjAxNzAzMDFfMjkx/MDAxNDg4Mzc2NTAyNjYw.Fp9maEC8x6AiOPRtYsZRJhTZPZyq0aAarlK_Y1j927Ig.WIDo6AODa_rXmpbcnX1OJPnBJhqxhpiFOQW4120Y51Qg.PNG.hydroin303/%ED%94%BC%EC%B9%B4%EC%B8%84.png?type=w800";
 
         /* 출력하기 + 길이에 따라 다르게 표현하기*/
-//        String tempPerfName = null, tempPerfEngName = null;
-//        if (txt_resultPerfName.length() > 15)
-//            tempPerfName = txt_resultPerfName.substring(0, 13) + "...";
-//        if (txt_resultPerfEngName.length() > 25)
-//            tempPerfEngName = txt_resultPerfEngName.substring(0, 23) + "...";
-//        if (txt_resultPerfName.length() <= 15 && txt_resultPerfEngName.length() <= 25) {
-//            tempPerfName = txt_resultPerfName;
-//            tempPerfEngName = txt_resultPerfEngName;
-//        }
         String tempPerfName = (txt_resultPerfName.length() > 15)? txt_resultPerfName.substring(0, 13) + "..." : txt_resultPerfName;
         String tempPerfEngName = (txt_resultPerfEngName.length() > 25)? txt_resultPerfEngName.substring(0, 23) + "..." : txt_resultPerfEngName;
 
@@ -231,7 +222,7 @@ public class PerfumeResultActivity extends AppCompatActivity {
 //        }
 //    }
 
-    /* 뒤로가기 클릭하는 경우에 프레그먼트 재실행 */
+    /* Clicking back button case : To reload .Activity to make unchecked states */
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(PerfumeResultActivity.this, MainActivity.class);
