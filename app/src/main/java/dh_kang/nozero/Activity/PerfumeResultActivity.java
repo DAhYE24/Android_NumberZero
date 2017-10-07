@@ -33,21 +33,17 @@ public class PerfumeResultActivity extends AppCompatActivity {
     private static final String TAG = "NOZERO_FINAL";   /* LOG TEST */
     private RecyclerView list_resultBox;     /* Declare xml components */
     /* Declare java components */
+    private String txt_resultPerfName, perfPrice, txt_resultPerfBrand, perfCapacity, txt_resultPerfEngName, img_resultPerfImg;
 
-    private String txt_resultPerfName, perfPrice, txt_resultPerfBrand, perfCapacity, txt_resultPerfEngName;
-    private String img_resultPerfImg;
     String rJson;
     SharedPreferences userInfo;
     JSONArray vc = null;
     String sendName, sendCapacity;
     String tempId;
-
-    /* 네트워크 통신 */
 //    getPerfData task;
     SearchFragment fs = null;
     FragMain fm = null;
     public static String perfumeJSON;
-
     public String getPerfumeJSON() {
         return perfumeJSON;
     }
@@ -122,7 +118,7 @@ public class PerfumeResultActivity extends AppCompatActivity {
 //                txt_resultPerfBrand = jo.getString("txt_resultPerfBrand");
 //                perfCapacity = jo.getString("perfCapacity");
 
-        /* 테스트용 */
+        /* 테스트용 => 나중에 지우기 */
         txt_resultPerfName = "향수명";
         perfPrice = "36000";
         txt_resultPerfBrand = "브랜드";
@@ -131,15 +127,17 @@ public class PerfumeResultActivity extends AppCompatActivity {
         img_resultPerfImg = "http://mblogthumb1.phinf.naver.net/MjAxNzAzMDFfMjkx/MDAxNDg4Mzc2NTAyNjYw.Fp9maEC8x6AiOPRtYsZRJhTZPZyq0aAarlK_Y1j927Ig.WIDo6AODa_rXmpbcnX1OJPnBJhqxhpiFOQW4120Y51Qg.PNG.hydroin303/%ED%94%BC%EC%B9%B4%EC%B8%84.png?type=w800";
 
         /* 출력하기 + 길이에 따라 다르게 표현하기*/
-        String tempPerfName = null, tempPerfEngName = null;
-        if (txt_resultPerfName.length() > 15)
-            tempPerfName = txt_resultPerfName.substring(0, 13) + "...";
-        if (txt_resultPerfEngName.length() > 25)
-            tempPerfEngName = txt_resultPerfEngName.substring(0, 23) + "...";
-        if (txt_resultPerfName.length() <= 15 && txt_resultPerfEngName.length() <= 25) {
-            tempPerfName = txt_resultPerfName;
-            tempPerfEngName = txt_resultPerfEngName;
-        }
+//        String tempPerfName = null, tempPerfEngName = null;
+//        if (txt_resultPerfName.length() > 15)
+//            tempPerfName = txt_resultPerfName.substring(0, 13) + "...";
+//        if (txt_resultPerfEngName.length() > 25)
+//            tempPerfEngName = txt_resultPerfEngName.substring(0, 23) + "...";
+//        if (txt_resultPerfName.length() <= 15 && txt_resultPerfEngName.length() <= 25) {
+//            tempPerfName = txt_resultPerfName;
+//            tempPerfEngName = txt_resultPerfEngName;
+//        }
+        String tempPerfName = (txt_resultPerfName.length() > 15)? txt_resultPerfName.substring(0, 13) + "..." : txt_resultPerfName;
+        String tempPerfEngName = (txt_resultPerfEngName.length() > 25)? txt_resultPerfEngName.substring(0, 23) + "..." : txt_resultPerfEngName;
 
         /* 받아온 데이터 적용하기 */
         /* TODO : 실제 데이터 적용할 때는 for문으로 돌려서 배열에 데이터 적용하기*/
