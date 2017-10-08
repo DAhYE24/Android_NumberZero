@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.h6ah4i.android.widget.advrecyclerview.swipeable.SwipeableItemAdapter;
 import com.h6ah4i.android.widget.advrecyclerview.swipeable.SwipeableItemConstants;
 import com.h6ah4i.android.widget.advrecyclerview.swipeable.action.SwipeResultAction;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 
 import dh_kang.nozero.DataSet.BoardValues;
 import dh_kang.nozero.R;
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
  * Created by dh93 on 2017-10-08.
@@ -57,7 +59,9 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
     @Override
     public void onBindViewHolder(BoardViewHolder holder, int position) {
         holder.txt_writerName.setText(boardValues.get(position).getUserNickname());
-        Glide.with(context).load(boardValues.get(position).getProfileThumbnailUrl()).override(200, 200).into(holder.img_writerImg);
+        Glide.with(context).load(boardValues.get(position).getProfileThumbnailUrl())
+                .bitmapTransform(new CropCircleTransformation(new CustomBitmapPool()))
+                .override(200, 200).into(holder.img_writerImg);
 
         BoardValues boardValues = this.boardValues.get(position);
 

@@ -32,4 +32,6 @@ dependencies {
     compile ('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.10.6@aar'){
         transitive=true
     }
+    /* To make round image */
+    compile 'jp.wasabeef:glide-transformations:1.0.6@aar'
 }
