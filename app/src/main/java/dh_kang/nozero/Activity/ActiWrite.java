@@ -165,7 +165,7 @@ public class ActiWrite extends AppCompatActivity {
                 Toast.makeText(ActiWrite.this, "글이 등록되었습니다", Toast.LENGTH_SHORT).show();
 
                 if(writeChk == true) { /* 일반 글쓰기 */
-                    ((acti_ActiBoard) acti_ActiBoard.bContext).loadBoardList(); // 게시글 새로 고침
+//                    ((acti_ActiBoard) acti_ActiBoard.bContext).loadBoardList(); // 게시글 새로 고침
                 }else{ /* 글 수정 */
                     Intent i = new Intent(ActiWrite.this, acti_ActiBoard.class);
                     startActivity(i);

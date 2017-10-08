@@ -95,7 +95,7 @@ public class ActiBoardContent extends AppCompatActivity {
 
         /* 게시글 내용 받아오기 */
         acti_ActiBoard ab = null;
-        temp = ab.getSendSelectedInfo().split(",SP,");
+//        temp = ab.getSendSelectedInfo().split(",SP,");
 
         /* 게시글 내용 보여주기 */
         Glide.with(this).load(temp[0]).override(30, 30).into(abc_imgIcon); // Glide로 이미지 경로 & url 연결

@@ -17,9 +17,13 @@ public class BoardViewHolder extends AbstractSwipeableItemViewHolder {
     private final float OPTIONS_AREA_PROPORTION = 0.5f;
     private final float REMOVE_ITEM_THRESHOLD = 0.6f;
     private View swipeableContainer, optionView1, optionView2, optionView3;
-    private ImageView img_writerImg;
-    private TextView txt_writerName, txt_writingTitle, txt_writingTime;
+    public ImageView img_writerImg;
+    public TextView txt_writerName, txt_writingTitle, txt_writingTime;
     private float lastSwipeAmount;
+
+    public float getLastSwipeAmount() {
+        return lastSwipeAmount;
+    }
 
     /* Connect xml components with viewholder */
     public BoardViewHolder(View itemLayoutView) {

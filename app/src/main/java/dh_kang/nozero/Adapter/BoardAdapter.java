@@ -22,23 +22,24 @@ import dh_kang.nozero.R;
  */
 
 public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implements SwipeableItemAdapter<BoardViewHolder> {
+    private final float OPTIONS_AREA_PROPORTION = 0.5f;  /* Declare java parameters */
+    private final float REMOVE_ITEM_THRESHOLD = 0.6f;
+    ArrayList<BoardValues> boardValues;
+
     interface Swipeable extends SwipeableItemConstants {
     }
 
-    ArrayList<BoardValues> boardValues;
-    private final float OPTIONS_AREA_PROPORTION = 0.5f;
-    private final float REMOVE_ITEM_THRESHOLD = 0.6f;
-
+    /* 어댑터에 데이터 입력 */
     public BoardAdapter() {
-        setHasStableIds(true);
+        setHasStableIds(true);  // 어댑터에 연결되는 각 아이템 항목에 대해 고유한 아이디를 부여하겠다는 메소드
         boardValues = new ArrayList<>();
-        for (int i = 0; i < 10; i++) boardValues.add(new BoardValues(i, "1", "2", "3", "4"));
+        for (int i = 0; i < 10; i++) boardValues.add(new BoardValues(i, "테스트 제목", "테스트 유저", "http://cfile24.uf.tistory.com/image/257A5846595A20D0064977", "테스트 시간"));
     }
-
-    @Override
-    public long getItemId(int position) {
-        return boardValues.get(position).id;
-    }
+//
+//    @Override
+//    public long getItemId(int position) {
+//        return boardValues.get(position);
+//    }
 
     @Override
     public BoardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -48,16 +49,15 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
 
     @Override
     public void onBindViewHolder(BoardViewHolder holder, int position) {
-        holder.text1.setText("item " + position);
+        holder.txt_writerName.setText("item " + position);
 
-        BoardValues item = boardValues.get(position);
+        BoardValues boardValues = this.boardValues.get(position);
 
         // set swiping properties
         holder.setMaxLeftSwipeAmount(-OPTIONS_AREA_PROPORTION);
         holder.setMaxRightSwipeAmount(0);
-        holder.setSwipeItemHorizontalSlideAmount(item.pinned ? -OPTIONS_AREA_PROPORTION : 0);
+        holder.setSwipeItemHorizontalSlideAmount(boardValues.isPinned() ? -OPTIONS_AREA_PROPORTION : 0);
     }
-
     @Override
     public int getItemCount() {
         return boardValues.size();
@@ -66,7 +66,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
     @Override
     public SwipeResultAction onSwipeItem(BoardViewHolder holder, int position, int result) {
         if (result == Swipeable.RESULT_SWIPED_LEFT) {
-            if (holder.lastSwipeAmount < (-REMOVE_ITEM_THRESHOLD)) {
+            if (holder.getLastSwipeAmount() < (-REMOVE_ITEM_THRESHOLD)) {
                 return new SwipeLeftRemoveAction(this, position);
             } else {
                 return new SwipeLeftPinningAction(this, position);
@@ -115,7 +115,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
 
         @Override
         protected void onPerformAction() {
-            adapter.boardValues.get(position).pinned = true;
+            adapter.boardValues.get(position).setPinned(true);
             adapter.notifyItemChanged(position);
         }
     }
@@ -132,7 +132,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
 
         @Override
         protected void onPerformAction() {
-            adapter.boardValues.get(position).pinned = false;
+            adapter.boardValues.get(position).setPinned(false);
             adapter.notifyItemChanged(position);
         }
     }

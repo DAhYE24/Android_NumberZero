@@ -10,6 +10,17 @@ public class BoardValues {
     private String profileThumbnailUrl = null;
     private String updateAt = null;
 
+//    final long rvId = 0;
+    private boolean pinned;
+
+    public boolean isPinned() {
+        return pinned;
+    }
+
+    public void setPinned(boolean pinned) {
+        this.pinned = pinned;
+    }
+
     public BoardValues(int boardIdx, String boardTitle, String userNickname, String profileThumbnailUrl, String updateAt) {
         this.boardIdx = boardIdx;
         this.boardTitle = boardTitle;
