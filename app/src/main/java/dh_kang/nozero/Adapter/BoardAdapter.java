@@ -26,8 +26,8 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
     }
 
     ArrayList<BoardValues> boardValues;
-    final float OPTIONS_AREA_PROPORTION = 0.5f;
-    final float REMOVE_ITEM_THRESHOLD = 0.6f;
+    private final float OPTIONS_AREA_PROPORTION = 0.5f;
+    private final float REMOVE_ITEM_THRESHOLD = 0.6f;
 
     public BoardAdapter() {
         setHasStableIds(true);

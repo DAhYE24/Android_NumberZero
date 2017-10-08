@@ -21,6 +21,7 @@ public class BoardViewHolder extends AbstractSwipeableItemViewHolder {
     private TextView txt_writerName, txt_writingTitle, txt_writingTime;
     private float lastSwipeAmount;
 
+    /* Connect xml components with viewholder */
     public BoardViewHolder(View itemLayoutView) {
         super(itemLayoutView);
         swipeableContainer = itemLayoutView.findViewById(R.id.swipeable_container);
@@ -33,12 +34,13 @@ public class BoardViewHolder extends AbstractSwipeableItemViewHolder {
         txt_writingTime = (TextView) itemLayoutView.findViewById(R.id.txt_writingTime);
     }
 
+    /* Container which has widgets */
     @Override
     public View getSwipeableContainerView() {
         return swipeableContainer;
     }
 
-    /* 슬라이드 기능 */
+    /* Checking slide motion and act */
     @Override
     public void onSlideAmountUpdated(float horizontalAmount, float verticalAmount, boolean isSwiping) {
         int itemWidth = itemView.getWidth();
@@ -71,9 +73,10 @@ public class BoardViewHolder extends AbstractSwipeableItemViewHolder {
         lastSwipeAmount = horizontalAmount;
     }
 
-    private static void setLayoutWidth(View v, int width) {
-        ViewGroup.LayoutParams lp = v.getLayoutParams();
+    /* Set list blank's width */
+    private static void setLayoutWidth(View view, int width) {
+        ViewGroup.LayoutParams lp = view.getLayoutParams();
         lp.width = width;
-        v.setLayoutParams(lp);
+        view.setLayoutParams(lp);
     }
 }
