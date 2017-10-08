@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:layout_margin="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -53,8 +53,8 @@
 
                 <ImageView
                     android:id="@+id/img_writerImg"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp" />
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
 
                 <TextView
                     android:id="@+id/txt_writerName"
@@ -73,8 +73,8 @@
                 android:id="@+id/txt_writingTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="65dp"
-                android:layout_marginStart="65dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginStart="55dp"
                 android:text="@string/writing_title"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/black" />
@@ -83,9 +83,9 @@
                 android:id="@+id/txt_writingTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="65dp"
-                android:layout_marginStart="65dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/writing_time"
                 android:textColor="@color/turbidPurple"
                 android:textSize="12sp" />

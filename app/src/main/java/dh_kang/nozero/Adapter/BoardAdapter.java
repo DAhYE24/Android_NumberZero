@@ -42,7 +42,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
         boardValues = new ArrayList<>();
         this.context = context;
         for (int i = 0; i < 10; i++)
-            boardValues.add(new BoardValues(i, "테스트 제목", "테스트 유저", "http://cfile24.uf.tistory.com/image/257A5846595A20D0064977", "테스트 시간"));
+            boardValues.add(new BoardValues(i, "테스트 제목 " + i, "테스트 유저 " + i, "http://cfile24.uf.tistory.com/image/257A5846595A20D0064977", "테스트 시간 " + i));
     }
 
     @Override
@@ -59,9 +59,11 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
     @Override
     public void onBindViewHolder(BoardViewHolder holder, int position) {
         holder.txt_writerName.setText(boardValues.get(position).getUserNickname());
+        holder.txt_writingTitle.setText(boardValues.get(position).getBoardTitle());
+        holder.txt_writingTime.setText(boardValues.get(position).getUpdateAt());
         Glide.with(context).load(boardValues.get(position).getProfileThumbnailUrl())
                 .bitmapTransform(new CropCircleTransformation(new CustomBitmapPool()))
-                .override(200, 200).into(holder.img_writerImg);
+                .override(150, 150).into(holder.img_writerImg);
 
         BoardValues boardValues = this.boardValues.get(position);
 
@@ -78,7 +80,6 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
 
     @Override
     public SwipeResultAction onSwipeItem(BoardViewHolder holder, int position, int result) {
-        Log.e(TAG, "SwipeResultAction 메서드 실행");
         if (result == Swipeable.RESULT_SWIPED_LEFT) {
             if (holder.getLastSwipeAmount() < (-REMOVE_ITEM_THRESHOLD)) {
                 return new SwipeLeftRemoveAction(this, position);
@@ -90,7 +91,6 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
         }
     }
 
-    // 실행됨
     @Override
     public int onGetSwipeReactionType(BoardViewHolder holder, int position, int x, int y) {
         return Swipeable.REACTION_CAN_SWIPE_LEFT;

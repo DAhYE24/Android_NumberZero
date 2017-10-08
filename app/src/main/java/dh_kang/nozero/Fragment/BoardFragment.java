@@ -3,6 +3,7 @@ package dh_kang.nozero.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.h6ah4i.android.widget.advrecyclerview.animator.SwipeDismissItemAnimator;
+import com.h6ah4i.android.widget.advrecyclerview.decoration.SimpleListDividerDecorator;
 import com.h6ah4i.android.widget.advrecyclerview.swipeable.RecyclerViewSwipeManager;
 
 import dh_kang.nozero.Activity.acti_ActiBoard;
@@ -46,7 +48,7 @@ public class BoardFragment extends Fragment {
         list_board.setAdapter(swipeManager.createWrappedAdapter(new BoardAdapter(getContext())));
         list_board.setItemAnimator(new SwipeDismissItemAnimator());
         swipeManager.attachRecyclerView(list_board);
-//        list_board.addItemDecoration(new SimpleListDividerDecorator(ContextCompat.getDrawable(this, R.drawable.list_divider), true));
+        list_board.addItemDecoration(new SimpleListDividerDecorator(ContextCompat.getDrawable(getContext(), R.drawable.shape_recyclerview_divider), true));
 
         return view;
     }

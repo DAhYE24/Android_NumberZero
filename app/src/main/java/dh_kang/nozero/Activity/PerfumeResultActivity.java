@@ -3,10 +3,13 @@ package dh_kang.nozero.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import com.h6ah4i.android.widget.advrecyclerview.decoration.SimpleListDividerDecorator;
 
 import org.json.JSONArray;
 
@@ -126,6 +129,7 @@ public class PerfumeResultActivity extends AppCompatActivity {
         PerfumeResultAdapter perfumeResultAdapter = new PerfumeResultAdapter(this, perfumeValues);
         list_resultBox.setAdapter(perfumeResultAdapter);
         list_resultBox.setItemAnimator(new DefaultItemAnimator());
+        list_resultBox.addItemDecoration(new SimpleListDividerDecorator(ContextCompat.getDrawable(this, R.drawable.shape_recyclerview_divider), true));
 //        } catch (JSONException e) {
 //            e.printStackTrace();
 //        }
