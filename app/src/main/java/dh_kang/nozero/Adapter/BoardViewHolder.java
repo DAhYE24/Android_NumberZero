@@ -14,12 +14,12 @@ import dh_kang.nozero.R;
  */
 
 public class BoardViewHolder extends AbstractSwipeableItemViewHolder {
-    final float OPTIONS_AREA_PROPORTION = 0.5f;
-    final float REMOVE_ITEM_THRESHOLD = 0.6f;
-    View swipeableContainer, optionView1, optionView2, optionView3;
-    ImageView img_writerImg;
-    TextView txt_writerName, txt_writingTitle, txt_writingTime;
-    float lastSwipeAmount;
+    private final float OPTIONS_AREA_PROPORTION = 0.5f;
+    private final float REMOVE_ITEM_THRESHOLD = 0.6f;
+    private View swipeableContainer, optionView1, optionView2, optionView3;
+    private ImageView img_writerImg;
+    private TextView txt_writerName, txt_writingTitle, txt_writingTime;
+    private float lastSwipeAmount;
 
     public BoardViewHolder(View itemLayoutView) {
         super(itemLayoutView);
