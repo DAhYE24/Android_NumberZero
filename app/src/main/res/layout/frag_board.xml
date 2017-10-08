@@ -1,47 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="1"
-        android:layout_marginTop="80dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:background="#ffffff">
+        android:layout_marginTop="80dp"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="0.1"
             android:gravity="center_vertical"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp">
+            android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/ab_editSearch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="제목, 내용 검색"
-                android:textColorHint="#989898"
-                android:maxLength="20"
-                android:textSize="15sp"
-                android:textColor="#b37e6969"
-                android:id="@+id/ab_editSearch"
+                android:layout_weight="0.7"
                 android:backgroundTint="#b37e6969"
+                android:hint="제목, 내용 검색"
+                android:inputType="textPersonName"
+                android:maxLength="20"
+                android:textColor="#b37e6969"
+                android:textColorHint="#989898"
                 android:textCursorDrawable="@null"
-                android:layout_weight="0.7" />
+                android:textSize="15sp" />
 
             <ImageButton
+                android:id="@+id/ab_btnSearch"
+                style="?android:attr/buttonStyleSmall"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="?android:attr/buttonStyleSmall"
-                android:id="@+id/ab_btnSearch"
                 android:layout_weight="0.15"
                 android:src="@android:drawable/ic_menu_search" />
 
@@ -55,35 +56,35 @@
         </LinearLayout>
 
         <View
+            android:layout_width="fill_parent"
             android:layout_height="5px"
-            android:background="#393939"
-            android:layout_width="fill_parent"/>
+            android:background="#393939" />
 
         <View
+            android:layout_width="fill_parent"
             android:layout_height="3px"
             android:layout_marginTop="3dp"
-            android:background="#393939"
-            android:layout_width="fill_parent"/>
+            android:background="#393939" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.9">
+            android:layout_weight="0.9"
+            android:orientation="vertical">
 
             <ListView
+                android:id="@+id/ab_lvBoard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:divider="#707070"
-                android:dividerHeight="1dp"
-                android:id="@+id/ab_lvBoard" />
+                android:dividerHeight="1dp" />
 
             <ImageView
+                android:id="@+id/ab_imgNothing"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/ab_imgNothing"
                 android:background="#000000" />
 
         </LinearLayout>
-
+    </LinearLayout>
 </LinearLayout>
