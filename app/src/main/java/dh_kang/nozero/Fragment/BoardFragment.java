@@ -43,7 +43,7 @@ public class BoardFragment extends Fragment {
         /* RecyclerView(Custom Library) */
         RecyclerViewSwipeManager swipeManager = new RecyclerViewSwipeManager();
         list_board.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        list_board.setAdapter(swipeManager.createWrappedAdapter(new BoardAdapter()));
+        list_board.setAdapter(swipeManager.createWrappedAdapter(new BoardAdapter(getContext())));
         list_board.setItemAnimator(new SwipeDismissItemAnimator());
         swipeManager.attachRecyclerView(list_board);
 //        list_board.addItemDecoration(new SimpleListDividerDecorator(ContextCompat.getDrawable(this, R.drawable.list_divider), true));
