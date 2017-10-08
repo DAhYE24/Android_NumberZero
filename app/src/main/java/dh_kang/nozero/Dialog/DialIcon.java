@@ -60,10 +60,10 @@ public class DialIcon extends Dialog {
         di_imgIcon1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                di_imgIcon1.setBackgroundResource(R.drawable.btn_clicked);
-                di_imgIcon2.setBackgroundResource(R.drawable.btn_white_border);
-                di_imgIcon3.setBackgroundResource(R.drawable.btn_white_border);
-                di_imgIcon4.setBackgroundResource(R.drawable.btn_white_border);
+                di_imgIcon1.setBackgroundResource(R.drawable.shape_btn_clicked);
+                di_imgIcon2.setBackgroundResource(R.drawable.shape_btn_white_border);
+                di_imgIcon3.setBackgroundResource(R.drawable.shape_btn_white_border);
+                di_imgIcon4.setBackgroundResource(R.drawable.shape_btn_white_border);
                 tempImg = "http://i.imgur.com/DtlZIUr.png";
             }
         });
@@ -71,10 +71,10 @@ public class DialIcon extends Dialog {
         di_imgIcon2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                di_imgIcon1.setBackgroundResource(R.drawable.btn_white_border);
-                di_imgIcon2.setBackgroundResource(R.drawable.btn_clicked);
-                di_imgIcon3.setBackgroundResource(R.drawable.btn_white_border);
-                di_imgIcon4.setBackgroundResource(R.drawable.btn_white_border);
+                di_imgIcon1.setBackgroundResource(R.drawable.shape_btn_white_border);
+                di_imgIcon2.setBackgroundResource(R.drawable.shape_btn_clicked);
+                di_imgIcon3.setBackgroundResource(R.drawable.shape_btn_white_border);
+                di_imgIcon4.setBackgroundResource(R.drawable.shape_btn_white_border);
                 tempImg = "http://i.imgur.com/2QOgFPX.png";
             }
         });
@@ -82,10 +82,10 @@ public class DialIcon extends Dialog {
         di_imgIcon3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                di_imgIcon1.setBackgroundResource(R.drawable.btn_white_border);
-                di_imgIcon2.setBackgroundResource(R.drawable.btn_white_border);
-                di_imgIcon3.setBackgroundResource(R.drawable.btn_clicked);
-                di_imgIcon4.setBackgroundResource(R.drawable.btn_white_border);
+                di_imgIcon1.setBackgroundResource(R.drawable.shape_btn_white_border);
+                di_imgIcon2.setBackgroundResource(R.drawable.shape_btn_white_border);
+                di_imgIcon3.setBackgroundResource(R.drawable.shape_btn_clicked);
+                di_imgIcon4.setBackgroundResource(R.drawable.shape_btn_white_border);
                 tempImg = "http://i.imgur.com/FR3sD3d.png";
             }
         });
@@ -93,10 +93,10 @@ public class DialIcon extends Dialog {
         di_imgIcon4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                di_imgIcon1.setBackgroundResource(R.drawable.btn_white_border);
-                di_imgIcon2.setBackgroundResource(R.drawable.btn_white_border);
-                di_imgIcon3.setBackgroundResource(R.drawable.btn_white_border);
-                di_imgIcon4.setBackgroundResource(R.drawable.btn_clicked);
+                di_imgIcon1.setBackgroundResource(R.drawable.shape_btn_white_border);
+                di_imgIcon2.setBackgroundResource(R.drawable.shape_btn_white_border);
+                di_imgIcon3.setBackgroundResource(R.drawable.shape_btn_white_border);
+                di_imgIcon4.setBackgroundResource(R.drawable.shape_btn_clicked);
                 tempImg = "http://i.imgur.com/mQcjyMw.png";
             }
         });
