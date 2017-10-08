@@ -2,6 +2,7 @@ package dh_kang.nozero.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import dh_kang.nozero.R;
  */
 
 public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implements SwipeableItemAdapter<BoardViewHolder> {
+    private static final String TAG = "NOZERO_FINAL";      /* LOG TEST */
     private final float OPTIONS_AREA_PROPORTION = 0.5f;  /* Declare java parameters */
     private final float REMOVE_ITEM_THRESHOLD = 0.6f;
     private Context context;
@@ -40,11 +42,11 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
         for (int i = 0; i < 10; i++)
             boardValues.add(new BoardValues(i, "테스트 제목", "테스트 유저", "http://cfile24.uf.tistory.com/image/257A5846595A20D0064977", "테스트 시간"));
     }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return boardValues.get(position);
-//    }
+
+    @Override
+    public long getItemId(int position) {
+        return boardValues.get(position).getBoardIdx();
+    }
 
     @Override
     public BoardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -72,6 +74,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
 
     @Override
     public SwipeResultAction onSwipeItem(BoardViewHolder holder, int position, int result) {
+        Log.e(TAG, "SwipeResultAction 메서드 실행");
         if (result == Swipeable.RESULT_SWIPED_LEFT) {
             if (holder.getLastSwipeAmount() < (-REMOVE_ITEM_THRESHOLD)) {
                 return new SwipeLeftRemoveAction(this, position);
@@ -83,6 +86,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> implemen
         }
     }
 
+    // 실행됨
     @Override
     public int onGetSwipeReactionType(BoardViewHolder holder, int position, int x, int y) {
         return Swipeable.REACTION_CAN_SWIPE_LEFT;

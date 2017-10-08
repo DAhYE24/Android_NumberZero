@@ -1,5 +1,6 @@
 package dh_kang.nozero.Adapter;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import dh_kang.nozero.R;
  */
 
 public class BoardViewHolder extends AbstractSwipeableItemViewHolder {
+    private static final String TAG = "NOZERO_FINAL";      /* LOG TEST */
     private final float OPTIONS_AREA_PROPORTION = 0.5f;
     private final float REMOVE_ITEM_THRESHOLD = 0.6f;
     private View swipeableContainer, optionView1, optionView2, optionView3;
@@ -41,12 +43,14 @@ public class BoardViewHolder extends AbstractSwipeableItemViewHolder {
     /* Container which has widgets */
     @Override
     public View getSwipeableContainerView() {
+        Log.e(TAG, "getSwipeableContainerView 메서드 실행");
         return swipeableContainer;
     }
 
     /* Checking slide motion and act */
     @Override
     public void onSlideAmountUpdated(float horizontalAmount, float verticalAmount, boolean isSwiping) {
+        Log.e(TAG, "onSlideAmountUpdated 메서드 실행");
         int itemWidth = itemView.getWidth();
         float optionItemWidth = itemWidth * OPTIONS_AREA_PROPORTION / 3;
         int offset = (int) (optionItemWidth + 0.5f);
@@ -79,6 +83,7 @@ public class BoardViewHolder extends AbstractSwipeableItemViewHolder {
 
     /* Set list blank's width */
     private static void setLayoutWidth(View view, int width) {
+        Log.e(TAG, "setLayoutWidth 메서드 실행");
         ViewGroup.LayoutParams lp = view.getLayoutParams();
         lp.width = width;
         view.setLayoutParams(lp);
