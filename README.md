@@ -23,6 +23,9 @@ Android Studio, Visual Studio Code, ACROEDIT / Java, php, MySQL(중)
 * 기획, 디자인 전체
 * 서버 연동 
 #### 특징
+* 외부 라이브러리
+  * Glide
+  * h6ah4i, androidadvancedrecyclerview
 * 호스팅 받은 웹서버 DB을 통해 데이터 CRUD 작업 진행
 * LIKE 문을 사용해서 선택된 향료로 조합된 향수를 받아오는 SQL 쿼리문 작성
 * Navigation Bottom View 위젯을 사용하여 하단의 메뉴 버튼 목록 생성
