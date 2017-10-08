@@ -14,7 +14,7 @@ import dh_kang.nozero.R;
 /**
  * Created by dh93 on 2016-10-14.
  */
-public class FragBoard extends Fragment {
+public class BoardFragment extends Fragment {
     /* 로그 테스트 */
     private static final String TAG = "NOZERO_FINAL";
 

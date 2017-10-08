@@ -16,7 +16,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.Window;
 import android.widget.Toast;
 
 import java.io.DataOutputStream;
@@ -26,7 +25,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import dh_kang.nozero.Fragment.FragBoard;
+import dh_kang.nozero.Fragment.BoardFragment;
 import dh_kang.nozero.Fragment.FragInfo;
 import dh_kang.nozero.Fragment.FragMain;
 import dh_kang.nozero.Fragment.FragMy;
@@ -89,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new FragMain();
                         break;
                     case R.id.btn_action_talk:
-                        fragment = new FragBoard();
+                        fragment = new BoardFragment();
                         break;
                     case R.id.btn_action_user:
                         fragment = new FragMy();
