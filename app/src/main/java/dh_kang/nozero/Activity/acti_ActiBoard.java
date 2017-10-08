@@ -8,7 +8,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -23,7 +22,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-import dh_kang.nozero.Adapter.Lv_BoardBasicAdapter;
+import dh_kang.nozero.Adapter.BoardAdapter;
 import dh_kang.nozero.DataSet.BoardValues;
 import dh_kang.nozero.R;
 
@@ -45,7 +44,7 @@ public class acti_ActiBoard extends AppCompatActivity {
     String myJSON;
     JSONArray vc = null;
     String tempId, tempTitle, tempDate, tempNum, tempContent, tempIcon;
-    Lv_BoardBasicAdapter basicAdapter = null;
+    BoardAdapter basicAdapter = null;
 
     /* 게시글 정보 보내기 */
     public static String sendSelectedInfo;
@@ -186,7 +185,7 @@ public class acti_ActiBoard extends AppCompatActivity {
                 basicList.add(inputBasic);
             }
 
-            basicAdapter = new Lv_BoardBasicAdapter(this, R.layout.lv_board, basicList); // 리스트 형태 연결
+            basicAdapter = new BoardAdapter(this, R.layout.lv_board, basicList); // 리스트 형태 연결
             ab_lvBoard.setAdapter(basicAdapter);
         } catch (JSONException e) {
             e.printStackTrace();

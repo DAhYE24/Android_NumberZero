@@ -72,19 +72,19 @@ public class PerfumeResultAdapter extends RecyclerView.Adapter<PerfumeResultAdap
         }
     }
 
-//    private class ViewHolder {
+//    private class BoardViewHolder {
 //        ImageView img_resultPerfImg;
 //        TextView txt_resultPerfBrand, txt_resultPerfName, txt_resultPerfEngName, txt_resultPerfAddition;
 //    }
 //
 //    @Override
 //    public View getView(int position, View convertView, ViewGroup parent) {
-//        ViewHolder holder = null;
+//        BoardViewHolder holder = null;
 //        if (convertView == null) {
 //            LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 //            convertView = vi.inflate(R.layout.lv_perfume_result, null); // 리스트뷰 칸 xml과 연결
 //
-//            holder = new ViewHolder();
+//            holder = new BoardViewHolder();
 //            holder.img_resultPerfImg = (ImageView) convertView.findViewById(R.id.img_resultPerfImg);
 //            holder.txt_resultPerfBrand = (TextView) convertView.findViewById(R.id.txt_resultPerfBrand);
 //            holder.txt_resultPerfName = (TextView) convertView.findViewById(R.id.txt_resultPerfName);
@@ -92,7 +92,7 @@ public class PerfumeResultAdapter extends RecyclerView.Adapter<PerfumeResultAdap
 //            holder.txt_resultPerfAddition = (TextView) convertView.findViewById(R.id.txt_resultPerfAddition);
 //            convertView.setTag(holder); // 칸 클릭시 뭐 나올지 인듯
 //        } else {
-//            holder = (ViewHolder) convertView.getTag();
+//            holder = (BoardViewHolder) convertView.getTag();
 //        }
 //
 }

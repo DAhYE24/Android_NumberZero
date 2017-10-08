@@ -32,7 +32,7 @@ public class FlavorListAdapter extends ArrayAdapter<FlavorValues> {
         this.flavorList.addAll(flavorList);
     }
 
-    private class ViewHolder {  // ViewHolder's components
+    private class ViewHolder {  // BoardViewHolder's components
         CheckBox chk_flavor1, chk_flavor2, chk_flavor3;
     }
 
