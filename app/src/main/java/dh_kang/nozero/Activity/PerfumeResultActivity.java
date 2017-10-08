@@ -31,10 +31,11 @@ public class PerfumeResultActivity extends AppCompatActivity {
     JSONArray vc = null;
     String sendName, sendCapacity;
     String tempId;
-//    getPerfData task;
+    //    getPerfData task;
     SearchFragment fs = null;
     FragMain fm = null;
     public static String perfumeJSON;
+
     public String getPerfumeJSON() {
         return perfumeJSON;
     }
@@ -119,17 +120,18 @@ public class PerfumeResultActivity extends AppCompatActivity {
         perfumeImageUrl = "http://mblogthumb1.phinf.naver.net/MjAxNzAzMDFfMjkx/MDAxNDg4Mzc2NTAyNjYw.Fp9maEC8x6AiOPRtYsZRJhTZPZyq0aAarlK_Y1j927Ig.WIDo6AODa_rXmpbcnX1OJPnBJhqxhpiFOQW4120Y51Qg.PNG.hydroin303/%ED%94%BC%EC%B9%B4%EC%B8%84.png?type=w800";
 
         /* 출력하기 + 길이에 따라 다르게 표현하기*/
-        String tempPerfumeName = (perfumeName.length() > 15)? perfumeName.substring(0, 13) + "..." : perfumeName;
-        String tempPerfumeEngName = (perfumeEnglishName.length() > 25)? perfumeEnglishName.substring(0, 23) + "..." : perfumeEnglishName;
+        String tempPerfumeName = (perfumeName.length() > 15) ? perfumeName.substring(0, 13) + "..." : perfumeName;
+        String tempPerfumeEngName = (perfumeEnglishName.length() > 25) ? perfumeEnglishName.substring(0, 23) + "..." : perfumeEnglishName;
 
         /* 받아온 데이터 적용하기 */
         /* TODO : 실제 데이터 적용할 때는 for문으로 돌려서 배열에 데이터 적용하기*/
-        PerfumeValues[] perfumeValues = {new PerfumeValues(perfumeIdx, tempPerfumeName, tempPerfumeEngName, perfumeImageUrl, perfumeBrand, perfumePrice, perfumeCapacity)};
+        PerfumeValues[] perfumeValues = {new PerfumeValues(perfumeIdx, tempPerfumeName, tempPerfumeEngName, perfumeImageUrl, perfumeBrand, perfumePrice, perfumeCapacity),
+                new PerfumeValues(perfumeIdx, tempPerfumeName, tempPerfumeEngName, perfumeImageUrl, perfumeBrand, perfumePrice, perfumeCapacity)};
         list_resultBox.setLayoutManager(new LinearLayoutManager(this));
         PerfumeResultAdapter perfumeResultAdapter = new PerfumeResultAdapter(this, perfumeValues);
+        list_resultBox.addItemDecoration(new SimpleListDividerDecorator(ContextCompat.getDrawable(this, R.drawable.shape_recyclerview_divider), true));
         list_resultBox.setAdapter(perfumeResultAdapter);
         list_resultBox.setItemAnimator(new DefaultItemAnimator());
-        list_resultBox.addItemDecoration(new SimpleListDividerDecorator(ContextCompat.getDrawable(this, R.drawable.shape_recyclerview_divider), true));
 //        } catch (JSONException e) {
 //            e.printStackTrace();
 //        }
