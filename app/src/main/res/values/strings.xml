@@ -42,4 +42,6 @@
     <string name="details_perfume_intro">소개</string>
     <string name="details_flavor_info">향료 정보</string>
     <string name="details_perfume_component">성분</string>
+
+    <string name="board_engin">찾고자하는 글제목 또는 내용을 입력하세요</string>
 </resources>

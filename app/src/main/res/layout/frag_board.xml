@@ -2,89 +2,77 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="80dp"
-        android:background="#ffffff"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:background="@color/purple"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp"
         android:weightSum="1">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+        <EditText
+            android:id="@+id/edit_writingEngin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:background="@color/white"
+            android:hint="@string/board_engin"
+            android:inputType="text|textShortMessage"
+            android:maxLength="20"
+            android:textColor="@color/black"
+            android:textColorHint="@color/turbidPurple"
+            android:textCursorDrawable="@null"
+            android:textSize="15sp" />
+        <!-- backgroundTint는 투명하게 설정하기 -->
+
+        <ImageButton
+            android:id="@+id/btn_searchWriting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="0.1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:src="@android:drawable/ic_menu_search" />
 
-            <EditText
-                android:id="@+id/ab_editSearch"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:backgroundTint="#b37e6969"
-                android:hint="제목, 내용 검색"
-                android:inputType="textPersonName"
-                android:maxLength="20"
-                android:textColor="#b37e6969"
-                android:textColorHint="#989898"
-                android:textCursorDrawable="@null"
-                android:textSize="15sp" />
+        <ImageButton
+            android:id="@+id/btn_write"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:src="@android:drawable/ic_menu_edit" />
+    </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/ab_btnSearch"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.15"
-                android:src="@android:drawable/ic_menu_search" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/darkPurple" />
 
-            <ImageButton
-                android:id="@+id/ab_btnWrite"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.15"
-                android:src="@android:drawable/ic_menu_edit" />
-        </LinearLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.5dp"
+        android:layout_marginTop="1.5dp"
+        android:background="@color/darkPurple" />
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="5px"
-            android:background="#393939" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="3px"
-            android:layout_marginTop="3dp"
-            android:background="#393939" />
-
-        <LinearLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list_board"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.9"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical" />
 
-            <ListView
-                android:id="@+id/ab_lvBoard"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="#707070"
-                android:dividerHeight="1dp" />
+        <ImageView
+            android:id="@+id/img_nothingBoard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
 
-            <ImageView
-                android:id="@+id/ab_imgNothing"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#000000" />
-
-        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
