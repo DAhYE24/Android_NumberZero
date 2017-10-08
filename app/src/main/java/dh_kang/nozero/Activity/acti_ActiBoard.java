@@ -22,7 +22,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-import dh_kang.nozero.Adapter.BoardAdapter;
 import dh_kang.nozero.DataSet.BoardValues;
 import dh_kang.nozero.R;
 

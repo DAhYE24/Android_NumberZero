@@ -37,7 +37,7 @@ public class BoardViewHolder extends AbstractSwipeableItemViewHolder {
     public View getSwipeableContainerView() {
         return swipeableContainer;
     }
-    
+
     /* 슬라이드 기능 */
     @Override
     public void onSlideAmountUpdated(float horizontalAmount, float verticalAmount, boolean isSwiping) {
