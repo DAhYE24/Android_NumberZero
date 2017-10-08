@@ -42,7 +42,7 @@ public class PerfumeResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_perfume_result);
+        setContentView(R.layout.activity_perfume_result);
 
 //        /* 일반검색인지 메인검색인지 구별 */
 //        userInfo = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);

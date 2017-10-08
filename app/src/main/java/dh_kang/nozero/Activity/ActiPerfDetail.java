@@ -68,7 +68,7 @@ public class ActiPerfDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_perfume_details);
+        setContentView(R.layout.activity_perfume_details);
 
         /* Init xml widgets */
         txt_likeCount = (TextView) findViewById(R.id.txt_likeCount);

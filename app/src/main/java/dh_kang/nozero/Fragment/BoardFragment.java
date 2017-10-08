@@ -1,6 +1,5 @@
 package dh_kang.nozero.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -11,13 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import com.h6ah4i.android.widget.advrecyclerview.animator.SwipeDismissItemAnimator;
 import com.h6ah4i.android.widget.advrecyclerview.decoration.SimpleListDividerDecorator;
 import com.h6ah4i.android.widget.advrecyclerview.swipeable.RecyclerViewSwipeManager;
 
-import dh_kang.nozero.Activity.acti_ActiBoard;
 import dh_kang.nozero.Adapter.BoardAdapter;
 import dh_kang.nozero.R;
 
@@ -30,7 +27,7 @@ public class BoardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         /* Declare xml components */
-        View view = inflater.inflate(R.layout.frag_board, container, false);
+        View view = inflater.inflate(R.layout.fragment_board, container, false);
         RecyclerView list_board;
         EditText edit_writingEngin;
         ImageButton btn_searchWriting, btn_write;

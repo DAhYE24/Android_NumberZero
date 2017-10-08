@@ -55,7 +55,7 @@ public class SearchFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.frag_search, container, false);
+        final View view = inflater.inflate(R.layout.fragment_search, container, false);
 
         /* Init xml widgets */
         list_searchView = (ListView) view.findViewById(R.id.list_searchView);
